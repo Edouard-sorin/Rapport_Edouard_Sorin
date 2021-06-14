@@ -1,10 +1,11 @@
 --- 
-title: "Rapport de stage Edouard Sorin"
+title: "Mémoire de stage de fin d'étude Edouard Sorin"
 author:
-- name: Edouard Sorin
-- name: Co-Auteur - Frédéric CHIROLEU
-- name: Maitre de stage - Virginie Ravigne
-- name: Tuteur de stage - Eric Marcon
+- name: Auteur - Edouard SORIN
+- name: Co-Auteur - Frédéric CHIROLEU  (CIRAD - UMR PVBMT)
+- name: Encadrante de stage - Virginie RAVIGNE  (CIRAD - UMR PVBMT)
+- name: Enseignant référent - Eric MARCON  (AgroParisTech)
+- name: Examinateur - Simon TAUGOURDEAU (CIRAD - UMR SELMET)
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 always_allow_html: yes
