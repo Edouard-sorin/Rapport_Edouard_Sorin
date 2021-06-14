@@ -1,0 +1,189 @@
+--- 
+title: "Rapport de stage Edouard Sorin"
+author:
+- name: Edouard Sorin
+- name: Co-Auteur - Frédéric CHIROLEU
+- name: Maitre de stage - Virginie Ravigne
+- name: Tuteur de stage - Eric Marcon
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+always_allow_html: yes
+description: Modèle de livre écrit avec bookdown.
+maintitlepage:
+epigraph: |
+    Texte optionnel ajouté en haut de la page au verso du titre du document.
+
+    Exemple\:
+
+    Ce document est réalisé de façon dynamique et reproductible grâce à:
+
+    \begin{itemize}
+      \item \LaTeX, dans sa distribution Miktex (\url{http://miktex.org/}) et la classe memoir (\url{http://www.ctan.org/pkg/memoir}).
+      \item R (\url{http://www.r-project.org/}) et RStudio (\url{http://www.rstudio.com/})
+      \item bookdown (\url{http://bookdown.org/})
+    \end{itemize}
+pdftitlepage: images/cover.pdf
+documentclass: memoir
+classoption:
+- extrafontsizes
+- onecolumn
+- openright
+papersize: A4
+fontsize: 11pt
+toc-depth: 3
+lang: fr-FR
+bibliography:
+- Biblio1.bib
+- packages.bib
+csl: mastermontpellier20_21_V3.csl
+biblio-style: authoryear-ibid
+cite-style: verbose-inote
+biblatexoptions:
+- backend=biber
+- citestyle=verbose-inote
+- pageref=true
+- isbn=false
+- backref=true
+- giveninits=true
+- uniquename=init
+- maxcitenames=2
+- maxbibnames=150
+- sorting=nyt
+- sortcites=false
+link-citations: yes
+colorlinks: yes
+graphics: yes
+fig_crop: no
+resume: "Le **Huanglongbing (HLB)** est une maladie bactérienne causant le dépérissement des agrumes. Il y a une résurgence de cette maladie sur l’île de la Réunion depuis 2012, ce qui menace les vergers d’agrumes. Les techniques de détections classiques de surveillance de la maladie par PCR sont coûteuses, longues et ne peuvent pas être réalisées à grande échelle. C’est dans ce contexte qu’intervient la technologie de l’analyse par **imagerie spectrale**. Cette technologie se base sur l’analyse de la signature spectrale qu’émet un support en réponse à une exposition lumineuse. Cette méthode est non destructive pour le support traité, en plus d’être relativement peu coûteuse par rapport à la surface couverte. S'ajoute à cela un traitement des données d'imagerie spectrales par **apprentissage supervisé** dans le but de prédire le statut des arbres vis à vis de la maladie au sein des parcelles d'agrumes. Ce travail vise donc à améliorer la surveillance et la gestion de cette maladie en créant un modèle en apprentissage supervisé basé sur l'imagerie spectrale. Ce modèle est prometteur avec une qualité de la prédiction (Accuracy) de 92.6% pour la méthode des Moindres Carrés Partiels (PLS) sur une base d'apprentissage de 8400 spectres de réflectance.\n"
+mots-cles:
+- Apprentissage supervisé
+- Epidémiologie
+- Forêts Aléatoires (RF)
+- HLB = Huanglongbing
+- Machine à Vecteurs de Support (SVM)
+- Régression par les Moindres Carrés Partiels (PLS)
+- Spectroscopie
+- Télédétection
+abstract: "**Huanglongbing (HLB)** is a bacterial disease causing dieback of citrus trees. There has been a resurgence of this disease on Reunion Island since 2012, which threatens citrus orchards. The conventional detection techniques for disease surveillance by PCR are expensive, time consuming and cannot be carried out on a large scale. This is where the technology of **spectral imaging** analysis comes in. This technology is based on the analysis of the spectral signature that a medium emits in response to light exposure. This method is non-destructive for the treated substrate, in addition to being relatively inexpensive compared to the surface covered. In addition, there is processing of spectral imaging data by **machine learning** in order to predict the status of trees with regard to disease within citrus plots. This work therefore aims to improve the surveillance and management of this disease by creating a supervised learning model based on spectral imaging. This model is promising with a prediction quality (Accuracy) of 92.6% for the Partial Least Squares (PLS) method on a training base of 8400 reflectance spectra.\n"
+keywords:
+- Epidemiology
+- Machin learning
+- HLB = Huanglongbing
+- Partial Least Squares regression (PLS) 
+- Random Forests (RF)
+- Remote sensing
+- Spectroscopy
+- Support Vector Machine (SVM)
+fourthpagefontsize: normalsize
+---
+
+<!-- Commande nécessaire pour la copie de l'icône "Essentiel" en HTML--> 
+<img src="images/Essentiel.png" alt="image" hidden/>
+
+```{r DoNotModify, include=FALSE}
+### Utilities. Do not modify.
+# Installation of packages if necessary
+InstallPackages <- function(Packages) {
+  InstallPackage <- function(Package) {
+    if (!Package %in% installed.packages()[, 1]) {
+      install.packages(Package, repos="https://cran.rstudio.com/")
+    }
+  }
+  invisible(sapply(Packages, InstallPackage))
+}
+
+# Basic packages
+InstallPackages(c("bookdown", "formatR", "kableExtra", "ragg"))
+
+# kableExtra must be loaded 
+
+if (knitr::opts_knit$get("rmarkdown.pandoc.to") == "docx") {
+  
+  # Word output (https://stackoverflow.com/questions/35144130/in-knitr-how-can-i-test-for-if-the-output-will-be-pdf-or-word)
+  
+  # Do not use autoformat (https://github.com/haozhu233/kableExtra/issues/308)
+  
+  options(kableExtra.auto_format = FALSE)
+}
+
+library("kableExtra") # Mandatory to load css and more
+
+# Chunk font size hook: allows size='small' or any valid Latex font size in chunk options
+def.chunk.hook  <- knitr::knit_hooks$get("chunk")
+knitr::knit_hooks$set(chunk = function(x, options) {
+  x <- def.chunk.hook(x, options)
+  ifelse(options$size != "normalsize", paste0("\n \\", options$size,"\n\n", x, "\n\n \\normalsize"), x)
+})
+```
+
+```{r Options, include=FALSE}
+### Customized options for this document
+
+# # knitr options
+knitr::opts_chunk$set(
+  
+  cache=TRUE, # If TRUE, knitr will cache the results to reuse in future knits. Knitr will reuse the results until the code chunk is altered
+  echo = FALSE, # Show R chunks
+  warning=FALSE, # Hide warnings
+  message = FALSE, # Hide R messages
+  highlight = TRUE, # highlight code
+  prompt = TRUE , # If TRUE, knitr will add > to the start of each line of code displayed in the final document
+  strip.white = TRUE , # If TRUE, knitr will remove white spaces that appear at the beginning or end of a code chunk
+  comment = '', # A character string. Knitr will append the string to the start of each line of results in the final document.
+  # Books only: figures with side captions
+  fig.env='SCfigure', fig.asp=.75,
+  # Figure alignment and size
+  fig.align='center', out.width='80%',
+  # Graphic device
+  dev = "ragg_png",
+  # Code chunk format
+  tidy=TRUE, tidy.opts=list(blank=FALSE, width.cutoff=50),
+  size="scriptsize", knitr.graphics.auto_pdf = TRUE
+  )
+options(width=50)
+# 
+# # ggplot style
+library("tidyverse")
+theme_set(theme_bw())
+ theme_update(panel.background=element_rect(fill="transparent", colour=NA),
+              plot.background=element_rect(fill="transparent", colour=NA))
+ knitr::opts_chunk$set(dev.args=list(bg="transparent"))
+
+```
+
+# Remerciements {-}
+
+Je tiens à remercier toutes les personnes qui ont contribué au bon déroulement de ce stage : 
+
+\begin{small}
+\begin{itemize}
+
+\item[——] Virginie RAVIGNE, mon encadrante de stage pour son encadrement, sa gentillesse , ses conseils et l'autonomie qu'elle m'a laissée au cours de ce stage afin que je développe mes propres axes de recherche sur cette thématique ;
+
+\item[——] Frédéric CHIROLEU, chercheur en biostatistiques, co-auteur de ce rapport, et Thuy-Trang CAO, pour leur grande aide à la réalisation des scripts R et toutes les choses apprises lors de ces rendez-vous ;
+
+\item[——] Olivier PRUVOST,  pour son aide lors des analyse qPCR et son encadrement au laboratoire ;
+
+\item[——] Karine BOYER, pour m’avoir conseillé et formé aux techniques de laboratoire ;
+
+\item[——] Ismaël HOUILLON, doctorant, pour ses conseils et ses jeux de mots douteux ;
+
+\item[——] Elisa PAYET, technicienne à la FDGDON, pour avoir pris le temps de nous communiquer leurs résultats des détections du HLB et les numéros des agriculteurs ;
+
+\item[——] Raphaël SOLESSE, ainsi que Emmanuel TILLARD, pour leurs conseils, sur le pilotage de drones et la formation à l’utilisation des instruments de mesure de spectrométrie ;
+
+\item[——] Louis-Axel EDOUARD RAMBAUT, pour son aide sur les scripts R et ses discussions pertinentes ;
+
+\item[——] Claire MELOT, stagiaire au CIRAD, pour sa bonne humeur et son aide aux analyses de laboratoire tardives ;
+
+\item[——] Le CIRAD, l’équipe du 3P de Saint-Pierre et en particulier les agents de l’UMR PVBMT (Unité Mixte de 
+Recherche Peuplements Végétaux et Bioagresseurs en Milieux Tropicaux) ;
+
+\item[——] Les stagiaires des Kazz pour leur amitié, les mangues et toutes les choses partagées ensemble qui ont rendu ce stage inoubliable !
+
+\end{itemize}
+\end{small}
+
+<!-- La commande \mainmatter marque le début du corps du document LaTeX--> 
+<!-- Elle ne doit pas être supprimée-->
+\mainmatter

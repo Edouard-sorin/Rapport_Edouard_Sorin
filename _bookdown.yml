@@ -1,0 +1,4 @@
+book_filename: "Rapport Edouard"
+repo: "https://github.com/EcoFoG/EcoFoG"
+output_dir: "docs"
+delete_merged_file: true
