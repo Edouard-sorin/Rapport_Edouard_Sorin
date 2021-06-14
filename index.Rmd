@@ -1,11 +1,14 @@
 --- 
-title: "Mémoire de stage de fin d'étude Edouard Sorin"
+title: "Amélioration de la surveillance épidémiologique du « greening » des agrumes infectés par le Huanglongbing à La Réunion par Spectroscopie Proche Infra-Rouge"
+subtitle: "Mémoire de stage de fin d'étude Pour l’obtention du diplôme de Master 2, Ingénieur Agronome, Spécialisation GEEFT - Gestion Environnementale des Écosystèmes et Forêts Tropicales"
 author:
 - name: Auteur - Edouard SORIN
 - name: Co-Auteur - Frédéric CHIROLEU  (CIRAD - UMR PVBMT)
 - name: Encadrante de stage - Virginie RAVIGNE  (CIRAD - UMR PVBMT)
 - name: Enseignant référent - Eric MARCON  (AgroParisTech)
 - name: Examinateur - Simon TAUGOURDEAU (CIRAD - UMR SELMET)
+- name: "Stage effectué du - 30/09/2020 au 02/04/2021 au - CIRAD-Centre de coopération Internationale en recherche agronomique pour le développement, Pôle de Protection des Plantes, 7 chemin de l’Irat, Ligne Paradis, 97410 Saint Pierre- La Réunion"
+- name: "Soutenance publique du mémoire le 18 Juin 2021 à AgroParisTech, centre de Montpellier"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 always_allow_html: yes
