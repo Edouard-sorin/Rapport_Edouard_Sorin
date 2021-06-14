@@ -16,6 +16,6 @@ bookdown::gitbook:
       before: |
         <li><a href="./">Ouvrage Edouard</a></li>
       after: |
-        <li><a href="https://github.com/Edouard-sorin/Rapport_Edouard_Sorin.git" target="blank">Hébergé sur GitHub sur la page :</a></li>
+        <li><a href="https://github.com/Edouard-sorin/Rapport_Edouard_Sorin_2021.git" target="blank">Hébergé sur GitHub sur la page :</a></li>
     download: "pdf"
 bookdown::word_document2: default
