@@ -1,0 +1,680 @@
+
+# Annexe 
+
+Pour l'utilisation des différents packages :
+
+- Pour la facilité d'installation et le chargement de plusieurs paquets : tidyverse [@tidyverse]
+- Pour l'échantillonnage aléatoire : catools [@caTools]
+- Pour la réalisation des graphiques : ggplot2 [@ggplot2]
+- Pour la réalisation de l'arbre de décision : ggparty [@ggparty]
+- Pour la manipulation du jeu de données :tidyr [@tidyr]
+- Pour l'algorithme de calculs parallèles : snowfall [@snowfall]
+
+
+
+
+```{r, echo = FALSE, eval=FALSE}
+
+# Fonction pour citer les packages de R
+
+citeR <- function(...)
+{
+  packages <- unlist(lapply(as.list(match.call()), deparse))[-1]
+  Rbibs <- ""
+
+  for(package in packages)
+  {
+    Rbib <- capture.output(print(citation(package), bibtex = T))    
+    Rbib <- mapply(function(x, y) Rbib[x:y], 
+                   grep("  @.+[{]", Rbib), 
+                   which(Rbib == "  }"))
+
+    if(class(Rbib) == "matrix"){
+      Rbib[1, 1] <- gsub(",", paste0(package, ","), Rbib[1, 1])
+      Rbib <- paste0(Rbib, collapse = "\n")
+    } else {
+      Rbib <- unlist(lapply(Rbib, function(x) {
+                               x[1] <- gsub(",", paste0(package, ","), x[1]); 
+                               x <- paste0(unlist(x), collapse = "\n")
+                               return(x)
+                             }))
+    }
+
+    if(length(Rbib) > 1) {
+      if(any(grepl("@Manual", Rbib))) {
+        Rbib <- Rbib[grep("@Manual", Rbib)][1]
+      } else {
+        Rbib <- Rbib[1]}}
+
+    Rbibs <- paste(Rbibs, Rbib, sep = "\n\n")
+  }
+
+  writeBin(charToRaw(utf8::as_utf8(Rbibs)), "packages.bib")
+}
+
+# rentrer ensuite les packages utilisés :
+
+citeR(ggplot2,ggparty,tidyr,pls,randomForest,e1071,snowfall,tidyverse,caTools)
+
+```
+
+\vfill
+\newpage
+\SmallMargins
+## Annexe 1 : Importation des données brutes
+
+```{r 28, echo = TRUE, eval=FALSE}
+
+
+library(tidyr) # pivot longer & pivot_wider
+
+# Importation des donnees SPIR Global ####
+
+data_SPIR_Ed <- read.table(file = "SPIR_Global.csv"
+                           , header = T
+                           , sep = ";"
+                           , stringsAsFactors = T
+                           , row.names = 1
+                           , na.strings = c("","NA")
+                           , dec = "," )
+
+
+# Creation des colonne "code" de data_SPIR_Ed
+
+code_labo <- rownames(data_SPIR_Ed)
+
+names(data_SPIR_Ed) [1] = c("code_variete")
+names(data_SPIR_Ed) [2] = c("code_agri")
+data_SPIR_Ed$code_nbr_rep <- factor(substr(code_labo, 8, 8))
+data_SPIR_Ed$code_ech_arbre <- factor(substr(code_labo, 1, 2))
+data_SPIR_Ed$code_ech_feuille <- factor(substr(code_labo, 1, 3))
+data_SPIR_Ed$code_rep_feuille <- factor(paste(data_SPIR_Ed$code_ech_feuille, data_SPIR_Ed$code_nbr_rep,sep="")) 
+
+
+rm (code_labo)
+
+data_SPIR_Ed <- data_SPIR_Ed[ !is.na(data_SPIR_Ed$X350),]
+
+# Importation et preparation des resultats de la Qpcr Globaux ####
+
+data_Qpcr_Ed <- read.table(file = "qPCR_global_Ed.csv"
+                           
+                           , header = T
+                           , sep = ";"
+                           , stringsAsFactors = T
+                           , row.names = 1
+                           , na.strings = c("","NA")
+                           , dec = "," )
+
+# on stocke les noms d'echantillons positifs selon nos 2 seuils de Ct (cycle de qPCR ), a savoir moins de 32 cyclces et moins de 36 cycles qPCR
+seuils <- c(32, 36)
+
+trueP <- lapply(seuils, function(x) unique(data_Qpcr_Ed$Sample.Name[ which(data_Qpcr_Ed$C..Mean < x & data_Qpcr_Ed$C..SD < 1) ]))
+names(trueP) <- paste("seuil", seuils, sep = ".")          
+
+
+data_SPIR_Ed[paste("qPCR", seuils, sep = "_")] <- lapply(trueP, function(x)
+  as.numeric(data_SPIR_Ed$code_ech_arbre %in% x ) ) 
+# on cherche quels sont les code_ech_arbre qui se trouvent dans le vecteur x
+# x reprenant automatiquement les noms des arbres positifs selon le seuil choisi
+
+select.lambda <- grep("^X", names(data_SPIR_Ed))
+data_SPIR_Ed <- data_SPIR_Ed[,c(names(data_SPIR_Ed)[-select.lambda], names(data_SPIR_Ed)[select.lambda] )]
+
+rm (data_Qpcr_Ed,select.lambda,seuils)
+
+data_SPIR_Ed[c("qPCR_32", "qPCR_36")] <- lapply(data_SPIR_Ed[c("qPCR_32", "qPCR_36")], factor)
+
+
+# Format_long ####
+
+select.lambda <- grep("^X", names(data_SPIR_Ed))
+data_long_Ed <- pivot_longer( data = data_SPIR_Ed, cols = select.lambda, values_to = "reflectance", names_to = "lambda"  ) 
+
+
+
+data_long_Ed$lambda <- as.numeric(gsub("X", "", data_long_Ed$lambda))
+
+data_long_Ed <- data_long_Ed[ !is.na(data_long_Ed$reflectance),]
+
+
+```
+
+\vfill
+\newpage
+## Annexe 2 : Fonction Matrice de confusion
+
+```{r 29, echo = TRUE, eval=FALSE}
+
+fct_ConfusionMatrix <- function(nb.rep, seuil.ct, list.feuilles) {
+  
+  maliste <- lapply(list.feuilles,function(feuille){ 
+    list_svm <- feuille[sample(1:length(feuille$code_ech_feuille), nb.rep),]  
+    # on fait ça pour tte les feuilles mais tjrs en choisissant le nombre de rep tire aleatoirement
+    code <- grep("^code_ech", names(list_svm))
+    qPCR <- grep("^qPCR_", names(list_svm))
+    sortie <- cbind.data.frame(unique(list_svm[c(code,qPCR)])
+                               , matrix(apply(list_svm[-(which(colnames(list_svm) == "code_variete"):which(colnames(list_svm) == "qPCR_36"))], 2, mean)
+                                        , nr = 1, dimnames = list(NULL, names(list_svm)[-(which(colnames(list_svm) == "code_variete"):which(colnames(list_svm) == "qPCR_36"))])))
+    sortie
+  })
+  
+  test_ed <- do.call(rbind, maliste) # on colle toute les listes créées précédement 
+  
+  test_ed <- test_ed[-(which(colnames(test_ed) == "qPCR_32"))]
+  
+  test_ed[[paste0("qPCR_", seuil.ct)]] <- as.numeric(as.character(test_ed[[paste0("qPCR_", seuil.ct)]] ))
+  
+  
+  decoup <- sample.split(test_ed[,paste0("qPCR_", seuil.ct)], SplitRatio = 0.5) # on decoupe le jeu de donné en training set et test set
+  training_set <- test_ed[decoup,]
+  test_set <- test_ed[!decoup,]  
+  
+  # Criteres choisi pour la separation des donnees
+  
+  crit.pos <- 0.4
+  crit.neg <- 0.35
+  
+  trueP$seuil.32 <- NULL
+  
+  # Prediction RF ####
+  
+  model_rf_36 <- randomForest(
+    x = training_set[, grep("^X", names(training_set))], 
+    y = training_set[[paste0("qPCR_", seuil.ct)]],
+    ntree = 100
+  )
+  
+  # Prediction sur les feuilles de la base d'apprentissage
+  
+  rf_pred <- test_set
+  rf_pred$rf_pred_36 <- predict(model_rf_36,newdata = test_set, decision.values = T)
+  
+  # Conversion des resultats de la prediction en numerique
+  
+  rf_pred$rf_pred_36 = as.numeric(as.character(rf_pred$rf_pred_36))
+  
+  # Moyennage des resultats de la prediction pour chaque arbres
+  
+  rf_pred_arbres_36 = aggregate(rf_pred_36 ~ code_ech_arbre, data = rf_pred, mean, na.rm = T)
+  
+  rf_pred_arbres_36$crit <- 0.5
+  rf_pred_arbres_36$crit[rf_pred_arbres_36$rf_pred_36 >= crit.pos  ] <- 1
+  rf_pred_arbres_36$crit[rf_pred_arbres_36$rf_pred_36 <= crit.neg  ] <- 0
+  
+  # Creation d'une nouvelle colonne des resulats issu de la qPCR, pour comparer à la valeurs predite
+  
+  rf_pred_arbres_36[paste("qPCR", seuil.ct, sep = "_")] <- lapply(trueP, function(x)
+    as.numeric(rf_pred_arbres_36$code_ech_arbre %in% x ))
+  
+  # Résultats de la prédiction sous forme de matrice de confusion 
+  
+  rf_pred_arbres_36$crit <- factor(rf_pred_arbres_36$crit ,levels= c(0,1))
+  
+  rf_confusion_matrix_36 <- ftable( qPCR_36 ~ crit , data = rf_pred_arbres_36 )
+  
+  rf_confusion_matrix_36 <- as.matrix(rf_confusion_matrix_36)
+  
+  TP_rf <- rf_confusion_matrix_36[1,1]
+  
+  TN_rf <- rf_confusion_matrix_36[2,2]
+  
+  FN_rf <- rf_confusion_matrix_36[2,1]
+  
+  FP_rf <- rf_confusion_matrix_36[1,2]
+  
+  # Calcul des parametres rf de la matrice de confusion
+  
+  Accuracy_rf36 <- ((TP_rf+TN_rf) / (TP_rf+TN_rf+FN_rf+FP_rf)*100)
+  
+  Precision_rf36 <- ((TP_rf / (TP_rf+FP_rf)*100))
+  
+  Sensitivity_rf36 <- ((TP_rf / (TP_rf+FN_rf)*100))
+  
+  Parametre_rf_36 <- rbind(Accuracy_rf36,Precision_rf36,Sensitivity_rf36)
+  
+  # Prediction SVM ####
+  
+  model_SVM_36 <- svm(y = training_set[,paste0("qPCR_", seuil.ct)]              
+                      , x = training_set[, grep("^X", names(training_set))]      
+                      , type = 'C-classification'
+                      , kernel = 'linear'
+  ) 
+  
+  # Prediction sur le test_set
+  
+  svm_pred <- test_set
+  svm_pred$svm_pred_36 <- predict(model_SVM_36 ,newdata = test_set[, grep("^X", names(test_set))] , decision.values = T)
+  
+  # Conversion des resultats de la prediction en numerique
+  
+  svm_pred$svm_pred_36 = as.numeric(as.character(svm_pred$svm_pred_36))
+  
+  # Moyennage des resultats de la prediction pour chaque arbres
+  
+  svm_pred_arbres_36 = aggregate(svm_pred_36 ~ code_ech_arbre, data = svm_pred, mean, na.rm = T)
+  
+  # Critere choisi sur les observations graphiques
+  
+  svm_pred_arbres_36$crit <- 0.5
+  svm_pred_arbres_36$crit[svm_pred_arbres_36$svm_pred_36 >= crit.pos  ] <- 1
+  svm_pred_arbres_36$crit[svm_pred_arbres_36$svm_pred_36 <= crit.neg  ] <- 0
+  
+  # Creation d'une nouvelle colonne des resulats issu de la qPCR, pour comparer à la valeurs predite
+  
+  svm_pred_arbres_36[paste("qPCR", seuil.ct, sep = "_")] <- lapply(trueP, function(x)
+    as.numeric(svm_pred_arbres_36$code_ech_arbre %in% x ))
+  
+  # Résultats de la prédiction sous forme de matrice de confusion 
+  
+  svm_pred_arbres_36$crit <- factor(svm_pred_arbres_36$crit ,levels= c(0,1))
+  
+  svm_confusion_matrix_36 <- ftable( qPCR_36 ~ crit , data = svm_pred_arbres_36 )
+  
+  svm_confusion_matrix_36 <- as.matrix(svm_confusion_matrix_36)
+  
+  TP_svm <- svm_confusion_matrix_36[1,1]
+  
+  TN_svm <- svm_confusion_matrix_36[2,2]
+  
+  FN_svm <- svm_confusion_matrix_36[2,1]
+  
+  FP_svm <- svm_confusion_matrix_36[1,2]
+  
+  # Calcul des parametres svm de la matrice de confusion
+  
+  Accuracy_svm36 <- ((TP_svm+TN_svm) / (TP_svm+TN_svm+FN_svm+FP_svm)*100)
+  
+  Precision_svm36 <- ((TP_svm / (TP_svm+FP_svm)*100))
+  
+  Sensitivity_svm36 <- ((TP_svm / (TP_svm+FN_svm)*100))
+  
+  Parametre_svm_36 <- rbind(Accuracy_svm36,Precision_svm36,Sensitivity_svm36)
+  
+  # Prediction PLS ####
+  
+  
+  model_pls_36 <-  plsr(
+    
+    training_set[[paste0("qPCR_", seuil.ct)]] ~ . ,
+    data = training_set[, grep("^X", names(training_set))], 
+    scale = TRUE, 
+    validation = "CV"
+    
+  )
+  
+  # Prediction
+  
+  pls_pred <- test_set
+  
+  # Prediction sur les feuilles de la base d'apprentissage
+  
+  pls_pred$pls_pred_36 <- predict(model_pls_36, newdata = test_set[, grep("^X", names(test_set))], decision.values = T, ncomp=100)
+  
+  # Conversion des resultats de la prediction en numerique
+  
+  pls_pred$pls_pred_36 = as.numeric(as.character(pls_pred$pls_pred_36))
+  
+  # Moyennage des resultats de la prediction pour chaque arbres
+  
+  pls_pred_arbres_36 = aggregate(pls_pred_36 ~ code_ech_arbre, data = pls_pred, mean, na.rm = T)
+  
+  # Parametrage pour presentation graphique et la matrice de confusion
+  
+  pls_pred_arbres_36$crit <- 0.5
+  pls_pred_arbres_36$crit[pls_pred_arbres_36$pls_pred_36 >= crit.pos  ] <- 1
+  pls_pred_arbres_36$crit[pls_pred_arbres_36$pls_pred_36 <= crit.neg  ] <- 0
+  
+  # Creation d'une nouvelle colonne des resulats issu de la qPCR, pour comparer à la valeurs predite
+  
+  pls_pred_arbres_36[paste("qPCR", seuil.ct, sep = "_")] <- lapply(trueP, function(x)
+    as.numeric(pls_pred_arbres_36$code_ech_arbre %in% x ))
+  
+  # Résultats de la prédiction sous forme de matrice de confusion 
+  
+  pls_pred_arbres_36$crit <- factor(pls_pred_arbres_36$crit ,levels= c(0,1))
+  
+  pls_confusion_matrix_36 <- ftable( qPCR_36 ~ crit , data = pls_pred_arbres_36 )
+  
+  pls_confusion_matrix_36 <- as.matrix(pls_confusion_matrix_36)
+  
+  TP_pls <- pls_confusion_matrix_36[1,1]
+  
+  TN_pls <- pls_confusion_matrix_36[2,2]
+  
+  FN_pls <- pls_confusion_matrix_36[2,1]
+  
+  FP_pls <- pls_confusion_matrix_36[1,2]
+  
+  # Calcul des parametres pls de la matrice de confusion
+  
+  Accuracy_pls36 <- ((TP_pls+TN_pls) / (TP_pls+TN_pls+FN_pls+FP_pls)*100)
+  
+  Precision_pls36 <- ((TP_pls / (TP_pls+FP_pls)*100))
+  
+  Sensitivity_pls36 <- ((TP_pls / (TP_pls+FN_pls)*100))
+  
+  Parametre_pls_36 <- rbind(Accuracy_pls36,Precision_pls36,Sensitivity_pls36)
+  
+  
+  parametre_36 <- rbind(Parametre_rf_36,Parametre_svm_36,Parametre_pls_36)
+  
+  All_parametre_36 <- as.vector(parametre_36)
+  
+  names(All_parametre_36) <- c(rownames(parametre_36))
+  
+  All_parametre_36
+  
+} 
+
+```
+
+\vfill
+\newpage
+## Annexe 3 : Matrice de confusion des 3 méthodes de machin learning
+
+```{r 30, echo = TRUE, eval = FALSE}
+
+# Library ####
+
+library(pls) # package pls
+library(randomForest)# package RF
+library(e1071) # package SVM
+
+library(tidyr) # pivot longer & pivot wider
+
+library(snowfall) # Utilisation du calcul paralell pour optimiser la vitesse de calcul
+
+# Importation des fonctions utiles
+
+source(file = "Fct_ConfusionMatrix_ct36.R") # Annex 2
+
+nb.simu <- 100  # Minimu 1000 simu
+rep.max <- 6  # nombre de repetition SPIR sur les feuilles , maximum 6
+
+Tirage <- split(data_SPIR_Ed, data_SPIR_Ed$code_ech_feuille, drop = T) # drop = T pour enlever les tiroirs vides !!
+
+
+# Calcul parralelle
+
+sfInit(parallel = T, cpus = 4) # optimisation des processeurs sur les 4 coeurs
+sfLibrary(caTools)  # la library des packages utilisés
+sfLibrary(pls)
+sfLibrary(randomForest)
+sfLibrary(e1071)
+sfLibrary(caret)
+sfExport("fct_ConfusionMatrix","Tirage","rep.max","nb.simu","trueP") # les éléments extérieur à la fonction
+T1 <- Sys.time() # information sur le temps que met l'operation a se realiser
+
+#res.svm.36 <- sfClusterApplySR(rep(1:rep.max, each = nb.simu), fct_svm , seuil.ct = 36 , list.feuilles= Tirage , restore = F, perUpdate = 6 ) # restore = T seulement si ça plante !
+
+res.ML.36 <- sfClusterApplyLB(rep(rep.max, each = nb.simu), fct_ConfusionMatrix, seuil.ct = 36 , list.feuilles= Tirage )
+# fct_svm on remplsis les 3 arguments qui sont : nb.rep, seuil.ct, list.feuilles
+
+T2 <- Sys.time()
+
+sfStop()        # stop l'utilisation du sfInit aux autres lignes de codes
+
+
+difftime(T2,T1) # information sur le temps qu'à mis l'operation 
+
+intermed.36 <- as.data.frame(do.call(rbind,res.ML.36))  
+# permet de basculer de la liste à la data.frame pour le resultat issu de sfClusterApplyLB
+
+ML_global.36 <- pivot_longer((intermed.36), cols = 1:9, names_to = "critere", values_to = "valeurs")
+
+# On moyenne tout les parametres pour chaque type de machin learning
+
+ML.36 <-  aggregate(valeurs ~ critere, ML_global.36, mean)
+
+names(ML.36)[2] <- "Moyenne"
+
+# Meme chose avec l'ecart type 
+
+ML.36$et <- aggregate(valeurs ~ critere, ML_global.36, sd)$valeurs
+ML.36
+
+```
+
+\vfill
+\newpage
+## Annexe 4 : Fonction nombre de feuille
+
+```{r 31, echo = TRUE, eval=FALSE}
+
+fct_feuille <- function(nb.feuille, seuil.ct, list.arbres) {
+  
+  maliste <- lapply(list.arbres,function(arbre){  
+    
+    if (nb.feuille < nrow(arbre))  list_svm <- arbre[sample(1:length(arbre$code_ech_arbre), nb.feuille),]  
+    else list_svm <- arbre
+    # on fait ça pour tte les feuilles mais tjrs en choisissant le nombre de rep tire aleatoirement
+    code <- grep("^code_ech", names(list_svm))
+    qPCR <- grep("^qPCR_", names(list_svm))
+    sortie <- cbind.data.frame(unique(list_svm[c(code,qPCR)])
+                               , matrix(apply(list_svm[-(which(colnames(list_svm) == "code_ech_feuille"):which(colnames(list_svm) == "qPCR_36"))], 2, mean) 
+                                        , nr = 1, dimnames = list(NULL, names(list_svm)[-(which(colnames(list_svm) == "code_ech_feuille"):which(colnames(list_svm) == "qPCR_36"))])))
+    sortie
+  })
+  
+  test_ed <- do.call(rbind, maliste) # on colle toute les listes créées précédement 
+  
+  decoup <- sample.split(test_ed[,paste0("qPCR_", seuil.ct)], SplitRatio = 0.75) # on decoupe le jeu de donné en training set et test set
+  training_set <- test_ed[decoup,]
+  test_set <- test_ed[!decoup,] 
+  
+  res.svm <- svm(y = training_set[,paste0("qPCR_", seuil.ct)]               # ici on prend les seuil donc sois 32 sois 36 , avec "paste0" colle sans separateurs
+                 , x = training_set[, grep("^X", names(training_set))]      #  ici on prend ttes les longueurs d'ondes
+                 , type = 'C-classification'
+                 , kernel = 'linear'
+  ) 
+  
+  svm_pred <-  predict(res.svm, newdata = test_set[,grep("^X", names(test_set))])
+  
+  svm.confusion <- confusionMatrix(data = svm_pred, reference = test_set[,paste0("qPCR_", seuil.ct)])   
+  sortie <- c(svm.confusion$overall[1] , svm.confusion$byClass[1] , svm.confusion$byClass[3] )           # combine les 3 parametres recherches 
+  names(sortie) <- c("Accuracy", "Sensitivity", "Precision")                                             # renomer
+  sortie
+} 
+
+```
+
+\vfill
+\newpage
+## Annexe 5 : Prédiction du nombre optimal de feuille
+```{r 32, echo = TRUE, eval=FALSE}
+rm(list=ls())  # nettoyage des listes de l'environnement de travail
+
+# Library ####
+
+library(pls) # PLS
+
+library(ggplot2) # Package ggplot pour graphiques
+library(ggdark) # Met un style de graphique ggplot en noir
+library(ggpubr)# Utilisation de la fonction ggarrange qui permet de coller 2 graphiques
+
+library(caTools) # sample.split
+library(tidyr) # pivot longer & pivot wider
+
+
+library(snowfall) # Utilisation du calcul paralell pour optimiser la vitesse de calcul
+
+# Importation des fonctions utiles
+
+source(file = "Scripts/Prediction/Fct_Feuilles.R") # fonction feuille avec SVM
+
+# Importation du jeu de donnee Global
+
+load("Sauvegardes_objet_R.data/Jeux de donnee/data_SPIR_Ed.Rdata")
+
+# I) Parametres SVM Ct<36 ####
+
+nb.simu <- 1  # Minimu 1000 simu  Time difference of 15.39098 hours pour 1000 simu
+nb.feuille <- 10  # nombre de feuilles echantillonees par arbre , maximum 10
+seuil.ct <- 36
+
+intermed.arbre <- aggregate(reflectance ~ code_ech_feuille + code_ech_arbre + qPCR_32 + qPCR_36 + lambda, data =  data_long_Ed, mean)
+
+mean.arbre <- pivot_wider(intermed.arbre, names_from = "lambda", values_from = "reflectance", names_prefix = "X")
+
+Tirage <- split(mean.arbre, mean.arbre$code_ech_arbre, drop = T) # drop = T pour enlever les tiroirs vide
+
+
+## I.a) Calcul parallele ####
+
+sfInit(parallel = T, cpus = 4) # optimisation des processeurs sur les 4 coeurs
+sfLibrary(caTools)             # la library des packages utilisés
+sfLibrary(e1071)
+sfLibrary(pls)
+sfLibrary(caret)
+sfExport("fct_feuille","Tirage","nb.feuille","nb.simu") # les elements exterieur a la fonction
+T1 <- Sys.time() # information sur le temps que met l'operation a se realiser
+
+#res.svm.36 <- sfClusterApplySR(rep(1:rep.max, each = nb.simu), fct_svm , seuil.ct = 36 , list.feuilles= Tirage , restore = F, perUpdate = 6 ) # restore = T seulement si ça plante !
+
+res.svm.36 <- sfClusterApplyLB(rep(1:nb.feuille, each = nb.simu), fct_feuille , seuil.ct = 36 , list.arbres= Tirage ) 
+# fct_svm on remplsis les 3 arguments qui sont : nb.rep, seuil.ct, list.feuilles
+
+T2 <- Sys.time()
+
+sfStop()        # stop l'utilisation du sfInit aux autres lignes de codes
+
+
+difftime(T2,T1) # information sur le temps qu'a mis l'operation 
+
+
+## I.b) Enregistrement des criteres de precision ####
+
+#load("Sauvegardes_objet_R.data/SVM_ct36_6rep_100simu_3cpu_sfClusterApplyLB.Rdata")
+
+intermed.36 <- as.data.frame(do.call(rbind, res.svm.36))
+# permet de basculer de la liste à la data.frame pour le resultat issu de sfClusterApplyLB
+
+data_global.36 <- pivot_longer((intermed.36), cols = 1:3, names_to = "critere", values_to = "valeurs")
+
+data_global.36$nb.rep <- rep(1:nb.feuille, each = (nb.simu*3))
+
+```
+
+\vfill
+\newpage
+## Annexe 6 : Fonction nombre de répétition SPIR par feuille
+
+```{r 33, echo = TRUE, eval=FALSE}
+
+fct_svm <- function(nb.rep, seuil.ct, list.feuilles) {
+  
+  maliste <- lapply(list.feuilles,function(feuille){   
+# On cree une list qui piochera au hazard 1 feuille avec le nombre de rep correspondant
+    if (nb.rep < nrow(feuille))  list_svm <- feuille[sample(1:length(feuille$code_ech_feuille), nb.rep),]  
+    else list_svm <- feuille
+    # on fait ça pour tte les feuilles mais tjrs en choisissant le nombre de rep tire aleatoirement
+    code <- grep("^code_ech", names(list_svm))
+    qPCR <- grep("^qPCR_", names(list_svm))
+    sortie <- cbind.data.frame(unique(list_svm[c(code,qPCR)])
+                               , matrix(apply(list_svm[-(which(colnames(list_svm) == "code_nbr_rep"):which(colnames(list_svm) == "qPCR_36"))], 2, mean) # on moyenne la valeur des rep pour chaque feuille
+                                        , nr = 1, dimnames = list(NULL, names(list_svm)[-(which(colnames(list_svm) == "code_nbr_rep"):which(colnames(list_svm) == "qPCR_36"))])))
+    sortie
+  })
+  
+  test_ed <- do.call(rbind, maliste) # on colle toute les listes créées précédement 
+  
+  decoup <- sample.split(test_ed[,paste0("qPCR_", seuil.ct)], SplitRatio = 0.75) # on decoupe le jeu de donné en training set et test set
+  training_set <- test_ed[decoup,]
+  test_set <- test_ed[!decoup,] 
+  
+  res.svm <- svm(y = training_set[,paste0("qPCR_", seuil.ct)] # ici on prend les seuil donc sois 32 sois 36 , avec "paste0" colle sans separateurs
+                 , x = training_set[, grep("^X", names(training_set))] # ici on prend ttes les longueurs d'ondes
+                 , type = 'C-classification'
+                 , kernel = 'linear'
+  ) 
+  
+  svm_pred <-  predict(res.svm, newdata = test_set[,grep("^X", names(test_set))])
+  
+  svm.confusion <- confusionMatrix(data = svm_pred, reference = test_set[,paste0("qPCR_", seuil.ct)])   
+  sortie <- c(svm.confusion$overall[1] , svm.confusion$byClass[1] , svm.confusion$byClass[3] )# combine les 3 parametres recherches 
+  names(sortie) <- c("Accuracy", "Sensitivity", "Precision") 
+  sortie
+} 
+
+```
+
+\vfill
+\newpage
+## Annexe 7 : Prédiction du nombre de répétition optimal
+
+```{r 34 , echo = TRUE, eval=FALSE}
+# Library ####
+
+library(e1071) # SVM
+
+library(pls) # PLS
+
+library(ggplot2) # Package ggplot pour graphiques
+library(ggdark) # Met un style de graphique ggplot en noir
+library(ggpubr)# Utilisation de la fonction ggarrange qui permet de coller 2 graphiques
+
+library(caTools) # sample.split
+library(tidyr) # pivot longer & pivot wider
+library(caret) # fonction confusionMatrix
+
+library(snowfall) # Utilisation du calcul paralell pour optimiser la vitesse de calcul
+
+# Importation des fonctions utiles
+
+source(file = "Scripts/Prediction/Fct_SVM.R")   # pour calculer avec fonction svm
+
+#source(file = "Scripts/Prediction/Fct_PLS.R")  # pour calculer avec fonction pls
+
+# Importation du jeu de donnee Global
+
+load("Sauvegardes_objet_R.data/Jeux de donnee/data_SPIR_Ed.Rdata")
+
+# I) Parametres SVM Ct<36 ####
+
+nb.simu <- 100  # nombre de simulation
+rep.max <- 6  # nombre de repetition SPIR sur les feuilles , maximum 6
+
+
+Tirage <- split(data_SPIR_Ed[,-c(1:2)], data_SPIR_Ed$code_ech_feuille, drop = T) # drop = T pour enlever les tiroirs vides !
+
+
+## I.a) Calcul parallele ####
+
+sfInit(parallel = T, cpus = 4) # optimisation des processeurs sur les 4 coeurs
+sfLibrary(caTools)             # la library des packages utilisés
+sfLibrary(e1071) # pour fct_svm
+sfLibrary(pls) # pour fct_pls
+sfLibrary(caret)
+sfExport("fct_svm","Tirage","rep.max","nb.simu") # les elements exterieur a la fonction 
+T1 <- Sys.time() # information sur le temps que met l'operation a se realiser
+
+
+res.svm.36 <- sfClusterApplyLB(rep(1:rep.max, each = nb.simu), fct_svm , seuil.ct = 36 , list.feuilles= Tirage ) 
+
+#fct_svm on remplsis les 3 arguments qui sont : nb.rep, seuil.ct, list.feuilles
+
+T2 <- Sys.time()
+
+sfStop()        # stop l'utilisation du sfInit aux autres lignes de codes
+
+
+difftime(T2,T1) # information sur le temps qu'a mis l'operation 
+
+
+## I.b) Enregistrement des criteres de precision ####
+
+#load("Sauvegardes_objet_R.data/SVM_ct36_6rep_100simu_3cpu_sfClusterApplyLB.Rdata")
+
+intermed.36 <- as.data.frame(do.call(rbind, res.svm.36))  
+# permet de basculer de la liste à la data.frame pour le resultat issu de sfClusterApplyLB
+
+data_global.36 <- pivot_longer((intermed.36), cols = 1:3, names_to = "critere", values_to = "valeurs")
+
+data_global.36$nb.rep <- rep(1:rep.max, each = (rep.max*nb.simu/2))
+
+
+```
+
+`r if (knitr:::is_html_output()) '# Bibliographie {-}'`
+
