@@ -199,7 +199,7 @@
 % Hyperref comes last
 \usepackage{hyperref}
 \hypersetup{
-  pdftitle={Rapport de stage Edouard Sorin},
+  pdftitle={Amélioration de la surveillance épidémiologique du « greening » des agrumes infectés par le Huanglongbing à La Réunion par Spectroscopie Proche Infra-Rouge},
   pdfkeywords={Epidemiology, Machin learning, HLB = Huanglongbing, Partial Least Squares regression (PLS), Random Forests (RF), Remote sensing, Spectroscopy, Support Vector Machine (SVM)},
   colorlinks=true,
   linkcolor=Maroon,
@@ -214,13 +214,15 @@
 % Title, author, etc. from YAML to LaTeX
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\title{Rapport de stage Edouard Sorin}
+\title{Amélioration de la surveillance épidémiologique du « greening » des agrumes infectés par le Huanglongbing à La Réunion par Spectroscopie Proche Infra-Rouge}
+
+\providecommand{\subtitle}[1]{}
+\subtitle{Mémoire de stage de fin d'étude pour l'obtention du diplôme de Master 2, Ingénieur Agronome, Spécialisation GEEFT - Gestion Environnementale des Écosystèmes et Forêts Tropicales}
+
+\author{true \and true \and true \and true \and true \and true \and true}
 
 
-\author{true \and true \and true \and true}
-
-
-\date{2021-06-14}
+\date{2021-06-18}
 
 
 % Main title page with filigrane
@@ -335,34 +337,35 @@ Epidemiology, Machin learning, HLB = Huanglongbing, Partial Least Squares regres
 
 Je tiens à remercier toutes les personnes qui ont contribué au bon déroulement de ce stage :
 
-\begin{small}
 \begin{itemize}
-
-\item[——] Virginie RAVIGNE, mon encadrante de stage pour son encadrement, sa gentillesse , ses conseils et l'autonomie qu'elle m'a laissée au cours de ce stage afin que je développe mes propres axes de recherche sur cette thématique ;
-
-\item[——] Frédéric CHIROLEU, chercheur en biostatistiques, co-auteur de ce rapport, et Thuy-Trang CAO, pour leur grande aide à la réalisation des scripts R et toutes les choses apprises lors de ces rendez-vous ;
-
-\item[——] Olivier PRUVOST,  pour son aide lors des analyse qPCR et son encadrement au laboratoire ;
-
-\item[——] Karine BOYER, pour m’avoir conseillé et formé aux techniques de laboratoire ;
-
-\item[——] Ismaël HOUILLON, doctorant, pour ses conseils et ses jeux de mots douteux ;
-
-\item[——] Elisa PAYET, technicienne à la FDGDON, pour avoir pris le temps de nous communiquer leurs résultats des détections du HLB et les numéros des agriculteurs ;
-
-\item[——] Raphaël SOLESSE, ainsi que Emmanuel TILLARD, pour leurs conseils, sur le pilotage de drones et la formation à l’utilisation des instruments de mesure de spectrométrie ;
-
-\item[——] Louis-Axel EDOUARD RAMBAUT, pour son aide sur les scripts R et ses discussions pertinentes ;
-
-\item[——] Claire MELOT, stagiaire au CIRAD, pour sa bonne humeur et son aide aux analyses de laboratoire tardives ;
-
-\item[——] Le CIRAD, l’équipe du 3P de Saint-Pierre et en particulier les agents de l’UMR PVBMT (Unité Mixte de 
-Recherche Peuplements Végétaux et Bioagresseurs en Milieux Tropicaux) ;
-
-\item[——] Les stagiaires des Kazz pour leur amitié, les mangues et toutes les choses partagées ensemble qui ont rendu ce stage inoubliable !
-
+\item
+  Virginie RAVIGNE, mon encadrante de stage pour son encadrement, sa gentillesse , ses conseils et l'autonomie qu'elle m'a laissée au cours de ce stage afin que je développe mes propres axes de recherche sur cette thématique ;
+\item
+  Frédéric CHIROLEU, chercheur en biostatistiques, co-auteur de ce rapport, et Thuy-Trang CAO, pour leur grande aide à la réalisation des scripts R et toutes les choses apprises lors de ces rendez-vous ;
+\item
+  Olivier PRUVOST, pour son aide lors des analyse qPCR et son encadrement au laboratoire ;
+\item
+  Karine BOYER, pour m'avoir conseillé et formé aux techniques de laboratoire ;
+\item
+  Ismaël HOUILLON, doctorant, pour ses conseils et ses jeux de mots douteux ;
+\item
+  Elisa PAYET, technicienne à la FDGDON, pour avoir pris le temps de nous communiquer leurs résultats des détections du HLB et les numéros des agriculteurs ;
+\item
+  Raphaël SOLESSE, ainsi que Emmanuel TILLARD, pour leurs conseils, sur le pilotage de drones et la formation à l'utilisation des instruments de mesure de spectrométrie ;
+\item
+  Louis-Axel EDOUARD RAMBAUT, pour son aide sur les scripts R et ses discussions pertinentes ;
+\item
+  Claire MELOT, stagiaire au CIRAD, pour sa bonne humeur et son aide aux analyses de laboratoire tardives ;
+\item
+  Le CIRAD, l'équipe du 3P de Saint-Pierre et en particulier les agents de l'UMR PVBMT (Unité Mixte de
+  Recherche Peuplements Végétaux et Bioagresseurs en Milieux Tropicaux) ;
+\item
+  Les stagiaires des Kazz pour leur amitié, les mangues et toutes les choses partagées ensemble qui ont rendu ce stage inoubliable !
 \end{itemize}
-\end{small}
+
+\scriptsize
+
+\normalsize
 
 \mainmatter
 
@@ -391,7 +394,7 @@ Depuis 2015, la DAAF (Direction de l'Alimentation, de l'Agriculture et de la For
 \section{Etat des connaissances sur la maladie}\label{etat-des-connaissances-sur-la-maladie}}
 
 Le HLB est une maladie causée par la bactérie \emph{Candidatus} Liberibacter associée à trois sous-espèces (americanus, africanus et asiaticus) \autocite{wang_citrus_2019}. C'est la sous-espèce \emph{Candidatus} Liberibacter asiaticus que l'on retrouve sur l'île de la Réunion \autocite{aubert_greening_1989}. Cette bactérie de type Gram- (non cultivable) se développe dans les tissus riches en glucides du phloème. Cela va entraîner des nécroses dans le phloème et obstruer les vaisseaux, affaiblissant, à terme, l'arbre et entraînant sa mort \autocite{bove_huanglongbing_2006}. Le HLB est spécifique des agrumes et essentiellement transmis par les psylles qui sont des insectes de l'ordre des hémiptères. Deux espèces de psylles sont connues pour véhiculer la bactérie responsable de la maladie : \emph{Diaphorina citri} et \emph{Trioza erytreae}. Seule la première a jusqu'ici été identifiée dans l'épidémie qui sévit actuellement à la Réunion. Ces deux espèces de psylles réalisent une partie de leurs cycles de développement sur les arbres de la famille des Rutacées dont font partie les agrumes cultivés. La bactérie est transmise d'un arbre à un autre via la salive de l'insecte en se nourrissant de la sève élaborée circulant dans le phloème \autocite{narouei-khandan_global_2016}. Ce mécanisme de transmission de la maladie peut s'étendre sur une distance de 25 à 50m autour de l'arbre infecté. Cette distance peut atteindre les 1,5 km en cas de vent, ce qui favorise grandement la dispersion de la maladie \autocite{bove_huanglongbing_2006}. Par ailleurs, en plus de transmission par les psylles, le HLB peut aussi être véhiculé par les greffes et les plantes en pépinière déjà contaminées et vendues aux agrumiculteurs, ce qui fait de la gestion des pépinières un élément clé de la lutte contre la propagation de la maladie.
-Le HLB affecte tous les agrumes, mais à des degrés de sensibilités différentes. La maladie provoque un dépérissement des arbres avec des symptômes visibles ressemblant à un stress hydrique ou une carence comme le jaunissement asymétrique des feuilles et des flushs (jeunes feuilles, figure \ref{fig:1}) \autocite{bove_huanglongbing_2006}. Ces symptômes traduisent un dépérissement de l'arbre avec des fruits petits et de forme asymétrique \autocite{gottwald_preliminary_1989}.
+Le HLB affecte tous les agrumes, mais à des degrés de sensibilités différentes. La maladie provoque un dépérissement des arbres avec des symptômes visibles ressemblant à un stress hydrique ou une carence comme le jaunissement asymétrique des feuilles et des flushs (jeunes feuilles) (figure \ref{fig:1}) \autocite{bove_huanglongbing_2006}. Ces symptômes traduisent un dépérissement de l'arbre avec des fruits petits et de forme asymétrique \autocite{gottwald_preliminary_1989}.
 
 
 
