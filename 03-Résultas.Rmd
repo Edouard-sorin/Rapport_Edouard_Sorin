@@ -23,9 +23,9 @@ g3 <- ggplot(data_long_var) +
 g3
 ```
 
-Les spectres des variétés échantillonnées ne semblent pas avoir de comportements significativement différents suivant les variétés sur l'ensemble des longueurs d'onde. L'analyse de ces données brutes ne suffit donc pas à renseigner sur l'influence que peuvent avoir les variétés sur les spectres du statut HLB.
+Les spectres moyens des variétés échantillonnées ne semblent pas avoir de comportements significativement différents suivant les variétés sur l'ensemble des longueurs d'onde.
 
-Le calcul du F de Fisher via l’ANOVA est donc mis en œuvre afin de montrer un effet potentiel du lieu d’échantillonnage et des variétés sur le spectre de réflectance global (figure \@ref(fig:x)).
+En complément, le calcul du F de Fisher via l’ANOVA est donc mis en œuvre afin de montrer un effet potentiel du lieu d’échantillonnage et des variétés sur le spectre de réflectance global (figure \@ref(fig:x)).
 
 ```{r x, fig.cap = "Valeur du F de Fisher pour chaque longueur d’onde montrant l’influence du facteur variété sur le spectre de réflectance global"}
 
@@ -74,7 +74,7 @@ gx
 
 \vfill
 \newpage
-L’influence des variétés sur les spectres de réflectance est importante à partir de 1400nm avec un maximum à 1420nm (valeur F = 230). Ce maximum est suivi de deux autres pics à F = 200 à 1800nm et 2300nm, tous compris dans la partie du spectre correspondant aux infrarouges courtes longueurs d'onde.
+L’influence des variétés sur les spectres de réflectance est importante à partir de 1400 nm avec un maximum à 1420 nm (valeur F = 230). Ce maximum est suivi de deux autres pics à F = 200 à 1800 nm et 2300 nm, tous compris dans la partie du spectre correspondant aux infrarouges courtes longueurs d'onde.
 
 Concernant l'influence de la parcelle sur le spectre de réflectance global, celle-ci a une forte influence (figure \@ref(fig:y)).
 
@@ -124,7 +124,7 @@ gy
 
 ```
 
-Dans le "Red edge" avec un maximum à 771nm (valeur F = 875) et une influence qui reste assez élevé (autour de F = 625) autour des longueurs d'onde 1500nm et 2100nm.
+En effet, dans le "Red edge" l’influence du facteur parcelle est a son maximum à 771 nm (valeur F = 875) et a une influence qui reste assez élevée (autour de F = 625) autour des longueurs d'onde 1500 nm et 2100 nm.
 
 \vfill
 \newpage
@@ -216,7 +216,7 @@ g2
 
 ```
 
-La différence qui paraissait importante sur la figure 2.1 est à nuancer si l'on s'intéresse aux spectres individuels. En effet, il ne semble pas se dégager de tendance claire vis à vis du statut sur cette partie du spectre. 
+La différence qui paraissait importante sur la figure 2.1 est à nuancer si l'on s'intéresse aux spectres individuels. En effet, il ne semble pas se dégager de tendance claire vis-à-vis du statut sur cette partie du spectre. 
 
 C'est pourquoi il est difficile d'affirmer avec certitude l'effet de la maladie sur les spectres de réflectance en fonction du statut HLB en utilisant seulement les données brutes.
 
@@ -284,8 +284,9 @@ g5 <- ggplot(Anov_statut) +
 g5
 
 ```
-
-Globalement le statut HLB affecte le spectre de réflectance dans trois zones du spectre : dans le début du “Red edge” autour de 700nm, dans le proche infra-rouge autour de 800nm et dans le “Short-wave infrared” autour de 2000 nm avec un pic à 2032nm (valeur F = 751). Les effets du statut sont influencés dans le “Red edge” et le proche infra-rouge par le type de variété sur laquelle les feuilles ont été prélevées. Cependant le pic de cette influence correspond à une zone où la valeur de Fisher est quasi nulle pour l’effet du statut sur la détection de la maladie par la réflectance. Cette influence des variétés est donc comprise entre les valeurs de Fisher de 200 à 150 en excluant la zone de creux. Ces valeurs sont assez faibles si on les compare aux effets du statut qui avoisine les 700 et plus. Les trois variétés ont donc un impact plutôt faible sur la détection de la maladie via la mesure de la réflectance. Cet impact est encore plus minime (valeur F = 30) au niveau du pic d’influence de la maladie à 2032nm correspondant à la quantité d’eau dans la feuille. Cet impact est encore plus faible pour l’influence de la parcelle sur le statut HLB. Celle-ci n’a qu’une très faible influence sur le statut HLB au niveau des spectres dans visible et le “Red edge” (valeur F = 98) et une influence quasi nulle dans les autres longueurs d’onde 
+\vfill
+\newpage
+Globalement le statut HLB affecte le spectre de réflectance dans trois zones du spectre : dans le début du “Red edge” autour de 700 nm, dans le proche infra-rouge autour de 800 nm et dans le “Short-wave infrared” autour de 2000 nm avec un pic à 2032 nm (valeur F = 751). Les effets du statut sont influencés dans le “Red edge” et le proche infra-rouge par le type de variété sur laquelle les feuilles ont été prélevées. Cependant le pic de cette influence correspond à une zone où la valeur de Fisher est quasi-nulle pour l’effet du statut sur la détection de la maladie par la réflectance. Cette influence des variétés est donc comprise entre les valeurs de Fisher de 200 à 150 en excluant la zone de creux. Ces valeurs sont assez faibles si on les compare aux effets du statut qui avoisine les 700 et plus. Les trois variétés ont donc un impact plutôt faible sur la détection de la maladie via la mesure de la réflectance. Cet impact est encore plus minime (valeur F = 30) au niveau du pic d’influence de la maladie à 2032 nm correspondant à la quantité d’eau dans la feuille. Cet impact est encore plus faible pour l’influence de la parcelle sur le statut HLB. Celle-ci n’a qu’une très faible influence sur le statut HLB au niveau des spectres dans visible et le “Red edge” (valeur F = 98) et une influence quasi-nulle dans les autres longueurs d’onde 
 
 \vfill
 \newpage
@@ -370,13 +371,13 @@ rf.ct
 
 ```
 
-Cette autre approche apporte des résultats identiques à la valeur de Fisher sur les longueurs d'onde où le statut HLB a le plus d'influence. Le premier nœud de décision à la longueur d'onde 2000nm est très significatif (p value 1.32e-36) et se divise entre les zones du "Red edge" à 706nm pour 774 feuilles et du proche-infra rouge à 1075nm pour les 666 feuilles restantes. Sur les 774 feuilles du deuxième nœud (p value 9.71e-18), 572 sont des feuilles issues d'arbres négatifs aux HLB à plus de 75% environ en additionnant la part des effectifs négatifs des nœuds 6 et 7. Par ailleurs sur les 666 feuilles du nœud 9 (p value 4.84e-9), 333 sont globalement issus d'arbres positifs aux HLB à plus de 75% environ en additionnant la part des effectifs positifs des nœuds 10 et 13. Cela montre qu'il est possible d'identifier depuis le spectre de réflectance, les arbres sains et malades avec un taux d'erreur d'environ 75%. 
+Cette autre approche apporte des résultats cohérents avec le F de Fisher sur les longueurs d'onde où le statut HLB a le plus d'influence. Le premier nœud de décision à la longueur d'onde 2000 nm est très significatif (p value 1.32e-36) et se divise entre les zones du "Red edge" à 706 nm pour 774 feuilles et du proche-infra rouge à 1075 nm pour les 666 feuilles restantes. Sur les 774 feuilles du deuxième nœud (p value 9.71e-18), 572 sont des feuilles issues d'arbres négatifs aux HLB à plus de 75% environ en additionnant la part des effectifs négatifs des nœuds 6 et 7. Par ailleurs, sur les 666 feuilles du nœud 9 (p value 4.84e-9), 333 sont globalement issues d'arbres positifs au HLB à plus de 75% environ en additionnant la part des effectifs positifs des nœuds 10 et 13. Cela montre qu'il est possible d'identifier depuis le spectre de réflectance, les arbres sains et malades avec un taux d'erreur d'environ 75%. 
 L'intérêt de cette méthode en plus de donner les longueurs d'onde discriminantes pour la maladie, est la valeur de réflectance pour laquelle chaque longueur d'onde discriminante est clivante.
 
 
-Enfin, en prenant uniquement la longueur d'onde la plus clivante (2000nm) selon l'arbre de décision, il est possible de se rendre compte de l’hétérogénéité des distributions à l'intérieur de celle-ci (figure \@ref(fig:23)).
+Enfin, en prenant uniquement la longueur d'onde la plus clivante (2000 nm) selon l'arbre de décision, il est possible de se rendre compte de l’hétérogénéité des distributions à l'intérieur de celle-ci (figure \@ref(fig:23)).
 
-```{r 23, eval = TRUE, fig.cap = "Distribution des réflectances la longueur d’onde 2000nm"}
+```{r 23, eval = TRUE, fig.cap = "Distribution des réflectances la longueur d’onde 2000 nm"}
 
 X2000 <- data_SPIR_Ed[,c(which(colnames(data_SPIR_Ed) == "X2000"),which(colnames(data_SPIR_Ed) == "code_variete"),which(colnames(data_SPIR_Ed) == "code_agri"),which(colnames(data_SPIR_Ed) == "qPCR_36"))]
 
@@ -397,7 +398,7 @@ h1
 
 \vfill
 \newpage
-Malgré l'échantillonnage différent selon les parcelles, les valeurs de réflectance sont normalement distribuées bien que centrées différemment. Chez Barret et Pothin, le centre est quasiment sur 0.09 alors que chez Gonthier et Hoarau celui-ci est environ à 0.07. Concernant les variétés, les Zanzibars semblent avoir les valeurs de réflectances les moins élevés. Malgré cette hétérogénéité dans la répartition des variables, qui est quasiment identique pour toutes les autres longueurs d'onde, cela n'a finalement pas un énorme impact sur la discrimination de la réflectance en fonction du statut.
+Malgré l'échantillonnage différent selon les parcelles, les valeurs de réflectance sont distribuées de façon quasi-normale bien que centrées différemment. Chez Mrs. Barret et Pothin, le centre est quasiment sur 0.09 alors que chez Gonthier et Hoarau celui-ci est environ à 0.07. Concernant les variétés, les Zanzibars semblent avoir les valeurs de réflectances les moins élevés. Malgré cette hétérogénéité dans la répartition des variables, qui est quasiment identique pour toutes les autres longueurs d'onde, cela n'a finalement pas un énorme impact sur la discrimination de la réflectance en fonction du statut.
 
 \vfill
 \newpage
@@ -418,9 +419,9 @@ kableExtra::kable_styling(bootstrap_options = "striped", full_width = FALSE)
 
 ```
 
-Au vu de ces simulations, la méthode de régression par les moindres carrés partiels (PLS) est la plus robuste avec une qualité de prédiction (Accuracy) avoisinant les 92.6% et avec l'écart type le plus faible d'environ 1.7.
+Au vu de ces simulations, la méthode de régression par les moindres carrés partiels (PLS) est la plus robuste avec une qualité de prédiction avoisinant les 92.6% et avec l'écart type le plus faibles d'environ 1.7.
 Cette méthode est aussi très robuste pour minimiser les erreurs de type 1 (précision à 97.2%) et de type 2 (sensibilité à 88.3%) avec là aussi des écarts types plus faible que les deux autres méthodes.
-Vient ensuite la méthode de la machine à vecteurs de support (SVM) avec une qualité de prédiction (Accuracy) d'environ 85.8% et avec l'écart type le plus élevé avoisinant les 2.7. La méthode des forêts aléatoires (RF) est la moins robuste avec une qualité de prédiction (Accuracy) de 76.4% approximativement.
+Vient ensuite la méthode de la machine à vecteurs de support (SVM) avec une qualité de prédiction d'environ 85.8% et avec l'écart type le plus élevé avoisinant les 2.7. La méthode des forêts aléatoires (RF) est la moins robuste avec une qualité de prédiction de 76.4% approximativement.
 
 \vfill
 \newpage
@@ -584,7 +585,7 @@ g6
 
 ```
 
-Cette représentation graphique est une aide à la décision afin de connaître le degré de précision de la prédiction sur chaque arbre. La prédiction par PLS donne une valeur correspondant à la moyenne des statuts prédits (compris entre 0 et 1 en ordonnés) des dix feuilles d'un arbre pour chaque arbre (en abscisse). Cela indique pour chaque arbre s'il est plutôt positif ou négatif, mais ça ne permet pas de trancher sur le statut de l'arbre. Cette prédiction se base donc sur deux seuils choisis via les observations de prédiction effectuées. Ces seuils sont compris entre 0.4 pour les arbres positifs qui seraient au-dessus de cette valeur (en rouge), 0.35 pour les arbres négatifs qui serait en dessous de cette valeur (en vert) et les arbres indéterminés (en gris) qui seraient compris entre ces deux valeurs. Une comparaison entre le statut réel des arbres est confirmé par qPCR (avec un croix pour les négatifs et un rond pour les positifs), permet ensuite de réaliser la matrice de confusion (table \@ref(tab:T3))
+Cette représentation graphique est une aide à la décision pour déterminer le statut de chaque arbre à partir des résultats de la PLS. La prédiction par PLS donne une valeur correspondant à la moyenne des statuts prédits (compris entre 0 et 1 en ordonnés) des dix feuilles d'un arbre pour chaque arbre (en abscisse). Cela indique pour chaque arbre s'il est plutôt positif ou négatif, mais ça ne permet pas de trancher sur le statut de l'arbre. Cette prédiction se base donc sur deux seuils choisis via les observations de prédiction effectuées. Ces seuils sont compris entre 0.4 pour les arbres positifs qui seraient au-dessus de cette valeur (en rouge), 0.35 pour les arbres négatifs qui seraient en dessous de cette valeur (en vert) et les arbres indéterminés (en gris) qui seraient compris entre ces deux valeurs. Une comparaison entre le statut réel des arbres est confirmé par qPCR (avec un croix pour les négatifs et un rond pour les positifs), permet ensuite de réaliser la matrice de confusion (table \@ref(tab:T3))
 
 \vfill
 \newpage
@@ -599,7 +600,7 @@ kableExtra::kable_styling(bootstrap_options = "striped", full_width = FALSE)
 
 ```
 
-Sur cette prédiction, 62 arbres ont été prédits correctement positifs et 57 correctement négatifs. 10 arbres ont été prédits comme faussement positif (erreur de type 1) et 2 comme faussement négatif (erreur de type 2).
+Sur cette prédiction, 62 arbres ont été prédits correctement positifs et 57 correctement négatifs. 10 arbres sont des faux positifs (erreur de type 1) et 2 sont des faux négatifs (erreur de type 2).
 
 ```{r T4}
 knitr::kable((Parametre_pls_36), caption="Paramètres de performance du statut HLB par Régression par les Moindres Carrés Partiels", longtable = TRUE, booktabs = TRUE, digits = 1, escape = FALSE) %>%
@@ -641,7 +642,7 @@ g7
 
 ```
 
-Après 1000 simulations, les paramètres de performance de la méthode SVM sont respectivement de 95% pour la précision (Precision), 96% pour la sensibilité (Sensitivity) et 97% pour la qualité globale de la prédiction (Accuracy) pour un échantillonnage de 10 feuilles. La précision et la sensibilité passent en dessous des 90% avec 5 feuilles prélevées. Avec 8 feuilles échantillonnées la qualité de la prédiction ainsi que la sensibilité ne baissent pas en dessous de 95%.
+Après 1000 simulations, les paramètres de performance de la méthode SVM sont respectivement de 95% pour la précision (Precision), 96% pour la sensibilité (Sensitivity) et 97% pour la qualité globale de la prédiction (Accuracy) pour un échantillonnage de 10 feuilles. La précision et la sensibilité passent en dessous des 90% avec 5 feuilles prélevées. Avec 8 feuilles échantillonnées, la qualité de la prédiction ainsi que la sensibilité ne baissent pas en dessous de 95%.
 
 \vfill
 \newpage
@@ -667,23 +668,24 @@ g8
 
 ```
 
-Après 100 simulations, les paramètres de performances de la méthode SVM sont respectivement de 85% pour la sensibilité (Sensitivity), 82% pour la qualité globale de la prédiction (Accuracy)  et 81% pour la précision (Precision) pour un passage de 6 répétitions SPIR (figure \@ref(fig:26)). Les écarts types étant assez marqués, au bout de 3 répétitions SPIR les paramètres de performance sont très peu changeants.
+Après 100 simulations, les paramètres de performance de la méthode SVM sont respectivement de 85% pour la sensibilité (Sensitivity), 82% pour la qualité globale de la prédiction (Accuracy)  et 81% pour la précision (Precision) pour un passage de 6 répétitions SPIR (figure \@ref(fig:26)). Les écarts types étant assez marqués, au bout de 3 répétitions SPIR les paramètres de performance sont très peu changeants.
 
 \vfill
 \newpage
 # Discussion
 
-Au vu des résultats, de part une valeur F de Fisher élevée (plus de 500 en moyenne), le lieu d'échantillonnage semble avoir un influence significative sur les valeurs de réflectance de 750 à 2500nm (figure \@ref(fig:x)). Dans une moindre mesure, la variété à aussi une influence sur les valeurs de réflectance de 1400 à 2500nm avec une valeur F de Fisher de 150 en moyenne (figure \@ref(fig:y)). Aucun de ces deux paramètres ne semble affecter les longueurs d'onde dans le visible de 350 à 700nm et les effet des variétés et du lieu d'échantillonnage sur le statut sont assez négligeable sur cette zone et dans l'infrarouge courte longueur d'onde (de 1400 à 2500nm).
+Au vu des résultats, de par une valeur F de Fisher élevée (plus de 500 en moyenne), le lieu d'échantillonnage semble avoir un influence significative sur les valeurs de réflectance de 750 à 2500 nm (figure \@ref(fig:x)). Dans une moindre mesure, la variété à aussi une influence sur les valeurs de réflectance de 1400 à 2500 nm avec une valeur F de Fisher de 150 en moyenne (figure \@ref(fig:y)). Aucun de ces deux paramètres ne semble affecter les longueurs d'onde dans le visible de 350 à 700 nm et les effet des variétés et du lieu d'échantillonnage sur le statut sont assez négligeables sur cette zone et dans l'infrarouge courte longueur d'onde (de 1400 à 2500 nm).
 Le statut seul a donc une influence sur cette partie du spectre avec une influence modérée des variétés et du lieu d'échantillonnage (figure \@ref(fig:21)). Ainsi, dans le visible et le début du “Red edge”, cette influence peut s’expliquer par une moins bonne absorbance de la lumière par la chlorophylle des feuilles à cause de la maladie. 
-Dans le proche infra-rouge autour de 800nm le statut a aussi une influence importante sur la réflectance avec en parallèle une influence importante du lieu d'échantillonnage sur cette partie du spectre (figure \@ref(fig:y)). 
-Le proche infra-rouge correspondant à la structure interne de la feuille a un effet sur le spectre de réflectance global dû à la maladie. En effet, le HLB affect la structure cellulaire et en particulier celle du phloème, là où la bactérie se développe. Celle-ci va entraîner des nécroses et obstruer les vaisseaux. Ces dégradations vont donc altérer la réflectance de la lumière de cette partie de la feuille ce qui se voit lors de l'analyse des spectres.
-Pour finir, c'est dans l'infrarouge courte longueur d'onde autour de 2000nm que s'observe la plus grande valeur F de Fisher (figure \@ref(fig:21)) mais c'est aussi une zone du spectre où le lieu d'échantillonnage (figure \@ref(fig:y)) et les variétés (figure \@ref(fig:x)) dans une moindre mesure ont un effet sur la réflectance globale. L'effet du statut sur cette zone peut s’expliquer par une moins bonne absorbance de la lumière par la chlorophylle des feuilles en lien avec la maladie (figure \@ref(fig:17)).
+Dans le proche infra-rouge autour de 800 nm le statut a aussi une influence importante sur la réflectance avec en parallèle une influence importante du lieu d'échantillonnage sur cette partie du spectre (figure \@ref(fig:y)). 
+Le proche infra-rouge correspondant à la structure interne de la feuille a un effet sur le spectre de réflectance global dû à la maladie. En effet, le HLB affecte la structure cellulaire et en particulier celle du phloème, là où la bactérie se développe. Celle-ci va entraîner des nécroses et obstruer les vaisseaux. Ces dégradations vont donc altérer la réflectance de la lumière de cette partie de la feuille ce qui se voit lors de l'analyse des spectres.
+Pour finir, c'est dans l'infrarouge courte longueur d'onde autour de 2000 nm que s'observe la plus grande valeur F de Fisher (figure \@ref(fig:21)) mais c'est aussi une zone du spectre où le lieu d'échantillonnage (figure \@ref(fig:y)) et les variétés (figure \@ref(fig:x)) dans une moindre mesure ont un effet sur la réflectance globale. L'effet du statut sur cette zone peut s’expliquer par une moins bonne absorbance de la lumière par la chlorophylle des feuilles en lien avec la maladie (figure \@ref(fig:17)).
+\vfill
+\newpage
 L'effet du statut sur cette zone peut s’expliquer par le fait que le HLB affecte grandement l'alimentation en eau de la feuille par l'obstruction des vaisseaux [@bove_huanglongbing_2006].
-
-En plus de l'approche par la variance via l'ANOVA, l'approche par arbre de décision a permis de mettre en évidence d'une autre manière les longueurs d'onde discriminantes les plus clivantes. Ainsi, au vu de ces deux approches pour détecter plus facilement la maladie, 3 tranches de longueurs d'onde sont à favoriser, autour de 700nm, 1000nm et 2000nm (figure \@ref(fig:22)). Ces longueurs d'onde trouvées sont similaires à celles présentes dans la documentation pour la détection du HLB [@mishra_spectral_2007].
+En plus de l'approche par la variance via l'ANOVA, l'approche par arbre de décision a permis de mettre en évidence d'une autre manière les longueurs d'onde discriminantes les plus clivantes. Ainsi, au vu de ces deux approches pour détecter plus facilement la maladie, 3 tranches de longueurs d'onde sont à favoriser, autour de 700 nm, 1000 nm et 2000 nm (figure \@ref(fig:22)). Ces longueurs d'onde trouvées sont similaires à celles présentes dans la littérature pour la détection du HLB [@mishra_spectral_2007].
 
 La réalisation d'un modèle de prédiction du statut HLB par arbres à partir du spectre de réflectance s’est révélée être pertinente à bien des égards.
-Le modèle de prédiction a permis de connaître l'état sanitaire des arbres via 3 méthodes d'analyse des spectres de réflectance. Ces 3 méthodes ont des qualités de prédiction (Accuracy) qui varie de 92.6% pour la méthode PLS à 85.8% et 76.4% pour la méthode SVM et RF (table \@ref(tab:T2)). Ces valeurs sont là  aussi proches de celles présentes dans la bibliographie concernant la qualité de la prédiction avec 85% pour SVM dans l'article de Sindhuja Sankaran [@sankaran_huanglongbing_2013] et 96.4% pour PLS dans l'article de Xiaoling Deng [@deng_detection_2020].
+Le modèle de prédiction a permis de connaître l'état sanitaire des arbres via 3 méthodes d'analyse des spectres de réflectance. Ces 3 méthodes ont des qualités de prédiction qui varient de 92.6% pour la méthode PLS à 85.8% et 76.4% pour la méthode SVM et RF (table \@ref(tab:T2)). Ces valeurs sont là  aussi proches de celles présentes dans la bibliographie concernant la qualité de la prédiction avec 85% pour SVM dans l'article de Sindhuja Sankaran [@sankaran_huanglongbing_2013] et 96.4% pour PLS dans l'article de Xiaoling Deng [@deng_detection_2020].
 La méthode PLS étant la meilleure, elle permet de minimiser les erreurs de type 2 pour une meilleure identification de la maladie sur les parcelles (table \@ref(tab:T2)).  Cela peut s'expliquer dans la mesure où l’un des principaux intérêts de l'algorithme PLS est d’augmenter en performance et en fiabilité proportionnellement avec l’augmentation du nombre de variables explicatives permettant de prédire les composantes du modèle. C'est donc la méthode PLS qui est à favoriser pour les prédictions du statut HLB.
 
 \vfill
@@ -692,7 +694,7 @@ Finalement, cette étude confirme le haut potentiel qu’offre l’utilisation d
 Cette caractérisation est possible grâce aux seuils de décision trouvés. Ces 2 seuils sont de 0.4 et plus pour les arbres malades à 0.35 et moins pour les arbres sains avec une classe indéterminée entre ces deux seuils.
 Ces analyses ont aussi permis d'améliorer le protocole de terrain en préconisant un échantillonnage minimal de 8 feuilles par arbres (figure \@ref(fig:25)) et 3 répétitions SPIR par feuille (figure \@ref(fig:26)) pour un bon compromis entre le temps d'échantillonnage et la précision du modèle. L’utilisation de la proxidétection dans la surveillance du HLB doit tout de même être couplée à un travail de terrain avec analyse en qPCR pour la validation du statut des arbres.
 
-Le modèle de prédiction réalisée dans ce rapport pourra, à terme, être utilisé comme un outil de détection décisif dans l’amélioration de surveillance épidémiologique du Huanglongbing (HLB) à La Réunion. Surtout si le modèle est alimenté avec de nouveaux échantillons dans le but d'agrandir la base d'apprentissage. En effet, ce modèle est pour l'instant valable uniquement pour 3 variétés d'agrumes sur les 27 que compte la Réunion. Afin d'optimiser ce modèle, il serait intéressant de l'enrichir avec d'avantage de variétés sur des lieux d'échantillonnages différents. Cela permettrait de répéter les analyses effectuées en comparant les résultats et les performances des différentes méthodes d'apprentissage supervisés testés pour améliorer le modèle.
+Le modèle de prédiction réalisée dans ce rapport pourra, à terme, être utilisé comme un outil de détection décisif dans l’amélioration de surveillance épidémiologique du HLB à La Réunion. Surtout si le modèle est alimenté avec de nouveaux échantillons dans le but d'agrandir la base d'apprentissage. En effet, ce modèle est pour l'instant valable uniquement pour 3 variétés d'agrumes sur les 27 que compte la Réunion. Afin d'optimiser ce modèle, il serait intéressant de l'enrichir avec davantage de variétés sur des lieux d'échantillonnages différents. Cela permettrait de répéter les analyses effectuées en comparant les résultats et les performances des différentes méthodes d'apprentissage supervisé testées pour améliorer le modèle.
 
 # Conclusion
 

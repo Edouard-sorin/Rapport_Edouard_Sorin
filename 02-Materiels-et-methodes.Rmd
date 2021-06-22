@@ -3,21 +3,21 @@
 
 ## Identification de la maladie
 
-Pour l'analyse en télédétection, les feuilles analysées doivent avoir un statut connu vis-à-vis de la maladie. Afin de connaître le statut et mettre en évidence cette maladie difficilement détectable dans les vergers, la méthode de détection par PCR (Polymerase Chain Reaction) est pour l’instant la plus utilisée pour surveiller l’évolution de la maladie. Cette méthode permet de détecter l’ADN de la bactérie à partir d’échantillons de feuilles [@gottwald_current_2010]. L’inconvénient de cette méthode est qu’elle ne permet pas le traitement d’un volume important d’échantillons et ne donne pas une réponse immédiate sur le prélèvement effectué sur le terrain. La PCR est une technique reconnue de multiplication de l’ADN d’un échantillon. Le but est de dupliquer les échantillons d’ADN prélevés à chaque cycle de réaction via l’ADN polymérase. Ainsi, avec un seul brin d’ADN de départ, des millions de répliques sont produites à chaque cycle de réplication. La qPCR repose sur le même principe avec des améliorations de la technique de départ. Le principe est toujours de multiplier l’ADN de l’échantillon, mais avec cette fois une quantification du nombre de cycles PCR nécessaires à la détection de la maladie. Le nombre de cycles de réplication ou Cycle Threshold (Ct) correspond au nombre de cycles PCR à partir duquel le produit de la PCR est détectable. Ainsi, plus le Ct est faible plus il y a d’ADN présent initialement et inversement. Les échantillons sains et malades peuvent donc être distingués selon leur valeur de Ct selon un seuil fixé.
-La méthode officielle actuelle basée sur la PCR classique est actuellement en cours de remplacement par une méthode basée sur la qPCR et qui utilisera le seuil de 36 cycles de détection maximum pour identifier un échantillon comme étant porteur de la maladie. C'est ce seuil de 36 cycles ou Ct36 qui sera utilisé dans cette étude pour statuer de l'état malade ou sain des arbres.
+Pour la mise au point de la méthode, les feuilles analysées doivent avoir un statut connu vis-à-vis de la maladie. Pour ce faire, la méthode de détection par PCR (Polymerase Chain Reaction) est pour l’instant la plus utilisée pour surveiller l’évolution de la maladie. Cette méthode permet de détecter l’ADN de la bactérie à partir d’échantillons de feuilles [@gottwald_current_2010]. L’inconvénient de cette méthode est qu’elle ne permet pas le traitement d’un volume important d’échantillons et ne donne pas une réponse immédiate sur le prélèvement effectué sur le terrain. La PCR est une technique reconnue de multiplication de l’ADN d’un échantillon. Le but est de dupliquer les échantillons d’ADN prélevés à chaque cycle de réaction via l’ADN polymérase. Ainsi, avec un seul brin d’ADN de départ, des millions de répliques sont produites à chaque cycle de réplication. La qPCR repose sur le même principe avec des améliorations de la technique de départ. Le principe est toujours de multiplier l’ADN de l’échantillon, mais avec cette fois une quantification du nombre de cycles PCR nécessaires à la détection de la maladie. Le nombre de cycles de réplication ou "Cycle Threshold" (CT) correspond au nombre de cycles PCR à partir duquel le produit de la PCR est détectable. Ainsi, plus le CT est faible plus il y a d’ADN présent initialement et inversement. Les échantillons sains et malades peuvent donc être distingués selon leur valeur de CT selon un seuil fixé.
+La méthode officielle actuelle basée sur la PCR classique est actuellement en cours de remplacement par une méthode basée sur la qPCR et qui utilisera le seuil de 36 cycles de détection maximum pour identifier un échantillon comme étant porteur de la maladie. C'est ce seuil de 36 cycles ou CT36 qui sera utilisé dans cette étude pour statuer de l'état malade ou sain des arbres.
 
 ## Choix des arbres
 
-Le choix des parcelles échantillonnées a été conditionné par la recherche d'un équilibre entre les arbres malades et sains sur chaque parcelle basée sur les données compilées par le CIRAD issu de la FDGDON et de la DAAF. Le défi étant que les statuts des arbres ne sont pas connus à l'avance et il peut être compliqué de faire un design équilibré en amont de la récolte de données. L'objectif a donc été dans un premier temps de trouver les agriculteurs qui possèdent les trois variétés d'agrumes sur lesquelles se base cette étude, à savoir les citrons (*Citrus limon*), les mandarines zanzibar (*Citrus reticulata*) et les tangors (*Citrus reticulata x sinensis*). Dans un deuxième temps, pour chacun de ces agriculteurs il a fallu identifier précisément le statut des arbres.
+Le choix des parcelles échantillonnées a été conditionné par la recherche d'un équilibre entre les arbres malades et sains sur chaque parcelle basée sur les données de la surveillance officielle et du Cirad. Le défi est que les statuts des arbres ne sont pas connus à l'avance et il peut être compliqué de faire un design équilibré en amont de la récolte de données. L'objectif a donc été dans un premier temps de trouver les agriculteurs qui possèdent les trois variétés d'agrumes sur lesquelles se base cette étude, à savoir les citrons (*Citrus limon*), les mandarines zanzibar (*Citrus reticulata*) et les tangors (*Citrus reticulata x sinensis*). Dans un deuxième temps, pour chacun de ces agriculteurs il a fallu identifier précisément le statut des arbres.
 
 
-Concernant les caractéristiques altitudinales et pluviométriques des parcelles, celle de Mr Hoarau et Mr Pothin échantillonnées à Petite-Ile sont comprises dans une échelle de pluviométrie identique la parcelle de Mr Gonthier échantillonnée dans les hauts du Tampon à savoir entre 1430 et 1680 mm de pluie par an [@equipe_artists_-_ur_aida_meteor_2021]. Leurs altitudes respectives sont cependant très différentes avec une différence de 1000 m et plus entre la parcelle du Tampon et les autres (figure \@ref(fig:2)). La parcelle de Mr Barret située au niveau de la mer est la parcelle qui reçoit le moins de précipitation avec seulement 930 à 960 mm de pluie par an [@equipe_artists_-_ur_aida_meteor_2021].
+Concernant les caractéristiques altitudinales et pluviométriques des parcelles, celle de Mr Hoarau et Mr Pothin échantillonnées à Petite-Ile sont comprises dans une échelle de pluviométrie identique la parcelle de Mr Gonthier échantillonnée dans les hauts du Tampon à savoir entre 1430 et 1680 mm de pluie par an [@equipe_artists_-_ur_aida_meteor_2021]. Leurs altitudes respectives sont cependant très différentes avec une différence de 1000 m et plus entre la parcelle du Tampon et les autres (figure \@ref(fig:2)). La parcelle de Mr Barret située au niveau de la mer est la parcelle qui reçoit le moins de précipitations avec seulement 930 à 960 mm de pluie par an [@equipe_artists_-_ur_aida_meteor_2021].
 
 ```{r 2, fig.cap="Carte présentant les parcelles échantillonnées, leurs dates de prélèvement ainsi que la pluviométrie et les altitudes", echo=FALSE}
   knitr::include_graphics("Images/Figure2.png")
 ```
 
-L'échantillonnage a commencé dans la commune de Petite-Ile, qui est la plus grosse zone de production d'agrumes de l’île (environ 25% de la surface en agrumes) [@guilloteau_utilisation_2018]. Cette zone est aussi très touchée par le HLB (près de 2 parcelles sur trois) avec par conséquent, des prospections importantes de la part de la DAAF et de la FDGDON qui fournissent des données précieuses pour l'échantillonnage. Les parcelles de Mr Hoarau et Mr Pothin échantillonnées à Petite-Ile possèdent les trois variétés recherchées mais ont une répartition différente entre les arbres malades et sains.
+L'échantillonnage a commencé dans la commune de Petite-Île, qui est la plus grosse zone de production d'agrumes de l’île (environ 25% de la surface en agrumes) [@guilloteau_utilisation_2018]. Cette zone est aussi très touchée par le HLB (près de deux parcelles sur trois) avec par conséquent, des prospections importantes de la part de la DAAF et de la FDGDON qui fournissent des données précieuses pour l'échantillonnage. Les parcelles de Mr Hoarau et Mr Pothin échantillonnées à Petite-Île possèdent les trois variétés recherchées mais ont une répartition différente entre les arbres malades et sains.
 \vfill
 \newpage
 Dans la parcelle de Mr Hoarau l'échantillonnage s'est basé sur une première cartographie des statuts HLB des arbres réalisée dans le cadre d‘une expérimentation de la FGDGON pour le développement d’une autre méthode moléculaire. 42 arbres ont ainsi été sélectionnés dont 19 arbres se sont révélés sains et 23 arbres se sont révélés infectés par le HLB (figure \@ref(fig:3)).
@@ -26,45 +26,47 @@ Dans la parcelle de Mr Hoarau l'échantillonnage s'est basé sur une première c
   knitr::include_graphics("Images/Figure3.png")
 ```
 
-A l’inverse dans la parcelle de Mr Pothin, l'échantillonnage des arbres en se basait sur les dires d’expert de l’agriculteur et trouvé trois arbres sains pour 39 arbres infectés par le HLB (figure \@ref(fig:4)).
+A l’inverse dans la parcelle de Mr Pothin, l'échantillonnage des arbres s'est basé sur les dires d’expert de l’agriculteur et trois arbres sains pour 39 arbres infectés par le HLB ont été trouvé (figure \@ref(fig:4)).
 
 ```{r 4, fig.cap="Échantillonnage réalisé dans la parcelle de Mr Pothin en 2021", echo=FALSE}
   knitr::include_graphics("Images/Figure4.png")
 ```
 
-La parcelle de Mr Barret située à St Pierre et constituée uniquement de citronniers a été échantillonnée de manière exhaustive. Cette parcelle fut la plus analysée en laboratoire. Les 156 arbres de la parcelle ont d’abord été regroupés par pools de 5 puis certains arbres ont été analysés individuellement selon leurs statuts. Au final 10 citronniers sains et quatre infectés par le HLB ont été trouvés (figure \@ref(fig:5)).
+La parcelle de Mr Barret située à St Pierre et constituée uniquement de citronniers a été échantillonnée de manière exhaustive. Cette parcelle fut la plus analysée en laboratoire. Les 156 arbres de la parcelle ont d’abord été regroupés par pools de 5 puis certains arbres ont été analysés individuellement. Au final 10 citronniers sains et quatre infectés par le HLB ont été trouvés (figure \@ref(fig:5)).
 
 ```{r 5, fig.cap="Échantillonnage réalisés dans la parcelle de Mr Barret en 2021", echo=FALSE}
   knitr::include_graphics("Images/Figure5.png")
 ```
 \vfill
 \newpage
-A l’issue de cet échantillonnage, un grand nombre d'arbres infectés chez Mr Pothin et Barret ont été trouvés, il y avait donc un déficit d’arbres sains. La parcelle de Mr Gonthier située au Tampon a donc été trouvée pour pallier à ce déficit. Cette parcelle compte une répartition égale entre les trois variétés et dont les arbres ont été testés négatifs aux HLB en novembre 2020 par la FDGDON. Pour chaque variété 14 arbres ont été échantillonnés (figure \@ref(fig:6)) afin de rééquilibrer l’ensemble du jeu de données. Cet échantillonnage n’est pas idéal, dans la mesure où les facteurs agriculteur et variété ne sont pas croisés, et une attention particulière sur ce point devra être portée dans l’interprétation des résultats.
+A l’issue de cet échantillonnage, un grand nombre d'arbres infectés chez Mr Pothin et Barret ont été trouvés, il y avait donc un déficit d’arbres sains. La parcelle de Mr Gonthier située au Tampon a donc été trouvée pour pallier à ce déficit. Cette parcelle compte une répartition égale entre les trois variétés et dont les arbres ont été testés négatifs aux HLB en novembre 2020 par la FDGDON. Pour chaque variété 14 arbres ont été échantillonnés (figure \@ref(fig:6)) afin de rééquilibrer l’ensemble du jeu de données. Cet échantillonnage n’est pas idéal, dans la mesure où les facteurs "agriculteur" et "variété" ne sont pas croisés, et une attention particulière sur ce point devra être portée dans l’interprétation des résultats.
 
 ```{r 6, fig.cap="Échantillonnage réalisés dans la parcelle de Mr Gonthier en 2021", echo=FALSE}
   knitr::include_graphics("Images/Figure6.png")
 ```
 
-Au final, au cours de cette étude 140 arbres ont été échantillonnés et numérotés de A1 à T7. Le choix de faire des groupes de sept arbres auxquels une lettre est affiliée vient du fait que les plaques nécessaires à l'analyse ont 28 emplacements pouvant ainsi analyser quatre groupes de sept arbres. 
+Au final, au cours de cette étude 140 arbres ont été échantillonnés et numérotés de A1 à T7. Le choix de faire des groupes de sept arbres auxquels une lettre est affiliée vient du fait que les plaques nécessaires à l'analyse ont 28 emplacements (en tenant compte des réplicats) pouvant ainsi analyser quatre groupes de sept arbres. 
 
 \vfill
 \newpage
 ## Spectroscopie à main 
 
-L'objectif de l’utilisation de la spectroscopie est la discrimination des arbres sains et malades de façon rapide et clairement identifiable en passant l’outil de détection sur la parcelle. La détection de la maladie sur les plantes repose sur la capacité des feuilles à absorber, réfléchir ou transmettre la lumière dans différentes longueurs d'onde mesurées en nanomètre (nm). Ces caractéristiques sont liées à la composition biochimique des feuilles. Les variations de mesure de spectre peuvent donc être expliquées dans les différents domaines du spectre par la teneur en pigment des feuilles dans le visible (400-750nm), par la structure cellulaire avec l'essentiel des vaisseaux dont le phloème dans le proche infrarouge (750-1250 nm) et par la teneur en eau dans le "Short-wave infrared" ou SWIR (1250-2500 nm) comme indiqué sur la (figure \@ref(fig:7)) [@comar_etude_2013]. Les bandes spectrales du visible (bleu, vert, rouge, "red-edge") sont les plus utilisées dans la détection de maladie des feuilles [@mishra_spectral_2007]. La qualité des résultats dépend de la résolution du capteur utilisé. 
-Dans le visible (400-750nm), la coloration des feuilles est due à la teneur en chlorophylles, caroténoïdes et anthocyanes. Les chlorophylles (de type a et b) captent la lumière dans des longueurs d’ondes correspondant au bleu et au rouge.
-Les caroténoïdes captent la lumière exclusivement dans le bleu et les anthocyanes la captent exclusivement dans le vert. Vers la fin du domaine visible (700nm) il n'y a plus de captage de lumière aussi important et la lumière est quasiment entièrement réfléchie dans cette zone appelée "red edge".
+L'objectif de l’utilisation de la spectroscopie est la discrimination des arbres sains et malades de façon rapide et clairement identifiable en passant l’outil de détection sur la parcelle. La détection de la maladie sur les plantes repose sur la capacité des feuilles à absorber, réfléchir ou transmettre la lumière dans différentes longueurs d'onde mesurées en nanomètre (nm). Ces caractéristiques sont liées à la composition biochimique des feuilles. Les variations de mesure de spectre peuvent donc être expliquées dans les différents domaines du spectre par la teneur en pigment des feuilles dans le visible (400-750 nm), par la structure cellulaire avec l'essentiel des vaisseaux dont le phloème dans le proche infrarouge (750-1250 nm) et par la teneur en eau dans le "Short-wave infrared" ou SWIR (1250-2500 nm) comme indiqué sur la (figure \@ref(fig:7)) [@comar_etude_2013]. Les bandes spectrales du visible (bleu, vert, rouge, "red-edge") sont les plus utilisées dans la détection de maladie des feuilles [@mishra_spectral_2007]. La qualité des résultats dépend de la résolution du capteur utilisé. 
+Dans le visible (400-750 nm), la coloration des feuilles est due à la teneur en chlorophylles, caroténoïdes et anthocyanes. Les chlorophylles (de type a et b) captent la lumière dans des longueurs d’ondes correspondant au bleu et au rouge.
+Les caroténoïdes captent la lumière exclusivement dans le bleu et les anthocyanes la captent exclusivement dans le vert. Vers la fin du domaine visible (700 nm) il n'y a plus de captage de lumière aussi important et la lumière est quasiment entièrement réfléchie dans cette zone appelée "red edge".
 Ensuite, la zone du proche infrarouge (750-1250 nm) correspond principalement à la structure cellulaire interne des feuilles qui est aussi peu affectée en cas de maladie. Cette zone est utile pour la discrimination des feuilles entre feuillus et résineux qui ont des structures de tissus différentes. 
 Enfin, dans le SWIR (1250-2500 nm), c'est principalement la teneur en eau des feuilles qui est mesurée. Plus la réflectance est faible, plus la teneur en eau est grande, ce qui est utile pour caractériser un stress hydrique chez la plante [@albetis_de_la_cruz_potentiel_2018].
 
-```{r 7, fig.cap="Schéma de la variation de la réflectance de la végétation", echo=FALSE}
+(ref:2) Schéma de la variation de la réflectance de la végétation [@de_blomac_hyperspectral_2014]
+
+```{r 7, fig.cap="(ref:2)", echo=FALSE}
   knitr::include_graphics("Images/Figure7.png")
 ```
 
-Au cours de cette étude, la détection du statut infecté en HLB des arbres va être réalisés par la méthode de la Spectroscopie Proche Infra-Rouge (SPIR) à main qui est catégorisée comme étant de la proxidétection [@albetis_de_la_cruz_potentiel_2018].
+Au cours de cette étude, la détection du statut infecté en HLB des arbres va être réalisé par la méthode de la Spectroscopie Proche Infra-Rouge (SPIR) à main qui est catégorisée comme étant de la proxidétection [@albetis_de_la_cruz_potentiel_2018].
 Dans le cas de la proxidétection, l’acquisition des données se fait par contact direct ou à quelques centimètres de l’objet cible à l’échelle de la feuille ou de la plante (figure \@ref(fig:8)).
 
-```{r 8, fig.cap="Schéma d’application des capteurs optiques", echo=FALSE}
+```{r 8, fig.cap="Schéma d’application des capteurs optiques (Source personnelle)", echo=FALSE}
   knitr::include_graphics("Images/Figure8.png")
 ```
 
@@ -76,8 +78,8 @@ Pour chaque mesure, le spectre de réflectance correspond à une moyenne de 50 m
   knitr::include_graphics("Images/Figure9.jpg")
 ```
 
-Sur chaque arbre 10 feuilles sont prélevées de manière aléatoire autour de l'arbre. Le nombre de 10 feuilles à échantillonner provient d'un compromis entre le temps d'analyse de ces feuilles et de la précision des résultats recherchés. Ce compromis n'aurait pas pu être possible sans les travaux de Nathan Créquy qui avait prélevé trois lots de 10 feuilles sur 14 arbres  échantillonnés et sur lesquelles des tests sur la baisse de précision ont pu être effectués avant d'aboutir au nombre idéal de feuilles à prélever [@crequy_prise_2020].Sur chacune des 10 feuilles prélevées par arbre, six mesures de réflectance sont réalisées afin d'avoir des spectres de réflectance issus des différentes zones de la feuille. Ce nombre de mesures optimal fut calculé en amont via les données issues de l'étude de Nathan Créquy qui avait 10 mesures SPIR par feuille et dont les paramètres de précision furent comparés au moyen de tests statistiques pour chaque mesure effectuée par feuille [@crequy_prise_2020].En fonction des longueurs d’onde étudiées, les capteurs utilisés sont différents et regroupés en deux catégories, les capteurs multispectraux et hyperspectraux. Les capteurs multispectraux permettent d’enregistrer des bandes spectrales qui ne sont pas contiguës et qui peuvent être ciblées, par exemple : le proche infrarouge, le bleu, le rouge et le vert. A l’inverse, les capteurs hyperspectraux enregistrent plus ou moins toutes les bandes spectrales (en fonction de la résolution de l’appareil) de façon contiguë dans un intervalle de longueur d’onde compris entre 350 et 2500 nm [@bertaux_mise_2015]. Au cours de cette étude, seul le capteur hyperspectral sera utilisé sur la partie SPIR avec six mesures SPIR par feuille sur les 10 feuilles prélevées par arbres.
-Le jeu de données (annexe 1) est donc composé en détail du :
+Sur chaque arbre 10 feuilles sont prélevées de manière aléatoire autour de l'arbre. Le nombre de 10 feuilles à échantillonner provient d'un compromis entre le temps d'analyse de ces feuilles et de la précision des résultats recherchés. Ce compromis n'aurait pas pu être possible sans les travaux d'un précédent stagiaire, Nathan Créquy qui avait prélevé trois lots de 10 feuilles sur 14 arbres  échantillonnés et sur lesquelles des tests sur la baisse de précision ont pu être effectués avant d'aboutir au nombre idéal de feuilles à prélever [@crequy_prise_2020].Sur chacune des 10 feuilles prélevées par arbre, six mesures de réflectance sont réalisées afin d'avoir des spectres de réflectance issus des différentes zones de la feuille. Ce nombre de mesures optimal a été calculé en amont via les données issues de l'étude de Nathan Créquy qui avait 10 mesures SPIR par feuille et dont les paramètres de précision furent comparés au moyen de tests statistiques pour chaque mesure effectuée par feuille [@crequy_prise_2020].En fonction des longueurs d’onde étudiées, les capteurs utilisés sont différents et regroupés en deux catégories, les capteurs multispectraux et hyperspectraux. Les capteurs multispectraux permettent d’enregistrer des bandes spectrales qui ne sont pas contiguës et qui peuvent être ciblées, par exemple : le proche infrarouge, le bleu, le rouge et le vert. A l’inverse, les capteurs hyperspectraux enregistrent plus ou moins toutes les bandes spectrales (en fonction de la résolution de l’appareil) de façon contiguë dans un intervalle de longueur d’onde compris entre 350 et 2500 nm [@bertaux_mise_2015]. Au cours de cette étude, seul le capteur hyperspectral sera utilisé sur la partie SPIR avec six mesures SPIR par feuille sur les 10 feuilles prélevées par arbres.
+Le jeu de données (annexe 1) est donc composé des 140 arbres échantillonnés soit 1400 feuilles échantillonnées et analysées en SPIR. Cependant, le nombre réel de données comprenant les 6 répétitions SPIR par feuilles échantillonnées est de 8400.
 ```{r}
 
 load("SPIR_Ho.Rdata")
@@ -94,21 +96,6 @@ rm (SPIR_Ho,SPIR_Po,SPIR_Ba,SPIR_Go,data_long_Ho,data_long_Po,data_long_Ba,data_
 
 
 ```
-- nombre d'arbres échantillonnés
-```{r}
-length(levels(data_SPIR_Ed$code_ech_arbre))
-```
-
-- nombre de feuilles échantillonnées et analysées en SPIR
-```{r}
-length(levels(data_SPIR_Ed$code_ech_feuille))
-```
-
-- nombre réel de données comprenant les 6 répétitions SPIR par feuilles échantillonnées
-```{r}
-length(levels(data_SPIR_Ed$code_rep_feuille))
-```
-
 \vfill
 \newpage
 ## Traitement des données par analyses statistiques et apprentissage supervisé
@@ -119,9 +106,9 @@ Les données utilisées pour les analyses sont les valeurs de réflectance issue
 
 Dans un premier temps, l'objectif va être de caractériser les sources de variations des spectres de réflectance, et en particulier, l’influence des parcelles et des variétés sur ces derniers. Ainsi pour chaque longueur d’onde, une décomposition de la variance est mise en œuvre via une ANOVA à un facteur où la variable expliquée est la réflectance observée pour cette longueur d’onde et la variable explicative est la variété ou la parcelle. Cette analyse produit pour chaque longueur d’onde une valeur du F de Fisher correspondant au rapport entre la variance intermodalités (entre parcelles ou entre variétés) et la variance résiduelle (au sein des parcelles ou des variétés). Plus le F de  Fisher est élevé, plus la variable testée (parcelle ou variété) affecte la réflectance.
 
-Une fois démontrée l’influence ou la non-influence de ces variables de nuisance, il est possible d’envisager une prédiction sur le statut HLB des arbres à partir des spectres de réflectance. Pour ce faire, trois types de méthodes de classification par apprentissage supervisé sont mis en œuvre : les forêts aléatoires (RF pour « Random Forest» ), la machine à vecteurs de support (SVM pour « Support Vector Machine ») et la régression par les moindres carrés partiels ( PLS pour « Partial Least Square »).
+Une fois démontrée l’influence ou la non-influence de ces variables de nuisance, il est possible d’envisager une prédiction sur le statut HLB des arbres à partir des spectres de réflectance. Pour ce faire, trois types de méthodes de classification par apprentissage supervisé ont été mises en œuvre : les forêts aléatoires (RF pour « Random Forest» ), la machine à vecteurs de support (SVM pour « Support Vector Machine ») et la régression par les moindres carrés partiels ( PLS pour « Partial Least Square »).
 
-Un algorithme d’apprentissage supervisé se compose à la fois de données d’entrée “training set” (75% de la base d’apprentissage) et de données cibles “test set” (25% de la base d’apprentissage). Les données d’entrée comprennent des spectres de réflectances associés à un statut HLB. Elles permettent à l’algorithme de « s’entrainer » à reconnaître le statut HLB des arbres à partir des spectres de réflectance. Les données cibles (test) sont composées de spectres pour lesquels le statut HLB est connu mais ne peut être utilisé par l’algorithme car ces données sont utilisées pour la vérification et pour éviter la redondance d'utilisation d’une donnée dans l’apprentissage. Elles permettent de mesurer la performance de l’algorithme. Après s’être assuré de la bonne performance de l’algorithme, on peut l’utiliser pour prédire le statut HLB d’arbres dont on ne dispose que du spectre de réflectance.
+Un algorithme d’apprentissage supervisé se compose à la fois de données d’entrée “training set” (75% de la base d’apprentissage) et de données cibles “test set” (25% de la base d’apprentissage). Les données d’entrée comprennent des spectres de réflectances associés à un statut HLB. Elles permettent à l’algorithme de « s’entrainer » à reconnaître le statut HLB des arbres à partir des spectres de réflectance. Les données cibles sont composées de spectres pour lesquels le statut HLB est connu mais ne peut être utilisé par l’algorithme car ces données sont utilisées pour la vérification et pour éviter la redondance d'utilisation d’une donnée dans l’apprentissage. Elles permettent de mesurer la performance de l’algorithme. Après s’être assuré de la bonne performance de l’algorithme, on peut l’utiliser pour prédire le statut HLB d’arbres dont on ne dispose que du spectre de réflectance.
 
 \vfill
 \newpage
@@ -176,11 +163,7 @@ Cette méthode consiste à rechercher dans un premier temps des composantes h, e
   knitr::include_graphics("Images/Figure15.png")
 ```
 
-
-Par conséquent, les coefficients de régression (les points bleus) sont positifs, nuls ou négatifs selon
-que les vecteurs du plan représentant les variables X et Y forment un angle aigu, droit ou obtus.
-
-L’apprentissage supervisé va permettre de déterminer les équations de régression PLS nécessaire à prédire les jeux de données à tester.
+L’apprentissage supervisé va permettre de déterminer les équations de régression PLS nécessaires à prédire les jeux de données à tester.
 
 \vfill
 \newpage
@@ -205,19 +188,19 @@ kableExtra::kable_styling(bootstrap_options = "striped", full_width = FALSE)
 
 De cette matrice, plusieurs paramètres de performance sont calculés dont :
 
-- La qualité de la prédiction (Accuracy)  = VP + VN / VP + VN + FN + FP   met en évidence les erreurs de la prédiction qu’elles soient de type 1 ou de Type 2
+- La qualité de la prédiction ("Accuracy")  = VP + VN / VP + VN + FN + FP   met en évidence les erreurs de la prédiction qu’elles soient de type 1 ou de Type 2
 
-- La précision (Precision) = VP / VP + VP met en évidence les erreurs de type 1
+- La précision ("Precision") = VP / VP + VP met en évidence les erreurs de type 1
 
 L'erreur de type 1 est problématique dans le cadre de la maladie, car elle implique l'arrachage d'un arbre sain alors prédit comme étant positif au HLB
 
-- La sensibilité (Sensitivity) = VP / VP + FN met en évidence les erreurs de type 2
+- La sensibilité ("Sensitivity") = VP / VP + FN met en évidence les erreurs de type 2
 
 L'erreur de type 2 impacte quant à elle la détection de la maladie, l'arbre est prédit comme étant négatif à la maladie alors qu'il est en réalité malade.
 
 Ces paramètres permettent de rendre compte de l'efficacité de la prédiction et de pouvoir choisir la meilleure méthode de prédiction.
 
-Ces méthodes ont été choisies à partir de la bibliographie où la qualité de la prédiction (Accuracy) est par exemple de 85% pour SVM dans l'article de Sindhuja Sankaran [@sankaran_huanglongbing_2013] et  96.4% pour PLS dans l'article de Xiaoling Deng [@deng_detection_2020].
+Ces méthodes ont été choisies à partir de la bibliographie où la qualité de la prédiction est par exemple de 85% pour SVM dans l'article de Sindhuja Sankaran [@sankaran_huanglongbing_2013] et  96.4% pour PLS dans l'article de Xiaoling Deng [@deng_detection_2020].
 
 ## Amélioration du protocole de terrain
 

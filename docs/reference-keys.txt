@@ -1,4 +1,4 @@
-fig:1
+fig:f1
 fig:2
 fig:3
 fig:4
@@ -37,7 +37,6 @@ matériel-et-méthodes
 identification-de-la-maladie
 choix-des-arbres
 spectroscopie-à-main
-traitement-des-données-par-analyses-statistiques-et-apprentissage-supervisé
 forêts-aléatoires-rf
 machine-à-vecteurs-de-support-svm
 régression-par-les-moindres-carrés-partiels-pls
