@@ -1,18 +1,6 @@
 
 # Annexe 
 
-Pour l'utilisation des différents packages :
-
-- Pour la facilité d'installation et le chargement de plusieurs paquets : tidyverse [@tidyverse]
-- Pour l'échantillonnage aléatoire : catools [@caTools]
-- Pour la réalisation des graphiques : ggplot2 [@ggplot2]
-- Pour la réalisation de l'arbre de décision : ggparty [@ggparty]
-- Pour la manipulation du jeu de données :tidyr [@tidyr]
-- Pour l'algorithme de calculs parallèles : snowfall [@snowfall]
-
-
-
-
 ```{r, echo = FALSE, eval=FALSE}
 
 # Fonction pour citer les packages de R

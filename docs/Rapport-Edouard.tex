@@ -200,7 +200,7 @@
 \usepackage{hyperref}
 \hypersetup{
   pdftitle={Amélioration de la surveillance épidémiologique du « greening » des agrumes infectés par le Huanglongbing à La Réunion par Spectroscopie Proche Infra-Rouge},
-  pdfkeywords={Epidemiology, Machin learning, HLB = Huanglongbing, Partial Least Squares regression (PLS), Random Forests (RF), Remote sensing, Spectroscopy, Support Vector Machine (SVM)},
+  pdfkeywords={Epidemiology, Machine learning, HLB = Huanglongbing, Partial Least Squares regression (PLS), Random Forests (RF), Remote sensing, Spectroscopy, Support Vector Machine (SVM)},
   colorlinks=true,
   linkcolor=Maroon,
   citecolor=Blue,
@@ -222,7 +222,7 @@
 \author{true \and true \and true \and true \and true \and true \and true}
 
 
-\date{2021-06-22}
+\date{2021-06-29}
 
 
 % Main title page with filigrane
@@ -295,17 +295,16 @@ Le \textbf{Huanglongbing (HLB)} est une maladie bactérienne causant le dépéri
 \selectlanguage{french}
 \item[Mots clés :]
 Apprentissage supervisé, Epidémiologie, Forêts Aléatoires (RF), HLB = Huanglongbing, Machine à Vecteurs de Support (SVM), Régression par les Moindres Carrés Partiels (PLS), Spectroscopie, Télédétection.
-~\\
-\vfill
-\newpage
+
 \selectlanguage{english}
 \item[Abstract:]
 \textbf{Huanglongbing (HLB)} is a bacterial disease causing dieback in citrus fruits. There has been a resurgence of this disease on Reunion Island since 2012, which threatens citrus orchards. The conventional detection techniques for disease surveillance by PCR are expensive, time consuming and cannot be carried out on a large scale. This is where the technology of \textbf{spectral imaging} analysis comes in. This technology is based on the analysis of the spectral signature that a medium emits in response to light exposure. This method is non-destructive, in addition to being relatively inexpensive. The analyzes made it possible to highlight a fairly weak influence of the plots and varieties on the wavelengths where HLB is detected. This makes the effect of HLB detectable without noise and therefore usable for diagnosis. Added to this is a processing of spectral imaging data by \textbf{machine learning} in order to predict the status of trees vis-à-vis the disease within citrus plots. This model is promising with a prediction quality of 92.6\% for the Partial Least Squares (PLS) method on a training basis of 8400 reflectance spectra.
 
 \selectlanguage{english}
 \item[Keywords:]
-Epidemiology, Machin learning, HLB = Huanglongbing, Partial Least Squares regression (PLS), Random Forests (RF), Remote sensing, Spectroscopy, Support Vector Machine (SVM).
+Epidemiology, Machine learning, HLB = Huanglongbing, Partial Least Squares regression (PLS), Random Forests (RF), Remote sensing, Spectroscopy, Support Vector Machine (SVM).
 
+\cleardoublepage
 \end{description}
 
 
@@ -335,33 +334,35 @@ Epidemiology, Machin learning, HLB = Huanglongbing, Partial Least Squares regres
 \chapter*{Remerciements}\label{remerciements}}
 \addcontentsline{toc}{chapter}{Remerciements}
 
-Je tiens à remercier toutes les personnes qui ont contribué au bon déroulement de ce stage :
+\begin{small}
 
+Je tiens à remercier toutes les personnes qui ont contribué au bon déroulement de ce stage : 
 \begin{itemize}
-\item
-  Virginie RAVIGNE, mon encadrante de stage pour son encadrement, sa gentillesse , ses conseils et l'autonomie qu'elle m'a laissée au cours de ce stage afin que je développe mes propres axes de recherche sur cette thématique ;
-\item
-  Frédéric CHIROLEU, chercheur en biostatistiques, co-auteur de ce rapport, et Thuy-Trang CAO, pour leur grande aide à la réalisation des scripts R et toutes les choses apprises lors de ces rendez-vous ;
-\item
-  Olivier PRUVOST, pour son aide lors des analyse qPCR et son encadrement au laboratoire ;
-\item
-  Karine BOYER, pour m'avoir conseillé et formé aux techniques de laboratoire ;
-\item
-  Ismaël HOUILLON, doctorant, pour ses conseils et ses jeux de mots douteux ;
-\item
-  Elisa PAYET, technicienne à la FDGDON, pour avoir pris le temps de nous communiquer leurs résultats des détections du HLB et les numéros des agriculteurs ;
-\item
-  Raphaël SOLESSE, ainsi que Emmanuel TILLARD, pour leurs conseils, sur le pilotage de drones et la formation à l'utilisation des instruments de mesure de spectrométrie ;
-\item
-  Louis-Axel EDOUARD RAMBAUT, pour son aide sur les scripts R et ses discussions pertinentes ;
-\item
-  Claire MELOT, stagiaire au CIRAD, pour sa bonne humeur et son aide aux analyses de laboratoire tardives ;
-\item
-  Le CIRAD, l'équipe du 3P de Saint-Pierre et en particulier les agents de l'UMR PVBMT (Unité Mixte de
-  Recherche Peuplements Végétaux et Bioagresseurs en Milieux Tropicaux) ;
-\item
-  Les stagiaires des Kazz pour leur amitié, les mangues et toutes les choses partagées ensemble qui ont rendu ce stage inoubliable !
+\item[——] Virginie RAVIGNE, mon encadrante de stage pour son encadrement, sa gentillesse , ses conseils et l'autonomie qu'elle m'a laissée au cours de ce stage afin que je développe mes propres axes de recherche sur cette thématique ;
+
+\item[——] Frédéric CHIROLEU, chercheur en biostatistiques, co-auteur de ce rapport, et Thuy-Trang CAO, pour leur grande aide à la réalisation des scripts R et toutes les choses apprises lors de ces rendez-vous ;
+
+\item[——] Olivier PRUVOST,  pour son aide lors des analyse qPCR et son encadrement au laboratoire ;
+
+\item[——] Karine BOYER, pour m’avoir conseillé et formé aux techniques de laboratoire ;
+
+\item[——] Ismaël HOUILLON, doctorant, pour ses conseils et ses jeux de mots douteux ;
+
+\item[——] Elisa PAYET, technicienne à la FDGDON, pour avoir pris le temps de nous communiquer leurs résultats des détections du HLB et les numéros des agriculteurs ;
+
+\item[——] Raphaël SOLESSE, ainsi que Emmanuel TILLARD, pour leurs conseils, sur le pilotage de drones et la formation à l’utilisation des instruments de mesure de spectrométrie ;
+
+\item[——] Louis-Axel EDOUARD RAMBAUT, pour son aide sur les scripts R et ses discussions pertinentes ;
+
+\item[——] Claire MELOT, stagiaire au CIRAD, pour sa bonne humeur et son aide aux analyses de laboratoire tardives ;
+
+\item[——] Le CIRAD, l’équipe du 3P de Saint-Pierre et en particulier les agents de l’UMR PVBMT (Unité Mixte de 
+Recherche Peuplements Végétaux et Bioagresseurs en Milieux Tropicaux) ;
+
+\item[——] Les stagiaires des Kazz pour leur amitié, les mangues et toutes les choses partagées ensemble qui ont rendu ce stage inoubliable !
+
 \end{itemize}
+\end{small}
 
 \scriptsize
 
@@ -394,9 +395,7 @@ Depuis 2015, la DAAF (Direction de l'Alimentation, de l'Agriculture et de la For
 \section{Etat des connaissances sur la maladie}\label{etat-des-connaissances-sur-la-maladie}}
 
 Le HLB est une maladie causée par la bactérie \emph{Candidatus} Liberibacter associée à trois sous-espèces (americanus, africanus et asiaticus) \autocite{wang_citrus_2019}. C'est la sous-espèce \emph{Candidatus} Liberibacter asiaticus que l'on retrouve sur l'île de la Réunion \autocite{aubert_greening_1989}. Cette bactérie de type Gram- (non cultivable) se développe dans les tissus riches en glucides du phloème. Cela va entraîner des dépôts de callose dans le phloème et obstruer les vaisseaux, affaiblissant, à terme, l'arbre et entraînant sa mort \autocite{bove_huanglongbing_2006}. Le HLB est spécifique des agrumes et essentiellement transmis par les psylles qui sont des insectes de l'ordre des hémiptères. Deux espèces de psylles sont connues pour véhiculer la bactérie responsable de la maladie : \emph{Diaphorina citri} et \emph{Trioza erytreae}. Seule la première a jusqu'ici été identifiée dans l'épidémie qui sévit actuellement à la Réunion. Ces deux espèces de psylles réalisent une partie de leurs cycles de développement sur les arbres de la famille des Rutacées dont font partie les agrumes cultivés. La bactérie est transmise d'un arbre à un autre via la salive de l'insecte en se nourrissant de la sève élaborée circulant dans le phloème \autocite{narouei-khandan_global_2016}. Ce mécanisme de transmission de la maladie peut s'étendre sur une distance de 25 à 50 m autour de l'arbre infecté. Cette distance peut atteindre les 1,5 km en cas de vent, ce qui favorise grandement la dispersion de la maladie \autocite{bove_huanglongbing_2006}. Par ailleurs, en plus de la transmission par les psylles, le HLB peut aussi être véhiculé par les greffes et les plantes en pépinière déjà contaminées et vendues aux agriculteurs et particuliers, ce qui fait de la gestion des pépinières un élément clé de la lutte contre la propagation de la maladie.
-Le HLB affecte tous les agrumes, mais à des degrés de sensibilités différentes. La maladie provoque un dépérissement des arbres avec des symptômes visibles ressemblant à un stress hydrique ou une carence comme le jaunissement asymétrique des feuilles et des flushs (jeunes feuilles) (figure \ref{fig:f1}) \autocite{bove_huanglongbing_2006}. Ces symptômes traduisent un dépérissement de l'arbre avec des fruits petits et de forme asymétrique \autocite{gottwald_preliminary_1989}.
-
-
+Le HLB affecte tous les agrumes, mais à des degrés de sensibilités différentes. La maladie provoque un dépérissement des arbres avec des symptômes visibles ressemblant à un stress hydrique ou une carence comme le jaunissement asymétrique des feuilles et des flushs (jeunes feuilles, figure \ref{fig:1}\autocite{guilloteau_utilisation_2018}) \autocite{bove_huanglongbing_2006}. Ces symptômes traduisent un dépérissement de l'arbre avec des fruits petits et de forme asymétrique \autocite{gottwald_preliminary_1989}.
 
 \scriptsize
 
@@ -406,7 +405,7 @@ Le HLB affecte tous les agrumes, mais à des degrés de sensibilités différent
 
 }
 
-\caption{Symptôme du HLB sur flush, feuille, fruit et sur l'arbre \autocite{guilloteau_utilisation_2018}}\label{fig:f1}
+\caption{Symptôme du HLB sur flush, feuille, fruit et sur l'arbre}\label{fig:1}
 \end{SCfigure}
 
 \normalsize
@@ -450,7 +449,7 @@ Pour résoudre cette problématique, je traiterai les objectifs spécifiques sui
 \section{Identification de la maladie}\label{identification-de-la-maladie}}
 
 Pour la mise au point de la méthode, les feuilles analysées doivent avoir un statut connu vis-à-vis de la maladie. Pour ce faire, la méthode de détection par PCR (Polymerase Chain Reaction) est pour l'instant la plus utilisée pour surveiller l'évolution de la maladie. Cette méthode permet de détecter l'ADN de la bactérie à partir d'échantillons de feuilles \autocite{gottwald_current_2010}. L'inconvénient de cette méthode est qu'elle ne permet pas le traitement d'un volume important d'échantillons et ne donne pas une réponse immédiate sur le prélèvement effectué sur le terrain. La PCR est une technique reconnue de multiplication de l'ADN d'un échantillon. Le but est de dupliquer les échantillons d'ADN prélevés à chaque cycle de réaction via l'ADN polymérase. Ainsi, avec un seul brin d'ADN de départ, des millions de répliques sont produites à chaque cycle de réplication. La qPCR repose sur le même principe avec des améliorations de la technique de départ. Le principe est toujours de multiplier l'ADN de l'échantillon, mais avec cette fois une quantification du nombre de cycles PCR nécessaires à la détection de la maladie. Le nombre de cycles de réplication ou ``Cycle Threshold'' (CT) correspond au nombre de cycles PCR à partir duquel le produit de la PCR est détectable. Ainsi, plus le CT est faible plus il y a d'ADN présent initialement et inversement. Les échantillons sains et malades peuvent donc être distingués selon leur valeur de CT selon un seuil fixé.
-La méthode officielle actuelle basée sur la PCR classique est actuellement en cours de remplacement par une méthode basée sur la qPCR et qui utilisera le seuil de 36 cycles de détection maximum pour identifier un échantillon comme étant porteur de la maladie. C'est ce seuil de 36 cycles ou CT36 qui sera utilisé dans cette étude pour statuer de l'état malade ou sain des arbres.
+La méthode officielle actuelle basée sur la PCR classique est actuellement en cours de remplacement par une méthode basée sur la qPCR et qui utilisera le seuil de 36 cycles de détection maximum pour identifier un échantillon comme étant porteur de la maladie. C'est ce seuil de 36 cycles ou CT36 qui sera utilisé dans cette étude pour statuer de l'état malade ou sain des arbres. Chaque échantillon est testé 3 fois (on parle de triplicats techniques) et chaque plaque de 96 puits de qPCR contient trois témoins négatifs et deux témoins positifs. Lorsque les témoins donnent des résultats inattendus ou que les triplicats ne sont pas cohérents, les échantillons sont repassés.
 
 \hypertarget{choix-des-arbres}{%
 \section{Choix des arbres}\label{choix-des-arbres}}
@@ -490,7 +489,7 @@ Dans la parcelle de Mr Hoarau l'échantillonnage s'est basé sur une première c
 
 \normalsize
 
-A l'inverse dans la parcelle de Mr Pothin, l'échantillonnage des arbres s'est basé sur les dires d'expert de l'agriculteur et trois arbres sains pour 39 arbres infectés par le HLB ont été trouvé (figure \ref{fig:4}).
+A l'inverse dans la parcelle de Mr Pothin, l'échantillonnage des arbres s'est basé sur les dires d'expert de l'agriculteur et trois arbres sains pour 39 arbres infectés par le HLB ont été trouvés (figure \ref{fig:4}).
 
 \scriptsize
 
@@ -505,7 +504,7 @@ A l'inverse dans la parcelle de Mr Pothin, l'échantillonnage des arbres s'est b
 
 \normalsize
 
-La parcelle de Mr Barret située à St Pierre et constituée uniquement de citronniers a été échantillonnée de manière exhaustive. Cette parcelle fut la plus analysée en laboratoire. Les 156 arbres de la parcelle ont d'abord été regroupés par pools de 5 puis certains arbres ont été analysés individuellement. Au final 10 citronniers sains et quatre infectés par le HLB ont été trouvés (figure \ref{fig:5}).
+La parcelle de Mr Barret située à Saint Pierre et constituée uniquement de citronniers a été échantillonnée de manière exhaustive. Cette parcelle fut la plus analysée en laboratoire. Les 156 arbres de la parcelle ont d'abord été regroupés par pools de 5 puis certains arbres ont été analysés individuellement. Au final 10 citronniers sains et quatre infectés par le HLB ont été trouvés (figure \ref{fig:5}).
 
 \scriptsize
 
@@ -515,13 +514,13 @@ La parcelle de Mr Barret située à St Pierre et constituée uniquement de citro
 
 }
 
-\caption{Échantillonnage réalisés dans la parcelle de Mr Barret en 2021}\label{fig:5}
+\caption{Échantillonnage réalisé dans la parcelle de Mr Barret en 2021}\label{fig:5}
 \end{SCfigure}
 
 \normalsize
 \vfill
 \newpage
-A l'issue de cet échantillonnage, un grand nombre d'arbres infectés chez Mr Pothin et Barret ont été trouvés, il y avait donc un déficit d'arbres sains. La parcelle de Mr Gonthier située au Tampon a donc été trouvée pour pallier à ce déficit. Cette parcelle compte une répartition égale entre les trois variétés et dont les arbres ont été testés négatifs aux HLB en novembre 2020 par la FDGDON. Pour chaque variété 14 arbres ont été échantillonnés (figure \ref{fig:6}) afin de rééquilibrer l'ensemble du jeu de données. Cet échantillonnage n'est pas idéal, dans la mesure où les facteurs ``agriculteur'' et ``variété'' ne sont pas croisés, et une attention particulière sur ce point devra être portée dans l'interprétation des résultats.
+A l'issue de cet échantillonnage, un grand nombre d'arbres infectés chez Mr Pothin et Barret ont été trouvés, il y avait donc un déficit d'arbres sains. La parcelle de Mr Gonthier située au Tampon a donc été trouvée pour pallier à ce déficit. Cette parcelle compte une répartition égale entre les trois variétés et dont des lots d'arbres ont été testés négatifs aux HLB en novembre 2020 lors de la surveillance officielle. Pour chaque variété 14 arbres ont été échantillonnés (figure \ref{fig:6}) afin de rééquilibrer l'ensemble du jeu de données. Par manque de temps, ces arbres n'ont pas été re-testés en qPCR et ont été considérés comme négatifs. Cet échantillonnage n'est pas idéal, dans la mesure où les facteurs ``agriculteur'' et ``variété'' ne sont pas croisés, et une attention particulière sur ce point devra être portée dans l'interprétation des résultats.
 
 \scriptsize
 
@@ -531,12 +530,12 @@ A l'issue de cet échantillonnage, un grand nombre d'arbres infectés chez Mr Po
 
 }
 
-\caption{Échantillonnage réalisés dans la parcelle de Mr Gonthier en 2021}\label{fig:6}
+\caption{Échantillonnage réalisé dans la parcelle de Mr Gonthier en 2021}\label{fig:6}
 \end{SCfigure}
 
 \normalsize
 
-Au final, au cours de cette étude 140 arbres ont été échantillonnés et numérotés de A1 à T7. Le choix de faire des groupes de sept arbres auxquels une lettre est affiliée vient du fait que les plaques nécessaires à l'analyse ont 28 emplacements (en tenant compte des réplicats) pouvant ainsi analyser quatre groupes de sept arbres.
+Au final, au cours de cette étude 140 arbres ont été échantillonnés et numérotés de A1 à T7.
 
 \vfill
 \newpage
@@ -544,13 +543,11 @@ Au final, au cours de cette étude 140 arbres ont été échantillonnés et num�
 \hypertarget{spectroscopie-uxe0-main}{%
 \section{Spectroscopie à main}\label{spectroscopie-uxe0-main}}
 
-L'objectif de l'utilisation de la spectroscopie est la discrimination des arbres sains et malades de façon rapide et clairement identifiable en passant l'outil de détection sur la parcelle. La détection de la maladie sur les plantes repose sur la capacité des feuilles à absorber, réfléchir ou transmettre la lumière dans différentes longueurs d'onde mesurées en nanomètre (nm). Ces caractéristiques sont liées à la composition biochimique des feuilles. Les variations de mesure de spectre peuvent donc être expliquées dans les différents domaines du spectre par la teneur en pigment des feuilles dans le visible (400-750 nm), par la structure cellulaire avec l'essentiel des vaisseaux dont le phloème dans le proche infrarouge (750-1250 nm) et par la teneur en eau dans le ``Short-wave infrared'' ou SWIR (1250-2500 nm) comme indiqué sur la (figure \ref{7}) \autocite{comar_etude_2013}. Les bandes spectrales du visible (bleu, vert, rouge, ``red-edge'') sont les plus utilisées dans la détection de maladie des feuilles \autocite{mishra_spectral_2007}. La qualité des résultats dépend de la résolution du capteur utilisé.
+L'objectif de l'utilisation de la spectroscopie est la discrimination des arbres sains et malades de façon rapide et clairement identifiable en passant l'outil de détection sur la parcelle. La détection de la maladie sur les plantes repose sur la capacité des feuilles à absorber, réfléchir ou transmettre la lumière dans différentes longueurs d'onde mesurées en nanomètre (nm). Ces caractéristiques sont liées à la composition biochimique des feuilles. Les variations de mesure de spectre peuvent donc être expliquées dans les différents domaines du spectre par la teneur en pigment des feuilles dans le visible (400-750 nm), par la structure cellulaire avec l'essentiel des vaisseaux dont le phloème dans le proche infrarouge (750-1250 nm) et par la teneur en eau dans le ``Short-wave infrared'' ou SWIR (1250-2500 nm) comme indiqué sur la (figure \ref{fig:7}\autocite{de_blomac_hyperspectral_2014}) \autocite{comar_etude_2013}. Les bandes spectrales du visible (bleu, vert, rouge, ``red-edge'') sont les plus utilisées dans la détection de maladie des feuilles \autocite{mishra_spectral_2007}. La qualité des résultats dépend de la résolution du capteur utilisé.
 Dans le visible (400-750 nm), la coloration des feuilles est due à la teneur en chlorophylles, caroténoïdes et anthocyanes. Les chlorophylles (de type a et b) captent la lumière dans des longueurs d'ondes correspondant au bleu et au rouge.
 Les caroténoïdes captent la lumière exclusivement dans le bleu et les anthocyanes la captent exclusivement dans le vert. Vers la fin du domaine visible (700 nm) il n'y a plus de captage de lumière aussi important et la lumière est quasiment entièrement réfléchie dans cette zone appelée ``red edge''.
 Ensuite, la zone du proche infrarouge (750-1250 nm) correspond principalement à la structure cellulaire interne des feuilles qui est aussi peu affectée en cas de maladie. Cette zone est utile pour la discrimination des feuilles entre feuillus et résineux qui ont des structures de tissus différentes.
 Enfin, dans le SWIR (1250-2500 nm), c'est principalement la teneur en eau des feuilles qui est mesurée. Plus la réflectance est faible, plus la teneur en eau est grande, ce qui est utile pour caractériser un stress hydrique chez la plante \autocite{albetis_de_la_cruz_potentiel_2018}.
-
-
 
 \scriptsize
 
@@ -560,12 +557,12 @@ Enfin, dans le SWIR (1250-2500 nm), c'est principalement la teneur en eau des fe
 
 }
 
-\caption{Schéma de la variation de la réflectance de la végétation \autocite{de_blomac_hyperspectral_2014}}\label{fig:7}
+\caption{Schéma de la variation de la réflectance de la végétation}\label{fig:7}
 \end{SCfigure}
 
 \normalsize
 
-Au cours de cette étude, la détection du statut infecté en HLB des arbres va être réalisé par la méthode de la Spectroscopie Proche Infra-Rouge (SPIR) à main qui est catégorisée comme étant de la proxidétection \autocite{albetis_de_la_cruz_potentiel_2018}.
+Au cours de cette étude, la détection du statut infecté en HLB des arbres va être réalisé par la méthode de la Spectroscopie Proche Infra Rouge (SPIR) à main qui est catégorisée comme étant de la proxidétection \autocite{albetis_de_la_cruz_potentiel_2018}.
 Dans le cas de la proxidétection, l'acquisition des données se fait par contact direct ou à quelques centimètres de l'objet cible à l'échelle de la feuille ou de la plante (figure \ref{fig:8}).
 
 \scriptsize
@@ -593,26 +590,34 @@ Pour chaque mesure, le spectre de réflectance correspond à une moyenne de 50 m
 
 }
 
-\caption{Photographie d’un spectromètre proche infra-rouge à main}\label{fig:9}
+\caption{Photographie d’un spectromètre proche infrarouge à main}\label{fig:9}
 \end{SCfigure}
 
 \normalsize
-
-Sur chaque arbre 10 feuilles sont prélevées de manière aléatoire autour de l'arbre. Le nombre de 10 feuilles à échantillonner provient d'un compromis entre le temps d'analyse de ces feuilles et de la précision des résultats recherchés. Ce compromis n'aurait pas pu être possible sans les travaux d'un précédent stagiaire, Nathan Créquy qui avait prélevé trois lots de 10 feuilles sur 14 arbres échantillonnés et sur lesquelles des tests sur la baisse de précision ont pu être effectués avant d'aboutir au nombre idéal de feuilles à prélever \autocite{crequy_prise_2020}.Sur chacune des 10 feuilles prélevées par arbre, six mesures de réflectance sont réalisées afin d'avoir des spectres de réflectance issus des différentes zones de la feuille. Ce nombre de mesures optimal a été calculé en amont via les données issues de l'étude de Nathan Créquy qui avait 10 mesures SPIR par feuille et dont les paramètres de précision furent comparés au moyen de tests statistiques pour chaque mesure effectuée par feuille \autocite{crequy_prise_2020}.En fonction des longueurs d'onde étudiées, les capteurs utilisés sont différents et regroupés en deux catégories, les capteurs multispectraux et hyperspectraux. Les capteurs multispectraux permettent d'enregistrer des bandes spectrales qui ne sont pas contiguës et qui peuvent être ciblées, par exemple : le proche infrarouge, le bleu, le rouge et le vert. A l'inverse, les capteurs hyperspectraux enregistrent plus ou moins toutes les bandes spectrales (en fonction de la résolution de l'appareil) de façon contiguë dans un intervalle de longueur d'onde compris entre 350 et 2500 nm \autocite{bertaux_mise_2015}. Au cours de cette étude, seul le capteur hyperspectral sera utilisé sur la partie SPIR avec six mesures SPIR par feuille sur les 10 feuilles prélevées par arbres.
-Le jeu de données (annexe 1) est donc composé des 140 arbres échantillonnés soit 1400 feuilles échantillonnées et analysées en SPIR. Cependant, le nombre réel de données comprenant les 6 répétitions SPIR par feuilles échantillonnées est de 8400.
 \vfill
 \newpage
-\#\# Traitement des données par analyses statistiques et apprentissage supervisé
+Sur chaque arbre 10 feuilles sont prélevées de manière aléatoire autour de l'arbre. Le nombre de 10 feuilles à échantillonner provient d'un compromis entre le temps d'analyse de ces feuilles et de la précision des résultats recherchés. Ce compromis n'aurait pas pu être possible sans les travaux d'un précédent stagiaire, Nathan Créquy qui avait prélevé trois lots de 10 feuilles sur 14 arbres échantillonnés et sur lesquelles des tests sur la baisse de précision ont pu être effectués avant d'aboutir au nombre idéal de feuilles à prélever \autocite{crequy_prise_2020}.Sur chacune des 10 feuilles prélevées par arbre, six mesures de réflectance sont réalisées afin d'avoir des spectres de réflectance issus des différentes zones de la feuille. Ce nombre de mesures optimal a été calculé en amont via les données issues de l'étude de Nathan Créquy qui avait 10 mesures SPIR par feuille et dont les paramètres de précision furent comparés au moyen de tests statistiques pour chaque mesure effectuée par feuille \autocite{crequy_prise_2020}.En fonction des longueurs d'onde étudiées, les capteurs utilisés sont différents et regroupés en deux catégories, les capteurs multispectraux et hyperspectraux. Les capteurs multispectraux permettent d'enregistrer des bandes spectrales qui ne sont pas contiguës et qui peuvent être ciblées, par exemple : le proche infrarouge, le bleu, le rouge et le vert. A l'inverse, les capteurs hyperspectraux enregistrent plus ou moins toutes les bandes spectrales (en fonction de la résolution de l'appareil) de façon contiguë dans un intervalle de longueur d'onde compris entre 350 et 2500 nm \autocite{bertaux_mise_2015}. Au cours de cette étude, seul le capteur hyperspectral sera utilisé sur la partie SPIR avec six mesures SPIR par feuille sur les 10 feuilles prélevées par arbre.
+Le jeu de données (annexe 1) est donc composé des 140 arbres échantillonnés soit 1400 feuilles échantillonnées et analysées en SPIR. Cependant, le nombre réel de données comprenant les 6 répétitions SPIR par feuilles échantillonnées est de 8400.
 
-Tous les traitements statistiques sont réalisés sous R \autocite{R}
+\scriptsize
+
+\normalsize
+\vfill
+\newpage
+
+\hypertarget{traitement-des-donnuxe9es-par-analyses-statistiques-et-apprentissage-supervisuxe9}{%
+\section{Traitement des données par analyses statistiques et apprentissage supervisé}\label{traitement-des-donnuxe9es-par-analyses-statistiques-et-apprentissage-supervisuxe9}}
+
+Tous les traitements statistiques sont réalisés sous R \autocite{R}.
 
 Les données utilisées pour les analyses sont les valeurs de réflectance issues de la SPIR à main allant de 350 à 2500 nm.
 
 Dans un premier temps, l'objectif va être de caractériser les sources de variations des spectres de réflectance, et en particulier, l'influence des parcelles et des variétés sur ces derniers. Ainsi pour chaque longueur d'onde, une décomposition de la variance est mise en œuvre via une ANOVA à un facteur où la variable expliquée est la réflectance observée pour cette longueur d'onde et la variable explicative est la variété ou la parcelle. Cette analyse produit pour chaque longueur d'onde une valeur du F de Fisher correspondant au rapport entre la variance intermodalités (entre parcelles ou entre variétés) et la variance résiduelle (au sein des parcelles ou des variétés). Plus le F de Fisher est élevé, plus la variable testée (parcelle ou variété) affecte la réflectance.
+Dans un second temps, une ANOVA à trois facteurs (statut HLB, variété, parcelle) est réalisée afin de montrer l'influence du statut HLB en interaction avec la variété et la parcelle sur le spectre de réflectance global.
 
-Une fois démontrée l'influence ou la non-influence de ces variables de nuisance, il est possible d'envisager une prédiction sur le statut HLB des arbres à partir des spectres de réflectance. Pour ce faire, trois types de méthodes de classification par apprentissage supervisé ont été mises en œuvre : les forêts aléatoires (RF pour « Random Forest» ), la machine à vecteurs de support (SVM pour « Support Vector Machine ») et la régression par les moindres carrés partiels ( PLS pour « Partial Least Square »).
+Une fois démontrée l'influence ou la non-influence de ces variables de nuisance et l'effet qu'a le statut HLB sur le spectre de réflectance, il est possible d'envisager une prédiction sur le statut HLB des arbres à partir des valeurs de réflectance. Pour ce faire, trois types de méthodes de classification par apprentissage supervisé ont été mises en œuvre : les forêts aléatoires (RF pour « Random Forest» ), la machine à vecteurs de support (SVM pour « Support Vector Machine ») et la régression par les moindres carrés partiels (PLS pour « Partial Least Square »).
 
-Un algorithme d'apprentissage supervisé se compose à la fois de données d'entrée ``training set'' (75\% de la base d'apprentissage) et de données cibles ``test set'' (25\% de la base d'apprentissage). Les données d'entrée comprennent des spectres de réflectances associés à un statut HLB. Elles permettent à l'algorithme de « s'entrainer » à reconnaître le statut HLB des arbres à partir des spectres de réflectance. Les données cibles sont composées de spectres pour lesquels le statut HLB est connu mais ne peut être utilisé par l'algorithme car ces données sont utilisées pour la vérification et pour éviter la redondance d'utilisation d'une donnée dans l'apprentissage. Elles permettent de mesurer la performance de l'algorithme. Après s'être assuré de la bonne performance de l'algorithme, on peut l'utiliser pour prédire le statut HLB d'arbres dont on ne dispose que du spectre de réflectance.
+Un algorithme d'apprentissage supervisé se compose à la fois de données d'entrée ``training set'' (75\% de la base d'apprentissage) et de données cibles ``test set'' (25\% de la base d'apprentissage)\autocite{caTools}. Les données d'entrée comprennent des spectres de réflectances associés à un statut HLB. Elles permettent à l'algorithme de « s'entrainer » à reconnaître le statut HLB des arbres à partir des spectres de réflectance. Les données cibles sont composées de spectres pour lesquels le statut HLB est connu mais ne peut être utilisé par l'algorithme car ces données sont utilisées pour la vérification et pour éviter la redondance d'utilisation d'une donnée dans l'apprentissage. Elles permettent de mesurer la performance de l'algorithme. Après s'être assuré de la bonne performance de l'algorithme, on peut l'utiliser pour prédire le statut HLB d'arbres dont on ne dispose que du spectre de réflectance \autocite{snowfall}.
 
 \vfill
 \newpage
@@ -620,8 +625,7 @@ Un algorithme d'apprentissage supervisé se compose à la fois de données d'ent
 \hypertarget{foruxeats-aluxe9atoires-rf}{%
 \section{Forêts Aléatoires (RF)}\label{foruxeats-aluxe9atoires-rf}}
 
-Les RF est une technique utilisant un algorithme d'apprentissage supervisé couplé avec un arbre de décision \autocite{randomForest}. Un arbre de décision est une construction de choix souvent binaire qui permet de prendre une décision. Cet algorithme permet de créer une forêt d'arbres de décision qui permet d'améliorer la généralisation (sur un paramètre recherché) de l'ensemble du modèle. La RF combine la simplicité de lecture des arbres de décision ainsi que la robustesse de l'apprentissage supervisé qui améliore la précision de la prédiction \autocite{moutarde_arbres_2017}.
-La première étape de la construction du RF est la création d'un jeu de données pour chaque arbre de décision (figure \ref{fig:11}). Ce jeu de données se compose des lignes des données originelles piochées aléatoirement (la même ligne pouvant être sélectionnée plusieurs fois comme la ligne 2 de l'exemple en rouge). Ce procédé augmente la variété des arbres de décision ce qui rend l'algorithme encore plus robuste \autocite{moutarde_arbres_2017}.
+Les RF est une technique utilisant un algorithme d'apprentissage supervisé couplé avec un arbre de décision \autocite{randomForest} \autocite{ggparty}. Un arbre de décision est une construction de choix souvent binaire qui permet de prendre une décision. Cet algorithme permet de créer une forêt d'arbres de décision qui permet d'améliorer la généralisation (sur un paramètre recherché) de l'ensemble du modèle. La RF combine la simplicité de lecture des arbres de décision ainsi que la robustesse de l'apprentissage supervisé qui améliore la précision de la prédiction \autocite{moutarde_arbres_2017}. La première étape de la construction du RF est la création d'un jeu de données pour chaque arbre de décision (figure \ref{fig:11}\autocite{moutarde_arbres_2017}). Ce jeu de données se compose des lignes des données originelles piochées aléatoirement (la même ligne pouvant être sélectionnée plusieurs fois comme la ligne 2 de l'exemple en rouge). Ce procédé augmente la variété des arbres de décision ce qui rend l'algorithme encore plus robuste \autocite{moutarde_arbres_2017}.
 
 \scriptsize
 
@@ -639,7 +643,7 @@ La première étape de la construction du RF est la création d'un jeu de donné
 \vfill
 \newpage
 
-La deuxième étape va être la création de chaque arbre de décision sur une partie différente (aléatoire et non exclusive) des données et des variables à l'intérieur de leurs jeux de données (figure \ref{fig:12}, rectangles de couleurs). L'intérêt est d'avoir des estimateurs différents dans chaque arbre de décision pour avoir un cheminement différent \autocite{moutarde_arbres_2017}.
+La deuxième étape va être la création de chaque arbre de décision sur une partie différente (aléatoire et non exclusive) des données et des variables à l'intérieur de leurs jeux de données (figure \ref{fig:12}, rectangles de couleurs \autocite{moutarde_arbres_2017}). L'intérêt est d'avoir des estimateurs différents dans chaque arbre de décision pour avoir un cheminement différent \autocite{moutarde_arbres_2017}.
 
 \scriptsize
 
@@ -654,7 +658,7 @@ La deuxième étape va être la création de chaque arbre de décision sur une p
 
 \normalsize
 
-La troisième étape consiste à répéter l'étape 1 et 2 afin de créer autant d'arbre de décision que l'on souhaite dans le but d'obtenir un ensemble (forêt) d'arbres de décision générés aléatoirement (figure \ref{fig:13}) \autocite{moutarde_arbres_2017}.
+La troisième étape consiste à répéter l'étape 1 et 2 afin de créer autant d'arbres de décision que l'on souhaite dans le but d'obtenir un ensemble (forêt) d'arbres de décision générés aléatoirement (figure \ref{fig:13}\autocite{moutarde_arbres_2017}).
 Le résultat de la RF va correspondre à la moyenne des décisions de l'ensemble des arbres pour l'élément recherché.
 
 \scriptsize
@@ -676,7 +680,7 @@ Le résultat de la RF va correspondre à la moyenne des décisions de l'ensemble
 \hypertarget{machine-uxe0-vecteurs-de-support-svm}{%
 \section{Machine à Vecteurs de Support (SVM)}\label{machine-uxe0-vecteurs-de-support-svm}}
 
-La SVM est aussi un algorithme d'apprentissage supervisé qui permet de faire des prédictions sur des variables qualitatives ou quantitatives \autocite{e1071}. L'objectif du SVM va consister à séparer deux classes de données, ici (infecté ; sain) pour pouvoir ensuite établir une généralisation dans la prédiction quand on ne connaîtra pas la nature de l'échantillon (infecté ; sain). Pour séparer ces deux classes, l'idée est de maximiser les distances entre les échantillons avec un hyperplan séparateur (appelé aussi « support vector ») (figure \ref{fig:14}) \autocite{cortes_support-vector_1995}.
+La SVM est aussi un algorithme d'apprentissage supervisé qui permet de faire des prédictions sur des variables qualitatives ou quantitatives \autocite{e1071}. L'objectif du SVM va consister à séparer deux classes de données, ici (infecté ; sain) pour pouvoir ensuite établir une généralisation dans la prédiction quand on ne connaîtra pas la nature de l'échantillon (infecté ; sain). Pour séparer ces deux classes, l'idée est de maximiser les distances entre les échantillons avec un hyperplan séparateur (appelé aussi « support vector ») (figure \ref{fig:14}\autocite{cortes_support-vector_1995}).
 
 \scriptsize
 
@@ -703,7 +707,7 @@ Pour finir la PLS est une méthode statistique permettant de traiter une variabl
 
 L'idée derrière la régression PLS est de créer, à partir d'un tableau avec n observations (les statuts HLB) décrites par X variables explicatives (réflectances pour chaque longueur d'onde), un ensemble de h composantes correspondant aux fonctions de chaque réflectance \autocite{tenehaus_lapproche_1999}.
 
-Cette méthode consiste à rechercher dans un premier temps des composantes h, expliquant au mieux à la fois les variables explicatives X et les variables à expliquer Y. Les équations de régression PLS sont ensuite obtenues en régressant chaque variable Y sur les composantes h, puis en exprimant ces régressions en fonction des variables X d'origine (figure \ref{fig:15}) \autocite{tenehaus_lapproche_1999}.
+Cette méthode consiste à rechercher dans un premier temps des composantes h, expliquant au mieux à la fois les variables explicatives X et les variables à expliquer Y. Les équations de régression PLS sont ensuite obtenues en régressant chaque variable Y sur les composantes h, puis en exprimant ces régressions en fonction des variables X d'origine (figure \ref{fig:15} \autocite{tenehaus_lapproche_1999}).
 
 \scriptsize
 
@@ -829,7 +833,7 @@ Concernant l'influence de la parcelle sur le spectre de réflectance global, cel
 
 \normalsize
 
-En effet, dans le ``Red edge'' l'influence du facteur parcelle est a son maximum à 771 nm (valeur F = 875) et a une influence qui reste assez élevée (autour de F = 625) autour des longueurs d'onde 1500 nm et 2100 nm.
+En effet, dans le ``Red edge'' l'influence du facteur parcelle est à son maximum à 771 nm (valeur F = 875) et a une influence qui reste assez élevée (autour de F = 625) autour des longueurs d'onde 1500 nm et 2100 nm.
 
 \vfill
 \newpage
@@ -918,13 +922,13 @@ Ainsi, il est intéressant de savoir s'il y a une influence de la maladie sur le
 
 }
 
-\caption{Valeur du F de Fisher montrant l’influence du statut seul en interaction avec la variété sur le spectre de réflectance}\label{fig:21}
+\caption{Valeur du F de Fisher montrant l’influence du statut seul en interaction avec la variété et la parcelle sur le spectre de réflectance}\label{fig:21}
 \end{SCfigure}
 
 \normalsize
 \vfill
 \newpage
-Globalement le statut HLB affecte le spectre de réflectance dans trois zones du spectre : dans le début du ``Red edge'' autour de 700 nm, dans le proche infra-rouge autour de 800 nm et dans le ``Short-wave infrared'' autour de 2000 nm avec un pic à 2032 nm (valeur F = 751). Les effets du statut sont influencés dans le ``Red edge'' et le proche infra-rouge par le type de variété sur laquelle les feuilles ont été prélevées. Cependant le pic de cette influence correspond à une zone où la valeur de Fisher est quasi-nulle pour l'effet du statut sur la détection de la maladie par la réflectance. Cette influence des variétés est donc comprise entre les valeurs de Fisher de 200 à 150 en excluant la zone de creux. Ces valeurs sont assez faibles si on les compare aux effets du statut qui avoisine les 700 et plus. Les trois variétés ont donc un impact plutôt faible sur la détection de la maladie via la mesure de la réflectance. Cet impact est encore plus minime (valeur F = 30) au niveau du pic d'influence de la maladie à 2032 nm correspondant à la quantité d'eau dans la feuille. Cet impact est encore plus faible pour l'influence de la parcelle sur le statut HLB. Celle-ci n'a qu'une très faible influence sur le statut HLB au niveau des spectres dans visible et le ``Red edge'' (valeur F = 98) et une influence quasi-nulle dans les autres longueurs d'onde
+Globalement le statut HLB affecte le spectre de réflectance dans trois zones du spectre : dans le début du ``Red edge'' autour de 700 nm, dans le proche infrarouge autour de 800 nm et dans le ``Short-wave infrared'' autour de 2000 nm avec un pic à 2032 nm (valeur F = 751). Les effets du statut sont influencés dans le ``Red edge'' et le proche infrarouge par le type de variété sur laquelle les feuilles ont été prélevées. Cependant le pic de cette influence correspond à une zone où la valeur de Fisher est quasi-nulle pour l'effet du statut sur la détection de la maladie par la réflectance. Cette influence des variétés est donc comprise entre les valeurs de Fisher de 200 à 150 en excluant la zone de creux. Ces valeurs sont assez faibles si on les compare aux effets du statut qui avoisine les 700 et plus. Les trois variétés ont donc un impact plutôt faible sur la détection de la maladie via la mesure de la réflectance. Cet impact est encore plus minime (valeur F = 30) au niveau du pic d'influence de la maladie à 2032 nm correspondant à la quantité d'eau dans la feuille. Cet impact est encore plus faible pour l'influence de la parcelle sur le statut HLB. Celle-ci n'a qu'une très faible influence sur le statut HLB au niveau des spectres dans visible et le ``Red edge'' (valeur F = 98) et une influence quasi-nulle dans les autres longueurs d'onde.
 
 \vfill
 \newpage
@@ -947,7 +951,7 @@ Une autre approche pour mettre en évidence l'effet du statut sur la détection 
 
 \normalsize
 
-Cette autre approche apporte des résultats cohérents avec le F de Fisher sur les longueurs d'onde où le statut HLB a le plus d'influence. Le premier nœud de décision à la longueur d'onde 2000 nm est très significatif (p value 1.32e-36) et se divise entre les zones du ``Red edge'' à 706 nm pour 774 feuilles et du proche-infra rouge à 1075 nm pour les 666 feuilles restantes. Sur les 774 feuilles du deuxième nœud (p value 9.71e-18), 572 sont des feuilles issues d'arbres négatifs aux HLB à plus de 75\% environ en additionnant la part des effectifs négatifs des nœuds 6 et 7. Par ailleurs, sur les 666 feuilles du nœud 9 (p value 4.84e-9), 333 sont globalement issues d'arbres positifs au HLB à plus de 75\% environ en additionnant la part des effectifs positifs des nœuds 10 et 13. Cela montre qu'il est possible d'identifier depuis le spectre de réflectance, les arbres sains et malades avec un taux d'erreur d'environ 75\%.
+Cette autre approche apporte des résultats cohérents avec le F de Fisher sur les longueurs d'onde où le statut HLB a le plus d'influence. Le premier nœud de décision à la longueur d'onde 2000 nm est très significatif (p value 1.32e-36) et se divise entre les zones du ``Red edge'' à 706 nm pour 774 feuilles et du proche infrarouge à 1075 nm pour les 666 feuilles restantes. Sur les 774 feuilles du deuxième nœud (p value 9.71e-18), 572 sont des feuilles issues d'arbres négatifs aux HLB à plus de 75\% environ en additionnant la part des effectifs négatifs des nœuds 6 et 7. Par ailleurs, sur les 666 feuilles du nœud 9 (p value 4.84e-9), 333 sont globalement issues d'arbres positifs au HLB à plus de 75\% environ en additionnant la part des effectifs positifs des nœuds 10 et 13. Cela montre qu'il est possible d'identifier depuis le spectre de réflectance, les arbres sains et malades avec un taux d'erreur d'environ 75\%.
 L'intérêt de cette méthode en plus de donner les longueurs d'onde discriminantes pour la maladie, est la valeur de réflectance pour laquelle chaque longueur d'onde discriminante est clivante.
 
 Enfin, en prenant uniquement la longueur d'onde la plus clivante (2000 nm) selon l'arbre de décision, il est possible de se rendre compte de l'hétérogénéité des distributions à l'intérieur de celle-ci (figure \ref{fig:23}).
@@ -960,7 +964,7 @@ Enfin, en prenant uniquement la longueur d'onde la plus clivante (2000 nm) selon
 
 }
 
-\caption{Distribution des réflectances la longueur d’onde 2000 nm}\label{fig:23}
+\caption{Distribution des réflectances pour la longueur d’onde 2000 nm}\label{fig:23}
 \end{SCfigure}
 
 \normalsize
@@ -968,7 +972,7 @@ Enfin, en prenant uniquement la longueur d'onde la plus clivante (2000 nm) selon
 \vfill
 \newpage
 
-Malgré l'échantillonnage différent selon les parcelles, les valeurs de réflectance sont distribuées de façon quasi-normale bien que centrées différemment. Chez Mrs.~Barret et Pothin, le centre est quasiment sur 0.09 alors que chez Gonthier et Hoarau celui-ci est environ à 0.07. Concernant les variétés, les Zanzibars semblent avoir les valeurs de réflectances les moins élevés. Malgré cette hétérogénéité dans la répartition des variables, qui est quasiment identique pour toutes les autres longueurs d'onde, cela n'a finalement pas un énorme impact sur la discrimination de la réflectance en fonction du statut.
+Malgré l'échantillonnage différent selon les parcelles, les valeurs de réflectance sont distribuées de façon quasi-normale bien que centrées différemment. Chez Mrs.~Barret et Pothin, le centre est quasiment sur 0.09 alors que chez Gonthier et Hoarau celui-ci est environ à 0.07. Concernant les variétés, les Zanzibars semblent avoir les valeurs de réflectances les moins élevées. Malgré cette hétérogénéité dans la répartition des variables, qui est quasiment identique pour toutes les autres longueurs d'onde, cela n'a finalement pas un énorme impact sur la discrimination de la réflectance en fonction du statut.
 
 \vfill
 \newpage
@@ -1025,7 +1029,7 @@ Concrètement, en utilisant la meilleure méthode, qui est celle des moindres ca
 
 \normalsize
 
-Cette représentation graphique est une aide à la décision pour déterminer le statut de chaque arbre à partir des résultats de la PLS. La prédiction par PLS donne une valeur correspondant à la moyenne des statuts prédits (compris entre 0 et 1 en ordonnés) des dix feuilles d'un arbre pour chaque arbre (en abscisse). Cela indique pour chaque arbre s'il est plutôt positif ou négatif, mais ça ne permet pas de trancher sur le statut de l'arbre. Cette prédiction se base donc sur deux seuils choisis via les observations de prédiction effectuées. Ces seuils sont compris entre 0.4 pour les arbres positifs qui seraient au-dessus de cette valeur (en rouge), 0.35 pour les arbres négatifs qui seraient en dessous de cette valeur (en vert) et les arbres indéterminés (en gris) qui seraient compris entre ces deux valeurs. Une comparaison entre le statut réel des arbres est confirmé par qPCR (avec un croix pour les négatifs et un rond pour les positifs), permet ensuite de réaliser la matrice de confusion (table \ref{tab:T3})
+Cette représentation graphique est une aide à la décision pour déterminer le statut de chaque arbre à partir des résultats de la PLS. La prédiction par PLS donne une valeur correspondant à la moyenne des statuts prédits (compris entre 0 et 1 en ordonnés) des dix feuilles d'un arbre pour chaque arbre (en abscisse). Cela indique pour chaque arbre s'il est plutôt positif ou négatif, mais ça ne permet pas de trancher sur le statut de l'arbre. Cette prédiction se base donc sur deux seuils choisis via les observations de prédiction effectuées. Ces seuils sont compris entre 0.4 pour les arbres positifs qui seraient au-dessus de cette valeur (en rouge), 0.35 pour les arbres négatifs qui seraient en dessous de cette valeur (en vert) et les arbres indéterminés (en gris) qui seraient compris entre ces deux valeurs. Une comparaison entre le statut réel des arbres est confirmé par qPCR (avec un croix pour les négatifs et un rond pour les positifs), permet ensuite de réaliser la matrice de confusion (table \ref{tab:T3}).
 
 \vfill
 \newpage
@@ -1111,33 +1115,34 @@ Après 100 simulations, les paramètres de performance de la méthode SVM sont r
 \hypertarget{discussion}{%
 \chapter{Discussion}\label{discussion}}
 
-Au vu des résultats, de par une valeur F de Fisher élevée (plus de 500 en moyenne), le lieu d'échantillonnage semble avoir un influence significative sur les valeurs de réflectance de 750 à 2500 nm (figure \ref{fig:x}). Dans une moindre mesure, la variété à aussi une influence sur les valeurs de réflectance de 1400 à 2500 nm avec une valeur F de Fisher de 150 en moyenne (figure \ref{fig:y}). Aucun de ces deux paramètres ne semble affecter les longueurs d'onde dans le visible de 350 à 700 nm et les effet des variétés et du lieu d'échantillonnage sur le statut sont assez négligeables sur cette zone et dans l'infrarouge courte longueur d'onde (de 1400 à 2500 nm).
+L'objectif de cette étude était de caractériser les sources de variations résultant de l'influence des parcelles, des variétés et du statut HLB sur les spectres de réflectance.
+Au vu des résultats, de par une valeur F de Fisher élevée (plus de 500 en moyenne), le lieu d'échantillonnage semble avoir une influence significative sur les valeurs de réflectance de 750 à 2500 nm (figure \ref{fig:x}). Dans une moindre mesure, la variété a aussi une influence sur les valeurs de réflectance de 1400 à 2500 nm (figure \ref{fig:y}). Aucun de ces deux facteurs ne semble affecter les longueurs d'onde dans le visible de 350 à 700 nm et les effets des variétés et du lieu d'échantillonnage sur le statut sont assez négligeables sur cette zone et dans l'infrarouge courte longueur d'onde (de 1400 à 2500 nm).
 Le statut seul a donc une influence sur cette partie du spectre avec une influence modérée des variétés et du lieu d'échantillonnage (figure \ref{fig:21}). Ainsi, dans le visible et le début du ``Red edge'', cette influence peut s'expliquer par une moins bonne absorbance de la lumière par la chlorophylle des feuilles à cause de la maladie.
-Dans le proche infra-rouge autour de 800 nm le statut a aussi une influence importante sur la réflectance avec en parallèle une influence importante du lieu d'échantillonnage sur cette partie du spectre (figure \ref{fig:y}).
-Le proche infra-rouge correspondant à la structure interne de la feuille a un effet sur le spectre de réflectance global dû à la maladie. En effet, le HLB affecte la structure cellulaire et en particulier celle du phloème, là où la bactérie se développe. Celle-ci va entraîner des nécroses et obstruer les vaisseaux. Ces dégradations vont donc altérer la réflectance de la lumière de cette partie de la feuille ce qui se voit lors de l'analyse des spectres.
+Dans le proche infrarouge autour de 800 nm le statut a aussi une influence importante sur la réflectance avec en parallèle une influence importante du lieu d'échantillonnage sur cette partie du spectre (figure \ref{fig:y}).
+Le proche infrarouge correspondant à la structure interne de la feuille a un effet sur le spectre de réflectance global dû à la maladie. En effet, le HLB affecte la structure cellulaire et en particulier celle du phloème, là où la bactérie se développe. Celle-ci va entraîner des nécroses et obstruer les vaisseaux. Ces dégradations vont donc altérer la réflectance de la lumière de cette partie de la feuille ce qui se voit lors de l'analyse des spectres.
 Pour finir, c'est dans l'infrarouge courte longueur d'onde autour de 2000 nm que s'observe la plus grande valeur F de Fisher (figure \ref{fig:21}) mais c'est aussi une zone du spectre où le lieu d'échantillonnage (figure \ref{fig:y}) et les variétés (figure \ref{fig:x}) dans une moindre mesure ont un effet sur la réflectance globale. L'effet du statut sur cette zone peut s'expliquer par une moins bonne absorbance de la lumière par la chlorophylle des feuilles en lien avec la maladie (figure \ref{fig:17}).
 \vfill
 \newpage
 L'effet du statut sur cette zone peut s'expliquer par le fait que le HLB affecte grandement l'alimentation en eau de la feuille par l'obstruction des vaisseaux \autocite{bove_huanglongbing_2006}.
-En plus de l'approche par la variance via l'ANOVA, l'approche par arbre de décision a permis de mettre en évidence d'une autre manière les longueurs d'onde discriminantes les plus clivantes. Ainsi, au vu de ces deux approches pour détecter plus facilement la maladie, 3 tranches de longueurs d'onde sont à favoriser, autour de 700 nm, 1000 nm et 2000 nm (figure \ref{fig:22}). Ces longueurs d'onde trouvées sont similaires à celles présentes dans la littérature pour la détection du HLB \autocite{mishra_spectral_2007}.
+En plus de l'approche par la variance via l'ANOVA, l'approche par arbre de décision a permis de mettre en évidence d'une autre manière les longueurs d'onde discriminantes les plus clivantes. Ainsi, au vu de ces deux approches pour détecter plus facilement la maladie, trois tranches de longueurs d'onde sont à favoriser, autour de 700 nm, 1000 nm et 2000 nm (figure \ref{fig:22}). Ces longueurs d'onde trouvées sont similaires à celles présentes dans la littérature pour la détection du HLB \autocite{mishra_spectral_2007}.
 
-La réalisation d'un modèle de prédiction du statut HLB par arbres à partir du spectre de réflectance s'est révélée être pertinente à bien des égards.
-Le modèle de prédiction a permis de connaître l'état sanitaire des arbres via 3 méthodes d'analyse des spectres de réflectance. Ces 3 méthodes ont des qualités de prédiction qui varient de 92.6\% pour la méthode PLS à 85.8\% et 76.4\% pour la méthode SVM et RF (table \ref{tab:T2}). Ces valeurs sont là aussi proches de celles présentes dans la bibliographie concernant la qualité de la prédiction avec 85\% pour SVM dans l'article de Sindhuja Sankaran \autocite{sankaran_huanglongbing_2013} et 96.4\% pour PLS dans l'article de Xiaoling Deng \autocite{deng_detection_2020}.
+La réalisation d'un modèle de prédiction du statut HLB par arbre à partir du spectre de réflectance s'est révélée être pertinente à bien des égards.
+Le modèle de prédiction a permis de connaître l'état sanitaire des arbres via trois méthodes d'analyse des spectres de réflectance. Ces trois méthodes ont des qualités de prédiction qui varient de 92.6\% pour la méthode PLS à 85.8\% et 76.4\% pour la méthode SVM et RF (table \ref{tab:T2}). Ces valeurs sont là aussi proches de celles présentes dans la bibliographie concernant la qualité de la prédiction avec 85\% pour le SVM dans l'article de Sindhuja Sankaran \autocite{sankaran_huanglongbing_2013} et 96.4\% pour la PLS dans l'article de Xiaoling Deng \autocite{deng_detection_2020}.
 La méthode PLS étant la meilleure, elle permet de minimiser les erreurs de type 2 pour une meilleure identification de la maladie sur les parcelles (table \ref{tab:T2}). Cela peut s'expliquer dans la mesure où l'un des principaux intérêts de l'algorithme PLS est d'augmenter en performance et en fiabilité proportionnellement avec l'augmentation du nombre de variables explicatives permettant de prédire les composantes du modèle. C'est donc la méthode PLS qui est à favoriser pour les prédictions du statut HLB.
 
 \vfill
 \newpage
 
 Finalement, cette étude confirme le haut potentiel qu'offre l'utilisation de la Spectroscopie Proche Infrarouge via une classification par PLS et SVM avec une approche orientée à la feuille pour la caractérisation de l'infection au HLB.
-Cette caractérisation est possible grâce aux seuils de décision trouvés. Ces 2 seuils sont de 0.4 et plus pour les arbres malades à 0.35 et moins pour les arbres sains avec une classe indéterminée entre ces deux seuils.
-Ces analyses ont aussi permis d'améliorer le protocole de terrain en préconisant un échantillonnage minimal de 8 feuilles par arbres (figure \ref{fig:25}) et 3 répétitions SPIR par feuille (figure \ref{fig:26}) pour un bon compromis entre le temps d'échantillonnage et la précision du modèle. L'utilisation de la proxidétection dans la surveillance du HLB doit tout de même être couplée à un travail de terrain avec analyse en qPCR pour la validation du statut des arbres.
+Cette caractérisation est possible grâce aux seuils de décision trouvés. Ces deux seuils sont de 0.4 et plus pour les arbres malades à 0.35 et moins pour les arbres sains avec une classe indéterminée entre ces deux seuils.
+Ces analyses ont aussi permis d'améliorer le protocole de terrain en préconisant un échantillonnage minimal de huit feuilles par arbres (figure \ref{fig:25}) et trois répétitions SPIR par feuille (figure \ref{fig:26}) pour un bon compromis entre le temps d'échantillonnage et la précision du modèle. L'utilisation de la proxidétection dans la surveillance du HLB doit tout de même être couplée à un travail de terrain avec analyse en qPCR pour la validation du statut des arbres.
 
-Le modèle de prédiction réalisée dans ce rapport pourra, à terme, être utilisé comme un outil de détection décisif dans l'amélioration de surveillance épidémiologique du HLB à La Réunion. Surtout si le modèle est alimenté avec de nouveaux échantillons dans le but d'agrandir la base d'apprentissage. En effet, ce modèle est pour l'instant valable uniquement pour 3 variétés d'agrumes sur les 27 que compte la Réunion. Afin d'optimiser ce modèle, il serait intéressant de l'enrichir avec davantage de variétés sur des lieux d'échantillonnages différents. Cela permettrait de répéter les analyses effectuées en comparant les résultats et les performances des différentes méthodes d'apprentissage supervisé testées pour améliorer le modèle.
+Le modèle de prédiction réalisée dans ce rapport pourra, à terme, être utilisé comme un outil de détection décisif dans l'amélioration de surveillance épidémiologique du HLB à La Réunion, surtout si le modèle est alimenté avec de nouveaux échantillons dans le but d'agrandir la base d'apprentissage. En effet, ce modèle est pour l'instant valable uniquement pour trois variétés d'agrumes sur les 27 que compte la Réunion. Afin d'optimiser ce modèle, il serait intéressant de l'enrichir avec davantage de variétés sur des lieux d'échantillonnages différents. Cela permettrait de répéter les analyses effectuées en comparant les résultats et les performances des différentes méthodes d'apprentissage supervisé testées pour améliorer le modèle.
 
 \hypertarget{conclusion}{%
 \chapter{Conclusion}\label{conclusion}}
 
-Face à la résurgence actuelle du HLB à la Réunion, le potentiel d'un diagnostic HLB par SPIR, à la fois rapide que les analyses en laboratoire et peu onéreux est prometteur.
+Face à la résurgence actuelle du HLB à la Réunion, le potentiel d'un diagnostic HLB par SPIR, plus rapide que les analyses en laboratoire et peu onéreux est prometteur.
 
 La construction de ce modèle de détection permettra de prédire le statut HLB des arbres sur différentes parcelles et d'en évaluer l'efficacité. Ce modèle permettra d'accentuer l'effort de surveillance sur les foyers de production les plus à risque où un échantillonnage qPCR classique n'est pas envisageable à grande échelle au regard des ressources disponibles.
 Le modèle pouvant déterminer assez précisément quels arbres sont infectés au HLB au sein d'une parcelle, cela permettra d'accompagner au mieux les agriculteurs dans la lutte contre la maladie.
@@ -1146,24 +1151,6 @@ Ainsi, prédire le statut HLB des parcelles d'agrumes par apprentissage supervis
 
 \hypertarget{annexe}{%
 \chapter{Annexe}\label{annexe}}
-
-Pour l'utilisation des différents packages :
-
-\begin{itemize}
-\tightlist
-\item
-  Pour la facilité d'installation et le chargement de plusieurs paquets : tidyverse \autocite{tidyverse}
-\item
-  Pour l'échantillonnage aléatoire : catools \autocite{caTools}
-\item
-  Pour la réalisation des graphiques : ggplot2 \autocite{ggplot2}
-\item
-  Pour la réalisation de l'arbre de décision : ggparty \autocite{ggparty}
-\item
-  Pour la manipulation du jeu de données :tidyr \autocite{tidyr}
-\item
-  Pour l'algorithme de calculs parallèles : snowfall \autocite{snowfall}
-\end{itemize}
 
 \scriptsize
 

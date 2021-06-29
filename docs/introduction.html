@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2021-06-22" />
+<meta name="date" content="2021-06-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -156,11 +156,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1" data-path="matériel-et-méthodes.html"><a href="matériel-et-méthodes.html#identification-de-la-maladie"><i class="fa fa-check"></i><b>2.1</b> Identification de la maladie</a></li>
 <li class="chapter" data-level="2.2" data-path="matériel-et-méthodes.html"><a href="matériel-et-méthodes.html#choix-des-arbres"><i class="fa fa-check"></i><b>2.2</b> Choix des arbres</a></li>
 <li class="chapter" data-level="2.3" data-path="matériel-et-méthodes.html"><a href="matériel-et-méthodes.html#spectroscopie-à-main"><i class="fa fa-check"></i><b>2.3</b> Spectroscopie à main</a></li>
-<li class="chapter" data-level="2.4" data-path="matériel-et-méthodes.html"><a href="matériel-et-méthodes.html#forêts-aléatoires-rf"><i class="fa fa-check"></i><b>2.4</b> Forêts Aléatoires (RF)</a></li>
-<li class="chapter" data-level="2.5" data-path="matériel-et-méthodes.html"><a href="matériel-et-méthodes.html#machine-à-vecteurs-de-support-svm"><i class="fa fa-check"></i><b>2.5</b> Machine à Vecteurs de Support (SVM)</a></li>
-<li class="chapter" data-level="2.6" data-path="matériel-et-méthodes.html"><a href="matériel-et-méthodes.html#régression-par-les-moindres-carrés-partiels-pls"><i class="fa fa-check"></i><b>2.6</b> Régression par les Moindres Carrés Partiels (PLS)</a></li>
-<li class="chapter" data-level="2.7" data-path="matériel-et-méthodes.html"><a href="matériel-et-méthodes.html#performance-des-classifications"><i class="fa fa-check"></i><b>2.7</b> Performance des classifications</a></li>
-<li class="chapter" data-level="2.8" data-path="matériel-et-méthodes.html"><a href="matériel-et-méthodes.html#amélioration-du-protocole-de-terrain"><i class="fa fa-check"></i><b>2.8</b> Amélioration du protocole de terrain</a></li>
+<li class="chapter" data-level="2.4" data-path="matériel-et-méthodes.html"><a href="matériel-et-méthodes.html#traitement-des-données-par-analyses-statistiques-et-apprentissage-supervisé"><i class="fa fa-check"></i><b>2.4</b> Traitement des données par analyses statistiques et apprentissage supervisé</a></li>
+<li class="chapter" data-level="2.5" data-path="matériel-et-méthodes.html"><a href="matériel-et-méthodes.html#forêts-aléatoires-rf"><i class="fa fa-check"></i><b>2.5</b> Forêts Aléatoires (RF)</a></li>
+<li class="chapter" data-level="2.6" data-path="matériel-et-méthodes.html"><a href="matériel-et-méthodes.html#machine-à-vecteurs-de-support-svm"><i class="fa fa-check"></i><b>2.6</b> Machine à Vecteurs de Support (SVM)</a></li>
+<li class="chapter" data-level="2.7" data-path="matériel-et-méthodes.html"><a href="matériel-et-méthodes.html#régression-par-les-moindres-carrés-partiels-pls"><i class="fa fa-check"></i><b>2.7</b> Régression par les Moindres Carrés Partiels (PLS)</a></li>
+<li class="chapter" data-level="2.8" data-path="matériel-et-méthodes.html"><a href="matériel-et-méthodes.html#performance-des-classifications"><i class="fa fa-check"></i><b>2.8</b> Performance des classifications</a></li>
+<li class="chapter" data-level="2.9" data-path="matériel-et-méthodes.html"><a href="matériel-et-méthodes.html#amélioration-du-protocole-de-terrain"><i class="fa fa-check"></i><b>2.9</b> Amélioration du protocole de terrain</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="résultats.html"><a href="résultats.html"><i class="fa fa-check"></i><b>3</b> Résultats</a>
 <ul>
@@ -221,13 +222,12 @@ Depuis 2015, la DAAF (Direction de l’Alimentation, de l’Agriculture et de la
 <div id="etat-des-connaissances-sur-la-maladie" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> Etat des connaissances sur la maladie</h2>
 <p>Le HLB est une maladie causée par la bactérie <em>Candidatus</em> Liberibacter associée à trois sous-espèces (americanus, africanus et asiaticus) <span class="citation"> (<a href="bibliographie.html#ref-wang_citrus_2019" role="doc-biblioref">Wang, 2019</a>)</span>. C’est la sous-espèce <em>Candidatus</em> Liberibacter asiaticus que l’on retrouve sur l’île de la Réunion <span class="citation"> (<a href="bibliographie.html#ref-aubert_greening_1989" role="doc-biblioref">Aubert, 1989</a>)</span>. Cette bactérie de type Gram- (non cultivable) se développe dans les tissus riches en glucides du phloème. Cela va entraîner des dépôts de callose dans le phloème et obstruer les vaisseaux, affaiblissant, à terme, l’arbre et entraînant sa mort <span class="citation"> (<a href="bibliographie.html#ref-bove_huanglongbing_2006" role="doc-biblioref">Bové, 2006</a>)</span>. Le HLB est spécifique des agrumes et essentiellement transmis par les psylles qui sont des insectes de l’ordre des hémiptères. Deux espèces de psylles sont connues pour véhiculer la bactérie responsable de la maladie : <em>Diaphorina citri</em> et <em>Trioza erytreae</em>. Seule la première a jusqu’ici été identifiée dans l’épidémie qui sévit actuellement à la Réunion. Ces deux espèces de psylles réalisent une partie de leurs cycles de développement sur les arbres de la famille des Rutacées dont font partie les agrumes cultivés. La bactérie est transmise d’un arbre à un autre via la salive de l’insecte en se nourrissant de la sève élaborée circulant dans le phloème <span class="citation"> (<a href="bibliographie.html#ref-narouei-khandan_global_2016" role="doc-biblioref">Narouei-Khandan <em>et al.</em>, 2016</a>)</span>. Ce mécanisme de transmission de la maladie peut s’étendre sur une distance de 25 à 50 m autour de l’arbre infecté. Cette distance peut atteindre les 1,5 km en cas de vent, ce qui favorise grandement la dispersion de la maladie <span class="citation"> (<a href="bibliographie.html#ref-bove_huanglongbing_2006" role="doc-biblioref">Bové, 2006</a>)</span>. Par ailleurs, en plus de la transmission par les psylles, le HLB peut aussi être véhiculé par les greffes et les plantes en pépinière déjà contaminées et vendues aux agriculteurs et particuliers, ce qui fait de la gestion des pépinières un élément clé de la lutte contre la propagation de la maladie.
-Le HLB affecte tous les agrumes, mais à des degrés de sensibilités différentes. La maladie provoque un dépérissement des arbres avec des symptômes visibles ressemblant à un stress hydrique ou une carence comme le jaunissement asymétrique des feuilles et des flushs (jeunes feuilles) (figure <a href="introduction.html#fig:f1">1.1</a>) <span class="citation"> (<a href="bibliographie.html#ref-bove_huanglongbing_2006" role="doc-biblioref">Bové, 2006</a>)</span>. Ces symptômes traduisent un dépérissement de l’arbre avec des fruits petits et de forme asymétrique <span class="citation"> (<a href="bibliographie.html#ref-gottwald_preliminary_1989" role="doc-biblioref">Gottwald, 1989</a>)</span>.</p>
-
+Le HLB affecte tous les agrumes, mais à des degrés de sensibilités différentes. La maladie provoque un dépérissement des arbres avec des symptômes visibles ressemblant à un stress hydrique ou une carence comme le jaunissement asymétrique des feuilles et des flushs (jeunes feuilles, figure <a href="introduction.html#fig:1">1.1</a><span class="citation"> (<a href="bibliographie.html#ref-guilloteau_utilisation_2018" role="doc-biblioref">Guilloteau, 2018</a>)</span>) <span class="citation"> (<a href="bibliographie.html#ref-bove_huanglongbing_2006" role="doc-biblioref">Bové, 2006</a>)</span>. Ces symptômes traduisent un dépérissement de l’arbre avec des fruits petits et de forme asymétrique <span class="citation"> (<a href="bibliographie.html#ref-gottwald_preliminary_1989" role="doc-biblioref">Gottwald, 1989</a>)</span>.</p>
 <p></p>
-<div class="figure" style="text-align: center"><span id="fig:f1"></span>
-<img src="images/Figure1.png" alt="Symptôme du HLB sur flush, feuille, fruit et sur l’arbre (Guilloteau, 2018)" width="80%" />
+<div class="figure" style="text-align: center"><span id="fig:1"></span>
+<img src="images/Figure1.png" alt="Symptôme du HLB sur flush, feuille, fruit et sur l'arbre" width="80%" />
 <p class="caption">
-Figure 1.1: Symptôme du HLB sur flush, feuille, fruit et sur l’arbre <span class="citation"> (<a href="bibliographie.html#ref-guilloteau_utilisation_2018" role="doc-biblioref">Guilloteau, 2018</a>)</span>
+Figure 1.1: Symptôme du HLB sur flush, feuille, fruit et sur l’arbre
 </p>
 </div>
 <p></p>
