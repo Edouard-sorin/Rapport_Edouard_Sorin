@@ -7,6 +7,9 @@ La figure 2.1 montre les spectres de réflectance moyens des variétés citron (
 
 ```{r 19, fig.cap="Spectre moyen en fonction de la variété pour les arbres négatifs aux HLB"}
 
+library(ggplot2) #ggplot pour graphiques
+library(ggdark) # graphique noir
+
 data_long_var <- data_long_Ed
 data_SPIR_var <- data_SPIR_Ed
 masque_qPCR <- data_SPIR_var$qPCR_36 == 0
@@ -170,9 +173,6 @@ kableExtra::kable_styling(bootstrap_options = "striped", full_width = FALSE)
 La figure 2.4 montre les spectres de réflectance moyens des arbres positifs au HLB (en rouge) et des arbres négatifs (en vert). On voit des différences nettes de spectre en fonction du statut HLB (figure \@ref(fig:16)).
 
 ```{r 16, fig.cap="Spectre moyen en fonction du statut HLB des arbres"}
-
-library(ggplot2) #ggplot pour graphiques
-library(ggdark) # graphique noir
 
 g0 <- ggplot(data_long_Ed) +
   aes(x = lambda, y = reflectance, group = qPCR_36, color = factor(qPCR_36) ) +
@@ -412,7 +412,7 @@ Malgré l'échantillonnage différent selon les parcelles, les valeurs de réfle
 
 \vfill
 \newpage
-## Comparaison des performances des 3 méthodes de prédiction du statut HLB à partir des spectres réflectance
+## Comparaison des performances des trois méthodes de prédiction du statut HLB à partir des spectres réflectance
 
 Pour prédire le statut des arbres à partir des spectres de réflectance, les trois méthodes d'analyses statistiques en apprentissage supervisé sont mises en œuvre. Pour chacune de ces méthodes, les paramètres de performance sont mesurés (table \@ref(tab:T2)) après 100 simulations en calculs parallèles présentés en annexes 2 et 3.
 
@@ -424,7 +424,7 @@ ML.36$critere <- c("Accuracy PLS","Accuracy RF","Accuracy SVM","Precision PLS","
 
 colnames(ML.36) <- c("Paramètres de performance","Moyenne" ,"Ecart type")
 
-knitr::kable((ML.36), caption="Paramètres de performance du statut HLB par Régression par les Moindres Carrés Partiels", longtable = TRUE, booktabs = TRUE , digits = 1, escape = FALSE) %>%
+knitr::kable((ML.36), caption="Paramètres de performance de la prédiction du statut HLB par les trois méthodes d'apprentissage supervisé", longtable = TRUE, booktabs = TRUE , digits = 1, escape = FALSE) %>%
 kableExtra::kable_styling(bootstrap_options = "striped", full_width = FALSE)
 
 ```

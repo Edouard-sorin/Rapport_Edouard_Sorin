@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2021-06-29" />
+<meta name="date" content="2021-07-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -168,7 +168,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1" data-path="résultats.html"><a href="résultats.html#influence-du-lieu-déchantillonnage-et-des-variétés-sur-le-spectre-de-réflectance-global"><i class="fa fa-check"></i><b>3.1</b> Influence du lieu d’échantillonnage et des variétés sur le spectre de réflectance global</a></li>
 <li class="chapter" data-level="3.2" data-path="résultats.html"><a href="résultats.html#effet-du-statut-hlb-sur-les-spectres-de-réflectance"><i class="fa fa-check"></i><b>3.2</b> Effet du statut HLB sur les spectres de réflectance</a></li>
 <li class="chapter" data-level="3.3" data-path="résultats.html"><a href="résultats.html#lapproche-par-arbre-de-décision"><i class="fa fa-check"></i><b>3.3</b> L’approche par arbre de décision</a></li>
-<li class="chapter" data-level="3.4" data-path="résultats.html"><a href="résultats.html#comparaison-des-performances-des-3-méthodes-de-prédiction-du-statut-hlb-à-partir-des-spectres-réflectance"><i class="fa fa-check"></i><b>3.4</b> Comparaison des performances des 3 méthodes de prédiction du statut HLB à partir des spectres réflectance</a></li>
+<li class="chapter" data-level="3.4" data-path="résultats.html"><a href="résultats.html#comparaison-des-performances-des-trois-méthodes-de-prédiction-du-statut-hlb-à-partir-des-spectres-réflectance"><i class="fa fa-check"></i><b>3.4</b> Comparaison des performances des trois méthodes de prédiction du statut HLB à partir des spectres réflectance</a></li>
 <li class="chapter" data-level="3.5" data-path="résultats.html"><a href="résultats.html#prédiction-du-statut-hlb-par-régression-par-les-moindres-carrés-partiels-pls"><i class="fa fa-check"></i><b>3.5</b> Prédiction du statut HLB par Régression par les Moindres Carrés Partiels (PLS)</a></li>
 <li class="chapter" data-level="3.6" data-path="résultats.html"><a href="résultats.html#amélioration-du-protocole-de-terrain-pour-le-choix-du-nombre-de-feuilles-par-arbre"><i class="fa fa-check"></i><b>3.6</b> Amélioration du protocole de terrain pour le choix du nombre de feuilles par arbre</a></li>
 <li class="chapter" data-level="3.7" data-path="résultats.html"><a href="résultats.html#amélioration-du-protocole-de-terrain-pour-le-choix-du-nombre-de-mesures-de-réflectance-par-feuille"><i class="fa fa-check"></i><b>3.7</b> Amélioration du protocole de terrain pour le choix du nombre de mesures de réflectance par feuille</a></li>
@@ -377,13 +377,13 @@ Figure 3.9: Distribution des réflectances pour la longueur d’onde 2000 nm
 <p></p>
 <p>Malgré l’échantillonnage différent selon les parcelles, les valeurs de réflectance sont distribuées de façon quasi-normale bien que centrées différemment. Chez Mrs. Barret et Pothin, le centre est quasiment sur 0.09 alors que chez Gonthier et Hoarau celui-ci est environ à 0.07. Concernant les variétés, les Zanzibars semblent avoir les valeurs de réflectances les moins élevées. Malgré cette hétérogénéité dans la répartition des variables, qui est quasiment identique pour toutes les autres longueurs d’onde, cela n’a finalement pas un énorme impact sur la discrimination de la réflectance en fonction du statut.</p>
 </div>
-<div id="comparaison-des-performances-des-3-méthodes-de-prédiction-du-statut-hlb-à-partir-des-spectres-réflectance" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> Comparaison des performances des 3 méthodes de prédiction du statut HLB à partir des spectres réflectance</h2>
+<div id="comparaison-des-performances-des-trois-méthodes-de-prédiction-du-statut-hlb-à-partir-des-spectres-réflectance" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Comparaison des performances des trois méthodes de prédiction du statut HLB à partir des spectres réflectance</h2>
 <p>Pour prédire le statut des arbres à partir des spectres de réflectance, les trois méthodes d’analyses statistiques en apprentissage supervisé sont mises en œuvre. Pour chacune de ces méthodes, les paramètres de performance sont mesurés (table <a href="résultats.html#tab:T2">3.2</a>) après 100 simulations en calculs parallèles présentés en annexes 2 et 3.</p>
 <p></p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:T2">Table 3.2: </span>Paramètres de performance du statut HLB par Régression par les Moindres Carrés Partiels
+<span id="tab:T2">Table 3.2: </span>Paramètres de performance de la prédiction du statut HLB par les trois méthodes d’apprentissage supervisé
 </caption>
 <thead>
 <tr>

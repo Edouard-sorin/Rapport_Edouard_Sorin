@@ -222,7 +222,7 @@
 \author{true \and true \and true \and true \and true \and true \and true}
 
 
-\date{2021-06-29}
+\date{2021-07-06}
 
 
 % Main title page with filigrane
@@ -334,35 +334,33 @@ Epidemiology, Machine learning, HLB = Huanglongbing, Partial Least Squares regre
 \chapter*{Remerciements}\label{remerciements}}
 \addcontentsline{toc}{chapter}{Remerciements}
 
-\begin{small}
+Je tiens à remercier toutes les personnes qui ont contribué au bon déroulement de ce stage :
 
-Je tiens à remercier toutes les personnes qui ont contribué au bon déroulement de ce stage : 
 \begin{itemize}
-\item[——] Virginie RAVIGNE, mon encadrante de stage pour son encadrement, sa gentillesse , ses conseils et l'autonomie qu'elle m'a laissée au cours de ce stage afin que je développe mes propres axes de recherche sur cette thématique ;
-
-\item[——] Frédéric CHIROLEU, chercheur en biostatistiques, co-auteur de ce rapport, et Thuy-Trang CAO, pour leur grande aide à la réalisation des scripts R et toutes les choses apprises lors de ces rendez-vous ;
-
-\item[——] Olivier PRUVOST,  pour son aide lors des analyse qPCR et son encadrement au laboratoire ;
-
-\item[——] Karine BOYER, pour m’avoir conseillé et formé aux techniques de laboratoire ;
-
-\item[——] Ismaël HOUILLON, doctorant, pour ses conseils et ses jeux de mots douteux ;
-
-\item[——] Elisa PAYET, technicienne à la FDGDON, pour avoir pris le temps de nous communiquer leurs résultats des détections du HLB et les numéros des agriculteurs ;
-
-\item[——] Raphaël SOLESSE, ainsi que Emmanuel TILLARD, pour leurs conseils, sur le pilotage de drones et la formation à l’utilisation des instruments de mesure de spectrométrie ;
-
-\item[——] Louis-Axel EDOUARD RAMBAUT, pour son aide sur les scripts R et ses discussions pertinentes ;
-
-\item[——] Claire MELOT, stagiaire au CIRAD, pour sa bonne humeur et son aide aux analyses de laboratoire tardives ;
-
-\item[——] Le CIRAD, l’équipe du 3P de Saint-Pierre et en particulier les agents de l’UMR PVBMT (Unité Mixte de 
-Recherche Peuplements Végétaux et Bioagresseurs en Milieux Tropicaux) ;
-
-\item[——] Les stagiaires des Kazz pour leur amitié, les mangues et toutes les choses partagées ensemble qui ont rendu ce stage inoubliable !
-
+\item
+  Virginie RAVIGNE, mon encadrante de stage pour son encadrement, sa gentillesse , ses conseils et l'autonomie qu'elle m'a laissée au cours de ce stage afin que je développe mes propres axes de recherche sur cette thématique ;
+\item
+  Frédéric CHIROLEU, chercheur en biostatistiques, co-auteur de ce rapport, et Thuy-Trang CAO, pour leur grande aide à la réalisation des scripts R et toutes les choses apprises lors de ces rendez-vous ;
+\item
+  Olivier PRUVOST, pour son aide lors des analyse qPCR et son encadrement au laboratoire ;
+\item
+  Karine BOYER, pour m'avoir conseillé et formé aux techniques de laboratoire ;
+\item
+  Ismaël HOUILLON, doctorant, pour ses conseils et ses jeux de mots douteux ;
+\item
+  Elisa PAYET, technicienne à la FDGDON, pour avoir pris le temps de nous communiquer leurs résultats des détections du HLB et les numéros des agriculteurs ;
+\item
+  Raphaël SOLESSE, ainsi que Emmanuel TILLARD, pour leurs conseils, sur le pilotage de drones et la formation à l'utilisation des instruments de mesure de spectrométrie ;
+\item
+  Louis-Axel EDOUARD RAMBAUT, pour son aide sur les scripts R et ses discussions pertinentes ;
+\item
+  Claire MELOT, stagiaire au CIRAD, pour sa bonne humeur et son aide aux analyses de laboratoire tardives ;
+\item
+  Le CIRAD, l'équipe du 3P de Saint-Pierre et en particulier les agents de l'UMR PVBMT (Unité Mixte de
+  Recherche Peuplements Végétaux et Bioagresseurs en Milieux Tropicaux) ;
+\item
+  Les stagiaires des Kazz pour leur amitié, les mangues et toutes les choses partagées ensemble qui ont rendu ce stage inoubliable !
 \end{itemize}
-\end{small}
 
 \scriptsize
 
@@ -977,15 +975,15 @@ Malgré l'échantillonnage différent selon les parcelles, les valeurs de réfle
 \vfill
 \newpage
 
-\hypertarget{comparaison-des-performances-des-3-muxe9thodes-de-pruxe9diction-du-statut-hlb-uxe0-partir-des-spectres-ruxe9flectance}{%
-\section{Comparaison des performances des 3 méthodes de prédiction du statut HLB à partir des spectres réflectance}\label{comparaison-des-performances-des-3-muxe9thodes-de-pruxe9diction-du-statut-hlb-uxe0-partir-des-spectres-ruxe9flectance}}
+\hypertarget{comparaison-des-performances-des-trois-muxe9thodes-de-pruxe9diction-du-statut-hlb-uxe0-partir-des-spectres-ruxe9flectance}{%
+\section{Comparaison des performances des trois méthodes de prédiction du statut HLB à partir des spectres réflectance}\label{comparaison-des-performances-des-trois-muxe9thodes-de-pruxe9diction-du-statut-hlb-uxe0-partir-des-spectres-ruxe9flectance}}
 
 Pour prédire le statut des arbres à partir des spectres de réflectance, les trois méthodes d'analyses statistiques en apprentissage supervisé sont mises en œuvre. Pour chacune de ces méthodes, les paramètres de performance sont mesurés (table \ref{tab:T2}) après 100 simulations en calculs parallèles présentés en annexes 2 et 3.
 
 \scriptsize
 
 \begin{longtable}[t]{lrr}
-\caption{\label{tab:T2}Paramètres de performance du statut HLB par Régression par les Moindres Carrés Partiels}\\
+\caption{\label{tab:T2}Paramètres de performance de la prédiction du statut HLB par les trois méthodes d'apprentissage supervisé}\\
 \toprule
 Paramètres de performance & Moyenne & Ecart type\\
 \midrule

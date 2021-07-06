@@ -47,7 +47,7 @@ résultats
 influence-du-lieu-déchantillonnage-et-des-variétés-sur-le-spectre-de-réflectance-global
 effet-du-statut-hlb-sur-les-spectres-de-réflectance
 lapproche-par-arbre-de-décision
-comparaison-des-performances-des-3-méthodes-de-prédiction-du-statut-hlb-à-partir-des-spectres-réflectance
+comparaison-des-performances-des-trois-méthodes-de-prédiction-du-statut-hlb-à-partir-des-spectres-réflectance
 prédiction-du-statut-hlb-par-régression-par-les-moindres-carrés-partiels-pls
 amélioration-du-protocole-de-terrain-pour-le-choix-du-nombre-de-feuilles-par-arbre
 amélioration-du-protocole-de-terrain-pour-le-choix-du-nombre-de-mesures-de-réflectance-par-feuille
