@@ -222,7 +222,7 @@
 \author{true \and true \and true \and true \and true \and true \and true}
 
 
-\date{2021-07-06}
+\date{2021-07-27}
 
 
 % Main title page with filigrane
@@ -334,33 +334,35 @@ Epidemiology, Machine learning, HLB = Huanglongbing, Partial Least Squares regre
 \chapter*{Remerciements}\label{remerciements}}
 \addcontentsline{toc}{chapter}{Remerciements}
 
-Je tiens à remercier toutes les personnes qui ont contribué au bon déroulement de ce stage :
+\begin{small}
 
+Je tiens à remercier toutes les personnes qui ont contribué au bon déroulement de ce stage : 
 \begin{itemize}
-\item
-  Virginie RAVIGNE, mon encadrante de stage pour son encadrement, sa gentillesse , ses conseils et l'autonomie qu'elle m'a laissée au cours de ce stage afin que je développe mes propres axes de recherche sur cette thématique ;
-\item
-  Frédéric CHIROLEU, chercheur en biostatistiques, co-auteur de ce rapport, et Thuy-Trang CAO, pour leur grande aide à la réalisation des scripts R et toutes les choses apprises lors de ces rendez-vous ;
-\item
-  Olivier PRUVOST, pour son aide lors des analyse qPCR et son encadrement au laboratoire ;
-\item
-  Karine BOYER, pour m'avoir conseillé et formé aux techniques de laboratoire ;
-\item
-  Ismaël HOUILLON, doctorant, pour ses conseils et ses jeux de mots douteux ;
-\item
-  Elisa PAYET, technicienne à la FDGDON, pour avoir pris le temps de nous communiquer leurs résultats des détections du HLB et les numéros des agriculteurs ;
-\item
-  Raphaël SOLESSE, ainsi que Emmanuel TILLARD, pour leurs conseils, sur le pilotage de drones et la formation à l'utilisation des instruments de mesure de spectrométrie ;
-\item
-  Louis-Axel EDOUARD RAMBAUT, pour son aide sur les scripts R et ses discussions pertinentes ;
-\item
-  Claire MELOT, stagiaire au CIRAD, pour sa bonne humeur et son aide aux analyses de laboratoire tardives ;
-\item
-  Le CIRAD, l'équipe du 3P de Saint-Pierre et en particulier les agents de l'UMR PVBMT (Unité Mixte de
-  Recherche Peuplements Végétaux et Bioagresseurs en Milieux Tropicaux) ;
-\item
-  Les stagiaires des Kazz pour leur amitié, les mangues et toutes les choses partagées ensemble qui ont rendu ce stage inoubliable !
+\item[——] Virginie RAVIGNE, mon encadrante de stage pour son encadrement, sa gentillesse , ses conseils et l'autonomie qu'elle m'a laissée au cours de ce stage afin que je développe mes propres axes de recherche sur cette thématique ;
+
+\item[——] Frédéric CHIROLEU, chercheur en biostatistiques, co-auteur de ce rapport, et Thuy-Trang CAO, pour leur grande aide à la réalisation des scripts R et toutes les choses apprises lors de ces rendez-vous ;
+
+\item[——] Olivier PRUVOST,  pour son aide lors des analyse qPCR et son encadrement au laboratoire ;
+
+\item[——] Karine BOYER, pour m’avoir conseillé et formé aux techniques de laboratoire ;
+
+\item[——] Ismaël HOUILLON, doctorant, pour ses conseils et ses jeux de mots douteux ;
+
+\item[——] Elisa PAYET, technicienne à la FDGDON, pour avoir pris le temps de nous communiquer leurs résultats des détections du HLB et les numéros des agriculteurs ;
+
+\item[——] Raphaël SOLESSE, ainsi que Emmanuel TILLARD, pour leurs conseils, sur le pilotage de drones et la formation à l’utilisation des instruments de mesure de spectrométrie ;
+
+\item[——] Louis-Axel EDOUARD RAMBAUT, pour son aide sur les scripts R et ses discussions pertinentes ;
+
+\item[——] Claire MELOT, stagiaire au CIRAD, pour sa bonne humeur et son aide aux analyses de laboratoire tardives ;
+
+\item[——] Le CIRAD, l’équipe du 3P de Saint-Pierre et en particulier les agents de l’UMR PVBMT (Unité Mixte de 
+Recherche Peuplements Végétaux et Bioagresseurs en Milieux Tropicaux) ;
+
+\item[——] Les stagiaires des Kazz pour leur amitié, les mangues et toutes les choses partagées ensemble qui ont rendu ce stage inoubliable !
+
 \end{itemize}
+\end{small}
 
 \scriptsize
 
@@ -748,9 +750,9 @@ De cette matrice, plusieurs paramètres de performance sont calculés dont :
 
 \begin{itemize}
 \item
-  La qualité de la prédiction (``Accuracy'') = VP + VN / VP + VN + FN + FP met en évidence les erreurs de la prédiction qu'elles soient de type 1 ou de Type 2
+  La qualité de la prédiction (``Accuracy'') = (VP + VN) / (VP + VN + FN + FP) met en évidence les erreurs de la prédiction qu'elles soient de type 1 ou de type 2
 \item
-  La précision (``Precision'') = VP / VP + VP met en évidence les erreurs de type 1
+  La précision (``Precision'') = VP / (VP + FP) met en évidence les erreurs de type 1
 \end{itemize}
 
 L'erreur de type 1 est problématique dans le cadre de la maladie, car elle implique l'arrachage d'un arbre sain alors prédit comme étant positif au HLB
@@ -758,7 +760,7 @@ L'erreur de type 1 est problématique dans le cadre de la maladie, car elle impl
 \begin{itemize}
 \tightlist
 \item
-  La sensibilité (``Sensitivity'') = VP / VP + FN met en évidence les erreurs de type 2
+  La sensibilité (``Sensitivity'') = VP / (VP + FN) met en évidence les erreurs de type 2
 \end{itemize}
 
 L'erreur de type 2 impacte quant à elle la détection de la maladie, l'arbre est prédit comme étant négatif à la maladie alors qu'il est en réalité malade.
@@ -779,7 +781,7 @@ Afin d'améliorer le protocole de terrain pour de futures analyses, la question 
 \section{Influence du lieu d'échantillonnage et des variétés sur le spectre de réflectance global}\label{influence-du-lieu-duxe9chantillonnage-et-des-variuxe9tuxe9s-sur-le-spectre-de-ruxe9flectance-global}}
 
 Dans un premier temps, il est intéressant d'observer les données brutes des spectres de réflectance en fonction de leurs variétés.
-La figure 2.1 montre les spectres de réflectance moyens des variétés citron (en vert), tangor (en orange) et zanzibar (en violet) (figure \ref{fig:19}).
+La figure \ref{fig:19} montre les spectres de réflectance moyens des variétés citron (en vert), tangor (en orange) et zanzibar (en violet).
 
 \scriptsize
 
@@ -859,7 +861,7 @@ Total & 140\\
 
 \normalsize
 
-La figure 2.4 montre les spectres de réflectance moyens des arbres positifs au HLB (en rouge) et des arbres négatifs (en vert). On voit des différences nettes de spectre en fonction du statut HLB (figure \ref{fig:16}).
+La figure \ref{fig:16} montre les spectres de réflectance moyens des arbres positifs au HLB (en rouge) et des arbres négatifs (en vert). On voit des différences nettes de spectre en fonction du statut HLB.
 
 \scriptsize
 
@@ -906,7 +908,7 @@ Par ailleurs, une séparation moins nette s'observe dans la tranche de longueurs
 
 \normalsize
 
-La différence qui paraissait importante sur la figure 2.1 est à nuancer si l'on s'intéresse aux spectres individuels. En effet, il ne semble pas se dégager de tendance claire vis-à-vis du statut sur cette partie du spectre.
+La différence qui paraissait importante sur la figure \ref{fig:17} est à nuancer si l'on s'intéresse aux spectres individuels. En effet, il ne semble pas se dégager de tendance claire vis-à-vis du statut sur cette partie du spectre.
 
 C'est pourquoi il est difficile d'affirmer avec certitude l'effet de la maladie sur les spectres de réflectance en fonction du statut HLB en utilisant seulement les données brutes.
 
@@ -987,24 +989,24 @@ Pour prédire le statut des arbres à partir des spectres de réflectance, les t
 \toprule
 Paramètres de performance & Moyenne & Ecart type\\
 \midrule
-Accuracy PLS & 92.6 & 1.7\\
-Accuracy RF & 76.4 & 2.3\\
-Accuracy SVM & 85.8 & 2.7\\
-Precision PLS & 97.2 & 3.1\\
-Precision RF & 88.3 & 3.1\\
+Accuracy PLS & 93.3 & 1.9\\
+Accuracy RF & 77.7 & 3.0\\
+Accuracy SVM & 84.4 & 2.2\\
+Precision PLS & 88.7 & 3.1\\
+Precision RF & 71.6 & 3.1\\
 \addlinespace
-Precision SVM & 86.6 & 3.6\\
-Sensitivity PLS & 88.3 & 2.7\\
-Sensitivity RF & 60.7 & 4.8\\
-Sensitivity SVM & 86.3 & 3.3\\
+Precision SVM & 82.6 & 3.4\\
+Sensitivity PLS & 98.9 & 1.4\\
+Sensitivity RF & 94.0 & 1.8\\
+Sensitivity SVM & 85.6 & 2.4\\
 \bottomrule
 \end{longtable}
 
 \normalsize
 
-Au vu de ces simulations, la méthode de régression par les moindres carrés partiels (PLS) est la plus robuste avec une qualité de prédiction avoisinant les 92.6\% et avec l'écart type le plus faibles d'environ 1.7.
-Cette méthode est aussi très robuste pour minimiser les erreurs de type 1 (précision à 97.2\%) et de type 2 (sensibilité à 88.3\%) avec là aussi des écarts types plus faible que les deux autres méthodes.
-Vient ensuite la méthode de la machine à vecteurs de support (SVM) avec une qualité de prédiction d'environ 85.8\% et avec l'écart type le plus élevé avoisinant les 2.7. La méthode des forêts aléatoires (RF) est la moins robuste avec une qualité de prédiction de 76.4\% approximativement.
+Au vu de ces simulations, la méthode de régression par les moindres carrés partiels (PLS) est la plus robuste avec une qualité de prédiction avoisinant les 93.3\% et avec l'écart type le plus faibles d'environ 1.9.
+Cette méthode est aussi très robuste pour minimiser les erreurs de type 2 (sensibilité à 98.9\%) et de type 1 (précision à 88.7\%) avec là aussi des écarts types plus faible que les deux autres méthodes.
+Vient ensuite la méthode de la machine à vecteurs de support (SVM) avec une qualité de prédiction d'environ 84.4\% et avec l'écart type le plus élevé avoisinant les 2.7. La méthode des forêts aléatoires (RF) est la moins robuste avec une qualité de prédiction de 77.7\% approximativement.
 
 \vfill
 \newpage
@@ -1054,14 +1056,14 @@ Sur cette prédiction, 62 arbres ont été prédits correctement positifs et 57 
 \caption{\label{tab:T4}Paramètres de performance du statut HLB par Régression par les Moindres Carrés Partiels}\\
 \toprule
 Accuracy & 90.8\\
-Precision & 96.6\\
-Sensitivity & 85.1\\
+Precision & 86.1\\
+Sensitivity & 96.9\\
 \bottomrule
 \end{longtable}
 
 \normalsize
 
-La prédiction par la méthode de régression par PLS a l'avantage d'avoir une précision élevée (96.6\%) ce qui minimise les erreurs de type 2, ce qui est très utile pour l'identification de la maladie sur une parcelle (table \ref{tab:T4}).
+La prédiction par la méthode de régression par PLS a l'avantage d'avoir une sensibilité élevée (96.9\%) ce qui minimise les erreurs de type 2, ce qui est très utile pour l'identification de la maladie sur une parcelle (table \ref{tab:T4}).
 
 \vfill
 \newpage
@@ -1118,10 +1120,9 @@ Au vu des résultats, de par une valeur F de Fisher élevée (plus de 500 en moy
 Le statut seul a donc une influence sur cette partie du spectre avec une influence modérée des variétés et du lieu d'échantillonnage (figure \ref{fig:21}). Ainsi, dans le visible et le début du ``Red edge'', cette influence peut s'expliquer par une moins bonne absorbance de la lumière par la chlorophylle des feuilles à cause de la maladie.
 Dans le proche infrarouge autour de 800 nm le statut a aussi une influence importante sur la réflectance avec en parallèle une influence importante du lieu d'échantillonnage sur cette partie du spectre (figure \ref{fig:y}).
 Le proche infrarouge correspondant à la structure interne de la feuille a un effet sur le spectre de réflectance global dû à la maladie. En effet, le HLB affecte la structure cellulaire et en particulier celle du phloème, là où la bactérie se développe. Celle-ci va entraîner des nécroses et obstruer les vaisseaux. Ces dégradations vont donc altérer la réflectance de la lumière de cette partie de la feuille ce qui se voit lors de l'analyse des spectres.
-Pour finir, c'est dans l'infrarouge courte longueur d'onde autour de 2000 nm que s'observe la plus grande valeur F de Fisher (figure \ref{fig:21}) mais c'est aussi une zone du spectre où le lieu d'échantillonnage (figure \ref{fig:y}) et les variétés (figure \ref{fig:x}) dans une moindre mesure ont un effet sur la réflectance globale. L'effet du statut sur cette zone peut s'expliquer par une moins bonne absorbance de la lumière par la chlorophylle des feuilles en lien avec la maladie (figure \ref{fig:17}).
+Pour finir, c'est dans l'infrarouge courte longueur d'onde autour de 2000 nm que s'observe la plus grande valeur F de Fisher (figure \ref{fig:21}) mais c'est aussi une zone du spectre où le lieu d'échantillonnage (figure \ref{fig:y}) et les variétés (figure \ref{fig:x}) dans une moindre mesure ont un effet sur la réflectance globale. L'effet du statut sur cette zone peut s'expliquer par le fait que le HLB affecte grandement l'alimentation en eau de la feuille par l'obstruction des vaisseaux \autocite{bove_huanglongbing_2006}.
 \vfill
 \newpage
-L'effet du statut sur cette zone peut s'expliquer par le fait que le HLB affecte grandement l'alimentation en eau de la feuille par l'obstruction des vaisseaux \autocite{bove_huanglongbing_2006}.
 En plus de l'approche par la variance via l'ANOVA, l'approche par arbre de décision a permis de mettre en évidence d'une autre manière les longueurs d'onde discriminantes les plus clivantes. Ainsi, au vu de ces deux approches pour détecter plus facilement la maladie, trois tranches de longueurs d'onde sont à favoriser, autour de 700 nm, 1000 nm et 2000 nm (figure \ref{fig:22}). Ces longueurs d'onde trouvées sont similaires à celles présentes dans la littérature pour la détection du HLB \autocite{mishra_spectral_2007}.
 
 La réalisation d'un modèle de prédiction du statut HLB par arbre à partir du spectre de réflectance s'est révélée être pertinente à bien des égards.

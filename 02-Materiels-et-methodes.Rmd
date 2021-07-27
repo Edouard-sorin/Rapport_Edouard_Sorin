@@ -187,13 +187,13 @@ kableExtra::kable_styling(bootstrap_options = "striped", full_width = FALSE)
 
 De cette matrice, plusieurs paramètres de performance sont calculés dont :
 
-- La qualité de la prédiction ("Accuracy")  = VP + VN / VP + VN + FN + FP   met en évidence les erreurs de la prédiction qu’elles soient de type 1 ou de Type 2
+- La qualité de la prédiction ("Accuracy")  = (VP + VN) / (VP + VN + FN + FP) met en évidence les erreurs de la prédiction qu’elles soient de type 1 ou de type 2
 
-- La précision ("Precision") = VP / VP + VP met en évidence les erreurs de type 1
+- La précision ("Precision") = VP / (VP + FP) met en évidence les erreurs de type 1
 
 L'erreur de type 1 est problématique dans le cadre de la maladie, car elle implique l'arrachage d'un arbre sain alors prédit comme étant positif au HLB
 
-- La sensibilité ("Sensitivity") = VP / VP + FN met en évidence les erreurs de type 2
+- La sensibilité ("Sensitivity") = VP / (VP + FN) met en évidence les erreurs de type 2
 
 L'erreur de type 2 impacte quant à elle la détection de la maladie, l'arbre est prédit comme étant négatif à la maladie alors qu'il est en réalité malade.
 

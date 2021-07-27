@@ -3,7 +3,7 @@
 ## Influence du lieu d'échantillonnage et des variétés sur le spectre de réflectance global
 
 Dans un premier temps, il est intéressant d'observer les données brutes des spectres de réflectance en fonction de leurs variétés.
-La figure 2.1 montre les spectres de réflectance moyens des variétés citron (en vert), tangor (en orange) et zanzibar (en violet) (figure \@ref(fig:19)).
+La figure \@ref(fig:19) montre les spectres de réflectance moyens des variétés citron (en vert), tangor (en orange) et zanzibar (en violet).
 
 ```{r 19, fig.cap="Spectre moyen en fonction de la variété pour les arbres négatifs aux HLB"}
 
@@ -170,7 +170,7 @@ kableExtra::kable_styling(bootstrap_options = "striped", full_width = FALSE)
 
 ```
 
-La figure 2.4 montre les spectres de réflectance moyens des arbres positifs au HLB (en rouge) et des arbres négatifs (en vert). On voit des différences nettes de spectre en fonction du statut HLB (figure \@ref(fig:16)).
+La figure \@ref(fig:16) montre les spectres de réflectance moyens des arbres positifs au HLB (en rouge) et des arbres négatifs (en vert). On voit des différences nettes de spectre en fonction du statut HLB.
 
 ```{r 16, fig.cap="Spectre moyen en fonction du statut HLB des arbres"}
 
@@ -224,7 +224,7 @@ g2
 
 ```
 
-La différence qui paraissait importante sur la figure 2.1 est à nuancer si l'on s'intéresse aux spectres individuels. En effet, il ne semble pas se dégager de tendance claire vis-à-vis du statut sur cette partie du spectre. 
+La différence qui paraissait importante sur la figure \@ref(fig:17) est à nuancer si l'on s'intéresse aux spectres individuels. En effet, il ne semble pas se dégager de tendance claire vis-à-vis du statut sur cette partie du spectre. 
 
 C'est pourquoi il est difficile d'affirmer avec certitude l'effet de la maladie sur les spectres de réflectance en fonction du statut HLB en utilisant seulement les données brutes.
 
@@ -429,9 +429,9 @@ kableExtra::kable_styling(bootstrap_options = "striped", full_width = FALSE)
 
 ```
 
-Au vu de ces simulations, la méthode de régression par les moindres carrés partiels (PLS) est la plus robuste avec une qualité de prédiction avoisinant les 92.6% et avec l'écart type le plus faibles d'environ 1.7.
-Cette méthode est aussi très robuste pour minimiser les erreurs de type 1 (précision à 97.2%) et de type 2 (sensibilité à 88.3%) avec là aussi des écarts types plus faible que les deux autres méthodes.
-Vient ensuite la méthode de la machine à vecteurs de support (SVM) avec une qualité de prédiction d'environ 85.8% et avec l'écart type le plus élevé avoisinant les 2.7. La méthode des forêts aléatoires (RF) est la moins robuste avec une qualité de prédiction de 76.4% approximativement.
+Au vu de ces simulations, la méthode de régression par les moindres carrés partiels (PLS) est la plus robuste avec une qualité de prédiction avoisinant les 93.3% et avec l'écart type le plus faibles d'environ 1.9.
+Cette méthode est aussi très robuste pour minimiser les erreurs de type 2 (sensibilité à 98.9%) et de type 1 (précision à 88.7%) avec là aussi des écarts types plus faible que les deux autres méthodes.
+Vient ensuite la méthode de la machine à vecteurs de support (SVM) avec une qualité de prédiction d'environ 84.4% et avec l'écart type le plus élevé avoisinant les 2.7. La méthode des forêts aléatoires (RF) est la moins robuste avec une qualité de prédiction de 77.7% approximativement.
 
 \vfill
 \newpage
@@ -457,6 +457,17 @@ library(tidyverse)#faciliter l'installation et le chargement de plusieurs paquet
 library(ggplot2) # Package ggplot pour graphiques
 library(ggdark) # Met un style de graphique ggplot en noir
 
+load("SPIR_Ho.Rdata")
+load("SPIR_Po.Rdata")
+load("SPIR_Ba.Rdata")
+load("SPIR_Go.Rdata")
+load("trueP.Rdata")
+ 
+data_SPIR_Ed <- rbind(SPIR_Ho,SPIR_Po,SPIR_Ba,SPIR_Go)
+ 
+data_long_Ed <- rbind(data_long_Ho,data_long_Po,data_long_Ba,data_long_Go)
+ 
+rm (SPIR_Ho,SPIR_Po,SPIR_Ba,SPIR_Go,data_long_Ho,data_long_Po,data_long_Ba,data_long_Go,truep_Ho,truep_Po,truep_Ba,truep_Go)
 
 # Prediction a partir du training set et du test set a ct36 ####
 
@@ -539,8 +550,6 @@ pls_pred_arbres_36$crit[pls_pred_arbres_36$pls_pred_36 <= crit.neg  ] <- 0
 
 # Creation d'une nouvelle colonne des resulats issu de la qPCR, pour comparer à la valeurs predite
 
-trueP$seuil.32 <- NULL
-
 pls_pred_arbres_36[paste("qPCR", seuil.ct, sep = "_")] <- lapply(trueP, function(x)
   as.numeric(pls_pred_arbres_36$code_ech_arbre %in% x ))
 
@@ -552,13 +561,13 @@ pls_confusion_matrix_36 <- ftable( qPCR_36 ~ crit , data = pls_pred_arbres_36 )
 
 pls_confusion_matrix_36 <- as.matrix(pls_confusion_matrix_36)
 
-TP <- pls_confusion_matrix_36[1,1]
+TN <- pls_confusion_matrix_36[1,1]
 
-TN <- pls_confusion_matrix_36[2,2]
+TP <- pls_confusion_matrix_36[2,2]
 
-FN <- pls_confusion_matrix_36[2,1]
+FP <- pls_confusion_matrix_36[2,1]
 
-FP <- pls_confusion_matrix_36[1,2]
+FN <- pls_confusion_matrix_36[1,2]
 
 #pls_confusion_matrix_36
 
@@ -617,7 +626,7 @@ knitr::kable((Parametre_pls_36), caption="Paramètres de performance du statut H
 kableExtra::kable_styling(bootstrap_options = "striped", full_width = FALSE)
 ```
 
-La prédiction par la méthode de régression par PLS a l'avantage d'avoir une précision élevée (96.6%) ce qui minimise les erreurs de type 2, ce qui est très utile pour l'identification de la maladie sur une parcelle (table \@ref(tab:T4)).
+La prédiction par la méthode de régression par PLS a l'avantage d'avoir une sensibilité élevée (96.9%) ce qui minimise les erreurs de type 2, ce qui est très utile pour l'identification de la maladie sur une parcelle (table \@ref(tab:T4)).
 
 \vfill
 \newpage
@@ -689,10 +698,9 @@ Au vu des résultats, de par une valeur F de Fisher élevée (plus de 500 en moy
 Le statut seul a donc une influence sur cette partie du spectre avec une influence modérée des variétés et du lieu d'échantillonnage (figure \@ref(fig:21)). Ainsi, dans le visible et le début du “Red edge”, cette influence peut s’expliquer par une moins bonne absorbance de la lumière par la chlorophylle des feuilles à cause de la maladie. 
 Dans le proche infrarouge autour de 800 nm le statut a aussi une influence importante sur la réflectance avec en parallèle une influence importante du lieu d'échantillonnage sur cette partie du spectre (figure \@ref(fig:y)). 
 Le proche infrarouge correspondant à la structure interne de la feuille a un effet sur le spectre de réflectance global dû à la maladie. En effet, le HLB affecte la structure cellulaire et en particulier celle du phloème, là où la bactérie se développe. Celle-ci va entraîner des nécroses et obstruer les vaisseaux. Ces dégradations vont donc altérer la réflectance de la lumière de cette partie de la feuille ce qui se voit lors de l'analyse des spectres.
-Pour finir, c'est dans l'infrarouge courte longueur d'onde autour de 2000 nm que s'observe la plus grande valeur F de Fisher (figure \@ref(fig:21)) mais c'est aussi une zone du spectre où le lieu d'échantillonnage (figure \@ref(fig:y)) et les variétés (figure \@ref(fig:x)) dans une moindre mesure ont un effet sur la réflectance globale. L'effet du statut sur cette zone peut s’expliquer par une moins bonne absorbance de la lumière par la chlorophylle des feuilles en lien avec la maladie (figure \@ref(fig:17)).
+Pour finir, c'est dans l'infrarouge courte longueur d'onde autour de 2000 nm que s'observe la plus grande valeur F de Fisher (figure \@ref(fig:21)) mais c'est aussi une zone du spectre où le lieu d'échantillonnage (figure \@ref(fig:y)) et les variétés (figure \@ref(fig:x)) dans une moindre mesure ont un effet sur la réflectance globale. L'effet du statut sur cette zone peut s’expliquer par le fait que le HLB affecte grandement l'alimentation en eau de la feuille par l'obstruction des vaisseaux [@bove_huanglongbing_2006].
 \vfill
 \newpage
-L'effet du statut sur cette zone peut s’expliquer par le fait que le HLB affecte grandement l'alimentation en eau de la feuille par l'obstruction des vaisseaux [@bove_huanglongbing_2006].
 En plus de l'approche par la variance via l'ANOVA, l'approche par arbre de décision a permis de mettre en évidence d'une autre manière les longueurs d'onde discriminantes les plus clivantes. Ainsi, au vu de ces deux approches pour détecter plus facilement la maladie, trois tranches de longueurs d'onde sont à favoriser, autour de 700 nm, 1000 nm et 2000 nm (figure \@ref(fig:22)). Ces longueurs d'onde trouvées sont similaires à celles présentes dans la littérature pour la détection du HLB [@mishra_spectral_2007].
 
 La réalisation d'un modèle de prédiction du statut HLB par arbre à partir du spectre de réflectance s’est révélée être pertinente à bien des égards.

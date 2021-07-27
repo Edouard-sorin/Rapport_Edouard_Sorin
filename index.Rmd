@@ -126,7 +126,7 @@ knitr::knit_hooks$set(chunk = function(x, options) {
 # # knitr options
 knitr::opts_chunk$set(
   
-  cache=TRUE, # If TRUE, knitr will cache the results to reuse in future knits. Knitr will reuse the results until the code chunk is altered
+  cache=F, # If TRUE, knitr will cache the results to reuse in future knits. Knitr will reuse the results until the code chunk is altered
   echo = FALSE, # Show R chunks
   warning=FALSE, # Hide warnings
   message = FALSE, # Hide R messages
@@ -157,33 +157,6 @@ theme_set(theme_bw())
 
 # Remerciements {-}
 
-Je tiens à remercier toutes les personnes qui ont contribué au bon déroulement de ce stage : 
-
-- Virginie RAVIGNE, mon encadrante de stage pour son encadrement, sa gentillesse , ses conseils et l'autonomie qu'elle m'a laissée au cours de ce stage afin que je développe mes propres axes de recherche sur cette thématique ;
-
-- Frédéric CHIROLEU, chercheur en biostatistiques, co-auteur de ce rapport, et Thuy-Trang CAO, pour leur grande aide à la réalisation des scripts R et toutes les choses apprises lors de ces rendez-vous ;
-
-- Olivier PRUVOST,  pour son aide lors des analyse qPCR et son encadrement au laboratoire ;
-
-- Karine BOYER, pour m’avoir conseillé et formé aux techniques de laboratoire ;
-
-- Ismaël HOUILLON, doctorant, pour ses conseils et ses jeux de mots douteux ;
-
-- Elisa PAYET, technicienne à la FDGDON, pour avoir pris le temps de nous communiquer leurs résultats des détections du HLB et les numéros des agriculteurs ;
-
-- Raphaël SOLESSE, ainsi que Emmanuel TILLARD, pour leurs conseils, sur le pilotage de drones et la formation à l’utilisation des instruments de mesure de spectrométrie ;
-
-- Louis-Axel EDOUARD RAMBAUT, pour son aide sur les scripts R et ses discussions pertinentes ;
-
-- Claire MELOT, stagiaire au CIRAD, pour sa bonne humeur et son aide aux analyses de laboratoire tardives ;
-
-- Le CIRAD, l’équipe du 3P de Saint-Pierre et en particulier les agents de l’UMR PVBMT (Unité Mixte de 
-Recherche Peuplements Végétaux et Bioagresseurs en Milieux Tropicaux) ;
-
-- Les stagiaires des Kazz pour leur amitié, les mangues et toutes les choses partagées ensemble qui ont rendu ce stage inoubliable !
-
-```{r , eval=F}
-
 \begin{small}
 
 Je tiens à remercier toutes les personnes qui ont contribué au bon déroulement de ce stage : 
@@ -213,6 +186,33 @@ Recherche Peuplements Végétaux et Bioagresseurs en Milieux Tropicaux) ;
 
 \end{itemize}
 \end{small}
+
+```{r , eval=F}
+
+Je tiens à remercier toutes les personnes qui ont contribué au bon déroulement de ce stage : 
+
+- Virginie RAVIGNE, mon encadrante de stage pour son encadrement, sa gentillesse , ses conseils et l'autonomie qu'elle m'a laissée au cours de ce stage afin que je développe mes propres axes de recherche sur cette thématique ;
+
+- Frédéric CHIROLEU, chercheur en biostatistiques, co-auteur de ce rapport, et Thuy-Trang CAO, pour leur grande aide à la réalisation des scripts R et toutes les choses apprises lors de ces rendez-vous ;
+
+- Olivier PRUVOST,  pour son aide lors des analyse qPCR et son encadrement au laboratoire ;
+
+- Karine BOYER, pour m’avoir conseillé et formé aux techniques de laboratoire ;
+
+- Ismaël HOUILLON, doctorant, pour ses conseils et ses jeux de mots douteux ;
+
+- Elisa PAYET, technicienne à la FDGDON, pour avoir pris le temps de nous communiquer leurs résultats des détections du HLB et les numéros des agriculteurs ;
+
+- Raphaël SOLESSE, ainsi que Emmanuel TILLARD, pour leurs conseils, sur le pilotage de drones et la formation à l’utilisation des instruments de mesure de spectrométrie ;
+
+- Louis-Axel EDOUARD RAMBAUT, pour son aide sur les scripts R et ses discussions pertinentes ;
+
+- Claire MELOT, stagiaire au CIRAD, pour sa bonne humeur et son aide aux analyses de laboratoire tardives ;
+
+- Le CIRAD, l’équipe du 3P de Saint-Pierre et en particulier les agents de l’UMR PVBMT (Unité Mixte de 
+Recherche Peuplements Végétaux et Bioagresseurs en Milieux Tropicaux) ;
+
+- Les stagiaires des Kazz pour leur amitié, les mangues et toutes les choses partagées ensemble qui ont rendu ce stage inoubliable !
 
 ```
 
